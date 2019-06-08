@@ -1,0 +1,28 @@
+{
+  "name": "albion-tools",
+  "version": "1.0.0",
+  "description": "Crafting cost is 1/20th on the item value\r Focus is reduced by initial-focus-cost * 0.5^(total-focus-proficiency/10000)  **exponential decay formula**",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tleytek/Albion-Tools.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tleytek/Albion-Tools/issues"
+  },
+  "homepage": "https://github.com/tleytek/Albion-Tools#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.0.0-rc.0",
+    "lodash": "^4.17.11",
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

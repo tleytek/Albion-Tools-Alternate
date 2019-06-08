@@ -1,0 +1,20 @@
+{
+  "Accessories": {
+    "Bag": {},
+    "Cape": {}
+  },
+  "Armor": {
+    "ClothArmor": {
+      "Test": {}
+    },
+    "ClothHelm": {},
+    "ClothShoes": {}
+  },
+  "Consumable": {},
+  "Gathering Gear": {},
+  "Magic": {},
+  "Melee": {},
+  "Mount": {},
+  "Off-Hand": {},
+  "Ranged": {}
+}
