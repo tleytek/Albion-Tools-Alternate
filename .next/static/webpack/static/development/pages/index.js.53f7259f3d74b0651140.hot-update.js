@@ -24,9 +24,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _db_albion__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../db/albion */ "./db/albion.json");
-var _db_albion__WEBPACK_IMPORTED_MODULE_11___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../db/albion */ "./db/albion.json", 1);
-/* harmony import */ var _utils_FilterObject__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../utils/FilterObject */ "./utils/FilterObject.js");
+/* harmony import */ var _components_RadioButtonGroup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/RadioButtonGroup */ "./components/RadioButtonGroup.js");
+/* harmony import */ var _db_albion__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../db/albion */ "./db/albion.json");
+var _db_albion__WEBPACK_IMPORTED_MODULE_12___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../db/albion */ "./db/albion.json", 1);
+/* harmony import */ var _utils_FilterObject__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../utils/FilterObject */ "./utils/FilterObject.js");
 
 
 
@@ -38,7 +39,7 @@ var _jsxFileName = "C:\\Users\\lucid\\Documents\\Github Repos\\Albion-Tools\\pag
 
 
 
- // import { RadioButtonGroup } from '../components/RadioButtonGroup';
+
 
 
 
@@ -65,14 +66,15 @@ function (_React$Component) {
       Category: {},
       SubCategory: {},
       UserCategorySelection: 'Armor',
-      UserSubCatSelection: 'Cloth Armor'
+      UserSubCatSelection: 'ClothArmor'
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleCategoryChange", function (event) {
       var value = event.target.value;
 
       _this.setState({
-        Category: value
+        UserCategorySelection: value,
+        Category: _db_albion__WEBPACK_IMPORTED_MODULE_12__[value]
       });
 
       if (_this.state.Category) _this.handleSubCatChange;
@@ -89,11 +91,12 @@ function (_React$Component) {
           UserCategorySelection = _this$state.UserCategorySelection,
           UserSubCatSelection = _this$state.UserSubCatSelection;
       this.setState({
-        Category: _db_albion__WEBPACK_IMPORTED_MODULE_11__[UserCategorySelection]
+        Category: _db_albion__WEBPACK_IMPORTED_MODULE_12__[UserCategorySelection]
       });
       this.setState({
-        SubCategory: Category[UserSubCatSelection]
-      }); // this.setState({ SubCategory: FilterObjectAsArray(Category, ([name]) => name === 'Cloth Armor') });
+        SubCategory: _db_albion__WEBPACK_IMPORTED_MODULE_12__[UserCategorySelection][UserSubCatSelection]
+      });
+      console.log(lodash__WEBPACK_IMPORTED_MODULE_8___default.a.keys(_db_albion__WEBPACK_IMPORTED_MODULE_12__)); // this.setState({ SubCategory: FilterObjectAsArray(Category, ([name]) => name === 'Cloth Armor') });
     }
   }, {
     key: "render",
@@ -101,19 +104,19 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 28
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_9___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 29
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 30
         },
         __self: this
       }, "Albion Tools"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("meta", {
@@ -121,29 +124,38 @@ function (_React$Component) {
         content: "initial-scale=1.0, width=device-width",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 31
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 33
         },
         __self: this
       }, "Hello world"), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_10___default.a, {
         href: "/about",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 34
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("a", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 35
         },
         __self: this
-      }, "About Page")));
+      }, "About Page")), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_components_RadioButtonGroup__WEBPACK_IMPORTED_MODULE_11__["RadioButtonGroup"], {
+        data: _db_albion__WEBPACK_IMPORTED_MODULE_12__,
+        handleCategoryChange: this.handleCategoryChange,
+        UserCategorySelection: this.state.UserCategorySelection,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        },
+        __self: this
+      }));
     }
   }]);
 
@@ -155,4 +167,4 @@ function (_React$Component) {
 /***/ })
 
 })
-//# sourceMappingURL=index.js.0c57773a3c79d3ca5e66.hot-update.js.map
+//# sourceMappingURL=index.js.53f7259f3d74b0651140.hot-update.js.map

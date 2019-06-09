@@ -1,12 +1,12 @@
 import React from 'react';
+import _ from 'lodash';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import FormHelperLabel from '@material-ui/core/FormControlLabel';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import ItemData from '../db/items';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,16 +20,29 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const RadioButtonsGroup = props => {
+export const RadioButtonGroup = props => {
   const classes = useStyles();
 
-  const renderList = (props.) => {
-
-  }
+  const renderList = () => {
+    return _.keys(props.data).map(category => {
+      return <FormControlLabel value={category} control={<Radio />} label={category} />;
+    });
+  };
 
   return (
     <div className={classes.root}>
-      <FormControl component="fieldset">
+      <FormControl component="fieldset" className={classes.formControl}>
+        <FormLabel component="legend">CategoryTest</FormLabel>
+        <RadioGroup
+          aria-label="Category"
+          name="Category"
+          className={classes.group}
+          value={props.UserCategorySelection}
+          onChange={props.handleCategoryChange}
+        >
+          {renderList()}
+        </RadioGroup>
+      </FormControl>
     </div>
   );
 };

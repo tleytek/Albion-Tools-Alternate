@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import Head from 'next/head';
 import Link from 'next/link';
-// import { RadioButtonGroup } from '../components/RadioButtonGroup';
+import { RadioButtonGroup } from '../components/RadioButtonGroup';
 import data from '../db/albion';
 import { FilterObjectAsArray } from '../utils/FilterObject';
 
@@ -13,13 +13,13 @@ class Home extends React.Component {
     const { Category, UserCategorySelection, UserSubCatSelection } = this.state;
     this.setState({ Category: data[UserCategorySelection] });
     this.setState({ SubCategory: data[UserCategorySelection][UserSubCatSelection] });
-    console.log(data.Armor.ClothArmor);
+    console.log(_.keys(data));
     // this.setState({ SubCategory: FilterObjectAsArray(Category, ([name]) => name === 'Cloth Armor') });
   }
 
   handleCategoryChange = event => {
     const { value } = event.target;
-    this.setState({ Category: value });
+    this.setState({ UserCategorySelection: value, Category: data[value] });
     if (this.state.Category) this.handleSubCatChange;
   };
 
@@ -34,7 +34,11 @@ class Home extends React.Component {
         <Link href="/about">
           <a>About Page</a>
         </Link>
-        {/* <RadioButtonGroup data={data} handleCategoryChange={this.handleCategoryChange} /> */}
+        <RadioButtonGroup
+          data={data}
+          handleCategoryChange={this.handleCategoryChange}
+          UserCategorySelection={this.state.UserCategorySelection}
+        />
         {/* NOTE: ([name]) is array destruturing, it takes the first element of the
         arrays and names it so we can properly identify it for filtering, remember 
         the name is arbitrary */}

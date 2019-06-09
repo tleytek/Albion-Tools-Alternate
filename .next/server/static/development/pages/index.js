@@ -93,6 +93,119 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/RadioButtonGroup.js":
+/*!****************************************!*\
+  !*** ./components/RadioButtonGroup.js ***!
+  \****************************************/
+/*! exports provided: RadioButtonGroup */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RadioButtonGroup", function() { return RadioButtonGroup; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/styles */ "@material-ui/core/styles");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Radio */ "@material-ui/core/Radio");
+/* harmony import */ var _material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/RadioGroup */ "@material-ui/core/RadioGroup");
+/* harmony import */ var _material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormHelperText */ "@material-ui/core/FormHelperText");
+/* harmony import */ var _material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormHelperText__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "@material-ui/core/FormControlLabel");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormControl */ "@material-ui/core/FormControl");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/FormLabel */ "@material-ui/core/FormLabel");
+/* harmony import */ var _material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_8__);
+var _jsxFileName = "C:\\Users\\lucid\\Documents\\Github Repos\\Albion-Tools\\components\\RadioButtonGroup.js";
+
+
+
+
+
+
+
+
+
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(function (theme) {
+  return {
+    root: {
+      display: 'flex'
+    },
+    FormControl: {
+      margin: theme.spacing(3)
+    },
+    group: {
+      margin: theme.spacing(1, 0)
+    }
+  };
+});
+var RadioButtonGroup = function RadioButtonGroup(props) {
+  var classes = useStyles();
+
+  var renderList = function renderList() {
+    return lodash__WEBPACK_IMPORTED_MODULE_1___default.a.keys(props.data).map(function (category) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_6___default.a, {
+        value: category,
+        control: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Radio__WEBPACK_IMPORTED_MODULE_3___default.a, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 28
+          },
+          __self: this
+        }),
+        label: category,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28
+        },
+        __self: this
+      });
+    });
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.root,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    component: "fieldset",
+    className: classes.formControl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_8___default.a, {
+    component: "legend",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: this
+  }, "CategoryTest"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_RadioGroup__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    "aria-label": "Category",
+    name: "Category",
+    className: classes.group,
+    value: props.UserCategorySelection,
+    onChange: props.handleCategoryChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: this
+  }, renderList())));
+};
+
+/***/ }),
+
 /***/ "./db/albion.json":
 /*!************************!*\
   !*** ./db/albion.json ***!
@@ -1171,9 +1284,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _db_albion__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../db/albion */ "./db/albion.json");
-var _db_albion__WEBPACK_IMPORTED_MODULE_11___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../db/albion */ "./db/albion.json", 1);
-/* harmony import */ var _utils_FilterObject__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../utils/FilterObject */ "./utils/FilterObject.js");
+/* harmony import */ var _components_RadioButtonGroup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/RadioButtonGroup */ "./components/RadioButtonGroup.js");
+/* harmony import */ var _db_albion__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../db/albion */ "./db/albion.json");
+var _db_albion__WEBPACK_IMPORTED_MODULE_12___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../db/albion */ "./db/albion.json", 1);
+/* harmony import */ var _utils_FilterObject__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../utils/FilterObject */ "./utils/FilterObject.js");
 
 
 
@@ -1185,7 +1299,7 @@ var _jsxFileName = "C:\\Users\\lucid\\Documents\\Github Repos\\Albion-Tools\\pag
 
 
 
- // import { RadioButtonGroup } from '../components/RadioButtonGroup';
+
 
 
 
@@ -1219,7 +1333,8 @@ function (_React$Component) {
       var value = event.target.value;
 
       _this.setState({
-        Category: value
+        UserCategorySelection: value,
+        Category: _db_albion__WEBPACK_IMPORTED_MODULE_12__[value]
       });
 
       if (_this.state.Category) _this.handleSubCatChange;
@@ -1236,12 +1351,12 @@ function (_React$Component) {
           UserCategorySelection = _this$state.UserCategorySelection,
           UserSubCatSelection = _this$state.UserSubCatSelection;
       this.setState({
-        Category: _db_albion__WEBPACK_IMPORTED_MODULE_11__[UserCategorySelection]
+        Category: _db_albion__WEBPACK_IMPORTED_MODULE_12__[UserCategorySelection]
       });
       this.setState({
-        SubCategory: _db_albion__WEBPACK_IMPORTED_MODULE_11__[UserCategorySelection][UserSubCatSelection]
+        SubCategory: _db_albion__WEBPACK_IMPORTED_MODULE_12__[UserCategorySelection][UserSubCatSelection]
       });
-      console.log(_db_albion__WEBPACK_IMPORTED_MODULE_11__.Armor.ClothArmor); // this.setState({ SubCategory: FilterObjectAsArray(Category, ([name]) => name === 'Cloth Armor') });
+      console.log(lodash__WEBPACK_IMPORTED_MODULE_8___default.a.keys(_db_albion__WEBPACK_IMPORTED_MODULE_12__)); // this.setState({ SubCategory: FilterObjectAsArray(Category, ([name]) => name === 'Cloth Armor') });
     }
   }, {
     key: "render",
@@ -1291,7 +1406,16 @@ function (_React$Component) {
           lineNumber: 35
         },
         __self: this
-      }, "About Page")));
+      }, "About Page")), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_components_RadioButtonGroup__WEBPACK_IMPORTED_MODULE_11__["RadioButtonGroup"], {
+        data: _db_albion__WEBPACK_IMPORTED_MODULE_12__,
+        handleCategoryChange: this.handleCategoryChange,
+        UserCategorySelection: this.state.UserCategorySelection,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        },
+        __self: this
+      }));
     }
   }]);
 
@@ -1360,6 +1484,83 @@ var mapObjectKeys = function mapObjectKeys(obj) {
 
 module.exports = __webpack_require__(/*! C:\Users\lucid\Documents\Github Repos\Albion-Tools\pages\index.js */"./pages/index.js");
 
+
+/***/ }),
+
+/***/ "@material-ui/core/FormControl":
+/*!************************************************!*\
+  !*** external "@material-ui/core/FormControl" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/FormControl");
+
+/***/ }),
+
+/***/ "@material-ui/core/FormControlLabel":
+/*!*****************************************************!*\
+  !*** external "@material-ui/core/FormControlLabel" ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/FormControlLabel");
+
+/***/ }),
+
+/***/ "@material-ui/core/FormHelperText":
+/*!***************************************************!*\
+  !*** external "@material-ui/core/FormHelperText" ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/FormHelperText");
+
+/***/ }),
+
+/***/ "@material-ui/core/FormLabel":
+/*!**********************************************!*\
+  !*** external "@material-ui/core/FormLabel" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/FormLabel");
+
+/***/ }),
+
+/***/ "@material-ui/core/Radio":
+/*!******************************************!*\
+  !*** external "@material-ui/core/Radio" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Radio");
+
+/***/ }),
+
+/***/ "@material-ui/core/RadioGroup":
+/*!***********************************************!*\
+  !*** external "@material-ui/core/RadioGroup" ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/RadioGroup");
+
+/***/ }),
+
+/***/ "@material-ui/core/styles":
+/*!*******************************************!*\
+  !*** external "@material-ui/core/styles" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/styles");
 
 /***/ }),
 
