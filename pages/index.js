@@ -1,47 +1,80 @@
 import React from 'react';
 import _ from 'lodash';
 import Head from 'next/head';
-import Link from 'next/link';
-import { RadioButtonGroup } from '../components/RadioButtonGroup';
+import RadioButtonGroup from '../components/RadioButtonGroup';
 import data from '../db/albion';
-import { FilterObjectAsArray } from '../utils/FilterObject';
 
 class Home extends React.Component {
-  state = { Category: {}, SubCategory: {}, UserCategorySelection: 'Armor', UserSubCatSelection: 'ClothArmor' };
+  state = {
+    CategoryObj: {},
+    SubCategoryObj: {},
+    ItemTypeObj: {},
+    Category: '',
+    SubCategory: '',
+    ItemType: ''
+  };
 
   componentDidMount() {
-    const { Category, UserCategorySelection, UserSubCatSelection } = this.state;
-    this.setState({ Category: data[UserCategorySelection] });
-    this.setState({ SubCategory: data[UserCategorySelection][UserSubCatSelection] });
-    console.log(_.keys(data));
-    // this.setState({ SubCategory: FilterObjectAsArray(Category, ([name]) => name === 'Cloth Armor') });
+    this.setState({ CategoryObj: data });
   }
 
-  handleCategoryChange = event => {
-    const { value } = event.target;
-    this.setState({ UserCategorySelection: value, Category: data[value] });
-    if (this.state.Category) this.handleSubCatChange;
+  //I want to find a way to re-use this event for navigating further
+  //into an object without having to make another helper method
+  handleCategoryChange = (event, currentObj, childObj) => {
+    const { name, value } = event.target;
+
+    if (name == 'ItemTypeObj') {
+      this.setState({ [name]: value });
+    }
+    this.setState({
+      [childObj]: currentObj[value],
+      [name]: value
+    });
   };
 
   render() {
+    const {
+      CategoryObj,
+      Category,
+      SubCategoryObj,
+      SubCategory,
+      ItemTypeObj,
+      ItemType
+    } = this.state;
+
     return (
       <div>
         <Head>
           <title>Albion Tools</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
-        <p>Hello world</p>
-        <Link href="/about">
-          <a>About Page</a>
-        </Link>
+
+        {/* So my trade off for having only 1 helper method for radioButton changes is a 
+        component with alot of props... */}
         <RadioButtonGroup
-          data={data}
+          data={CategoryObj}
           handleCategoryChange={this.handleCategoryChange}
-          UserCategorySelection={this.state.UserCategorySelection}
+          value={Category}
+          name="Category"
+          childObj="SubCategoryObj"
         />
-        {/* NOTE: ([name]) is array destruturing, it takes the first element of the
-        arrays and names it so we can properly identify it for filtering, remember 
-        the name is arbitrary */}
+        {Category && (
+          <RadioButtonGroup
+            data={SubCategoryObj}
+            handleCategoryChange={this.handleCategoryChange}
+            value={SubCategory}
+            name="SubCategory"
+            childObj="ItemTypeObj"
+          />
+        )}
+        {SubCategory && (
+          <RadioButtonGroup
+            data={ItemTypeObj}
+            handleCategoryChange={this.handleCategoryChange}
+            value={ItemType}
+            name="ItemType"
+          />
+        )}
       </div>
     );
   }

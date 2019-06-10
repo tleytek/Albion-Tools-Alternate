@@ -4,17 +4,25 @@
     "Cape": {}
   },
   "Armor": {
-    "ClothArmor": {
-      "Test": {}
+    "Cloth Armor": {
+      "Cleric Robe": {},
+      "Cultist Robe": {},
+      "Scholar Robe": {},
+      "Fiend Robe": {},
+      "Druid Robe": {},
+      "Royal Robe": {}
     },
-    "ClothHelm": {},
-    "ClothShoes": {}
+    "Cloth Helm": {},
+    "Cloth Shoes": {},
+    "Leather Armor": {},
+    "Leather Helm": {},
+    "Leather Shoes": {},
+    "Plate Armor": {},
+    "Plate Helm": {},
+    "Plate Shoes": {}
   },
-  "Consumable": {},
-  "Gathering Gear": {},
   "Magic": {},
   "Melee": {},
-  "Mount": {},
   "Off-Hand": {},
   "Ranged": {}
 }

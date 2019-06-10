@@ -20,25 +20,25 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const RadioButtonGroup = props => {
+const RadioButtonGroup = props => {
   const classes = useStyles();
 
   const renderList = () => {
     return _.keys(props.data).map(category => {
-      return <FormControlLabel value={category} control={<Radio />} label={category} />;
+      return <FormControlLabel key={_.id} value={category} control={<Radio />} label={category} />;
     });
   };
 
   return (
     <div className={classes.root}>
       <FormControl component="fieldset" className={classes.formControl}>
-        <FormLabel component="legend">CategoryTest</FormLabel>
+        <FormLabel component="legend">Category</FormLabel>
         <RadioGroup
-          aria-label="Category"
-          name="Category"
+          aria-label={props.name}
+          name={props.name}
           className={classes.group}
-          value={props.UserCategorySelection}
-          onChange={props.handleCategoryChange}
+          value={props.value}
+          onChange={e => props.handleCategoryChange(e, props.data, props.childObj)}
         >
           {renderList()}
         </RadioGroup>
@@ -46,3 +46,5 @@ export const RadioButtonGroup = props => {
     </div>
   );
 };
+
+export default RadioButtonGroup;
