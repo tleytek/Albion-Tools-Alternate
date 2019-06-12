@@ -1,19 +1,52 @@
 {
   "Accessories": {
     "Bag": {},
-    "Cape": {}
+    "Cape": {
+      "Cape": {
+        "T4": {
+          ".0": {
+            "name": "T4_CAPE",
+            "fame": 180,
+            "recipe": {}
+          },
+          ".1": {
+            "name": "T4_CAPE@1"
+          },
+          ".2": {
+            "name": "T4_CAPE@2"
+          },
+          ".3": {
+            "name": "T4_CAPE@3"
+          }
+        }
+      }
+    }
   },
   "Armor": {
     "Cloth Armor": {
       "Cleric Robe": {},
       "Cultist Robe": {},
-      "Scholar Robe": {},
-      "Fiend Robe": {},
       "Druid Robe": {},
-      "Royal Robe": {}
+      "Fiend Robe": {},
+      "Royal Robe": {},
+      "Scholar Robe": {}
     },
-    "Cloth Helm": {},
-    "Cloth Shoes": {},
+    "Cloth Helm": {
+      "Cleric Cowl": {},
+      "Cultist Cowl": {},
+      "Druid Cowl": {},
+      "Fiend Cowl": {},
+      "Royal Cowl": {},
+      "Scholar Cowl": {}
+    },
+    "Cloth Shoes": {
+      "Cleric Sandals": {},
+      "Cultist Sandals": {},
+      "Druid Sandals": {},
+      "Fiend Sandals": {},
+      "Royal Sandals": {},
+      "Scholar Sandals": {}
+    },
     "Leather Armor": {},
     "Leather Helm": {},
     "Leather Shoes": {},
@@ -21,8 +54,566 @@
     "Plate Helm": {},
     "Plate Shoes": {}
   },
-  "Magic": {},
-  "Melee": {},
+  "Magic": {
+    "Arcane Staff": {
+      "Arcane Staff": {
+        "T3": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          }
+        },
+        "T4": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        },
+        "T5": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        },
+        "T6": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        },
+        "T7": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        },
+        "T8": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        }
+      },
+      "Enigmatic Staff": {
+        "T4": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        },
+        "T5": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        },
+        "T6": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        },
+        "T7": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        },
+        "T8": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        }
+      },
+      "Great Arcant Staff": {
+        "T4": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T5": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T6": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T7": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T8": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        }
+      },
+      "Malevolent Locus": {
+        "T4": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T5": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T6": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T7": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T8": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        }
+      },
+      "Occult Staff": {
+        "T4": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T5": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T6": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T7": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T8": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        }
+      },
+      "Witchwork Staff": {
+        "T4": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T5": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T6": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T7": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T8": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        }
+      }
+    },
+    "Cursed Staff": {
+      "Demonic Staff": {
+        "T5": {
+          ".0": {
+            "name": "T5_2H_DEMONICSTAFF",
+            "fame": 2880
+          }
+        }
+      },
+      "Great Cursed Staff": {
+        "T4": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T5": {
+          ".0": {
+            "name": "T5_2H_CURSEDSTAFF",
+            "fame": 2880
+          },
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T6": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T7": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        },
+        "T8": {
+          ".0": {},
+          ".1": {},
+          ".2": {},
+          ".3": {}
+        }
+      }
+    },
+    "Fire Staff": {
+      "Infernal Staff": {
+        "T5": {
+          ".0": {
+            "name": "T5_2H_INFERNOSTAFF",
+            "fame": 2880
+          }
+        }
+      }
+    },
+    "Frost Staff": {},
+    "Holy Staff": {},
+    "Nature Staff": {
+      "Blight Staff": {
+        "T5": {
+          ".0": {
+            "name": "T5_2H_NATURESTAFF_HELL",
+            "fame": ""
+          }
+        }
+      },
+      "Druidic Staff": {
+        "T5": {
+          ".0": {
+            "name": "",
+            "fame": 2660
+          }
+        }
+      },
+      "Great Nature Staff": {
+        "T5": {
+          ".0": {
+            "name": "T5_2H_NATURESTAFF",
+            "fame": 2880
+          }
+        }
+      }
+    }
+  },
+  "Melee": {
+    "Axe": {
+      "Battleaxe": {},
+      "Bearpaws": {},
+      "Carrioncaller": {},
+      "Greataxe": {
+        "T4": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "T4_2H_AXE@3",
+            "fame": 2160
+          }
+        },
+        "T5": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        },
+        "T6": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        },
+        "T7": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        },
+        "T8": {
+          ".0": {
+            "name": "",
+            "fame": ""
+          },
+          ".1": {
+            "name": "",
+            "fame": ""
+          },
+          ".2": {
+            "name": "",
+            "fame": ""
+          },
+          ".3": {
+            "name": "",
+            "fame": ""
+          }
+        }
+      },
+      "Halberd": {},
+      "Infernal Scythe": {}
+    },
+    "Dagger": {
+      "T5": {
+        ".0": {
+          "name": "T5_2H_CLAWPAIR",
+          "fame": 2880
+        }
+      }
+    },
+    "Hammer": {},
+    "Mace": {},
+    "Quarterstaff": {
+      "Black Monk Stave": {
+        "T5": {
+          "name": "",
+          "fame": 3380
+        }
+      },
+      "Double Bladed Staff": {},
+      "Iron-clad Staff": {},
+      "Quarterstaff": {},
+      "Soulscythe": {},
+      "Staff of Balace": {
+        "T5": {
+          ".0": {
+            "name": "T5_2H_ROCKSTAFF_KEEPER"
+          }
+        }
+      }
+    },
+    "Spear": {
+      "Pike": {
+        "T5": {
+          ".0": {
+            "name": "T5_2H_SPEAR",
+            "fame": 2880
+          }
+        }
+      }
+    },
+    "Sword": {}
+  },
   "Off-Hand": {},
-  "Ranged": {}
+  "Ranged": {
+    "Bow": {},
+    "Crossbow": {
+      "Boltcasters": {},
+      "Crossbow": {
+        "T4": {
+          ".0": {},
+          ".3": {
+            "name": "T4_2H_CROSSBOW@3",
+            "fame": 2160
+          }
+        }
+      }
+    }
+  }
 }
