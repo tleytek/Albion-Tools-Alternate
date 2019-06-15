@@ -24,6 +24,10 @@ Example:
 
 *This is for using a laborer to take a journal and wait 22 hours for the material return.
 
+Fame Earned for crafting an item is the total of the fame earned from crafting each refined material
+
+e.g. T5 plate Chest piece requires 16 T5 Metal bars, 1 metal bar gives 135 fame. Therefore 1 T5 chest piece is 135 * 16 = 2160(1440 without premium bonus)
+
 ## Todo
 
 - Create a dropdown filter similar to a Country to State/Province, whereas the State/Province changes depending on the Country chosen.
