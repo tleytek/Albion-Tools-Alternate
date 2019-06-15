@@ -17,7 +17,9 @@ total reward amount = Base amount reward * average of all 4 refined materials AH
 Example:
 
 12000 silver = 8 Tier 5 items * 1500 silver each
+
 (1440 Fame earned / 2400 Fame required) * 12000 Silver = *7200 Silver return
+
 *This is for using a laborer to take a journal and wait 22 hours for the material return.
 
 ## Todo
