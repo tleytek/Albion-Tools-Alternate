@@ -15,7 +15,7 @@ class BlackMarketCrafting extends React.Component {
     this.setState({ CategoryObj: data });
   }
 
-  //I want to find a way to re-use this event for navigating further
+  //I wanted to find a way to re-use this event for navigating further
   //into an object without having to make another helper method
   handleCategoryChange = (value, currentObj, childObj) => {
     //This is for an issue where the user selects another category but still sees the

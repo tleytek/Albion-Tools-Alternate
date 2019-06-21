@@ -1,8 +1,9 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const db = require('../models');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Albion');
-
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
+// console.log(process.env.PORT);
 const CategorySeed = [
   {
     name: 'Categories',
@@ -51,7 +52,7 @@ const CategorySeed = [
   }
 ];
 
-db.BlackMarket.remove({})
+db.BlackMarket.deleteMany({})
   .then(() => db.BlackMarket.collection.insertMany(CategorySeed))
   .then(data => {
     console.log(data.result.n + ' categories added');
