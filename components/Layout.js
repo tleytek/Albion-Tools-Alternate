@@ -4,7 +4,6 @@ import NProgress from 'nprogress';
 import Nav from './Nav';
 
 Router.onRouteChangeStart = url => {
-  console.log(url);
   NProgress.start();
 };
 

@@ -17,6 +17,7 @@ const NavMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = event => {
+    console.log(event.currentTarget);
     setAnchorEl(event.currentTarget);
   };
 
@@ -36,7 +37,15 @@ const NavMenu = () => {
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}
-          anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+          elevation={0}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center'
+          }}
+          transformOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center'
+          }}
           open={Boolean(anchorEl)}
           onClose={handleClose}>
           <Link href="/BlackMarketCrafting">

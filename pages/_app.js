@@ -5,6 +5,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import { CssBaseline } from '@material-ui/core';
 
+NProgress.configure({ showSpinner: false });
 Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
@@ -15,7 +16,6 @@ class MyApp extends App {
   //this custom App component that acts as a layout template
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
-    console.log(Component.getInitialProps);
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
@@ -41,6 +41,7 @@ class MyApp extends App {
           <title>Albion Tools</title>
         </Head>
         <CssBaseline />
+        {/* <NProgress /> */}
         <Nav />
         <Component {...pageProps} />
         <footer>&copy; {new Date().getFullYear()}</footer>
