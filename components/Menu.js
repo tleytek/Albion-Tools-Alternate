@@ -30,29 +30,27 @@ const NavMenu = () => {
       <IconButton
         edge="start"
         className={classes.menuButton}
+        aria-controls="simple-menu"
+        aria-haspopup="true"
         color="inherit"
-        aria-label="Open drawer"
         onClick={handleClick}>
         <MenuIcon />
-        <Menu
-          id="simple-menu"
-          anchorEl={anchorEl}
-          elevation={0}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center'
-          }}
-          transformOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center'
-          }}
-          open={Boolean(anchorEl)}
-          onClose={handleClose}>
-          <Link href="/BlackMarketCrafting">
-            <MenuItem onClick={handleClose}>BlackMarketCrafting</MenuItem>
-          </Link>
-        </Menu>
       </IconButton>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        elevation={0}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left'
+        }}
+        getContentAnchorEl={null}>
+        <Link href="/BlackMarketCraft">
+          <MenuItem onClick={handleClose}>BlackMarketCrafting</MenuItem>
+        </Link>
+      </Menu>
     </React.Fragment>
   );
 };

@@ -1,23 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Menu from '../components/Menu';
+import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
+import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
-import { fade, makeStyles } from '@material-ui/core/styles';
-import Menu from '../components/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import MuiLink from '@material-ui/core/Link';
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
+  appBar: { backgroundColor: '#531405' },
   title: {
     flexGrow: 1,
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block'
-    }
+    display: 'block'
+    // '&:hover': {
+    //   color: '#ffdfbc',
+    //   textShadow: '0 0 15px #fff'
+    // }
+    // [theme.breakpoints.up('sm')]: {
+    //   display: 'block'
+    // }
   },
   search: {
     position: 'relative',
@@ -26,8 +33,8 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25)
     },
-    marginLeft: 0,
-    width: '100%',
+    marginLeft: theme.spacing(1),
+    width: 'auto',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),
       width: 'auto'
@@ -58,16 +65,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SearchAppBar() {
+const SearchAppBar = () => {
   const classes = useStyles();
-
+  const [title, setTitle] = React.useState('Albion Tools');
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar disableGutters={true}>
           <Menu />
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+            {title}
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -86,4 +93,6 @@ export default function SearchAppBar() {
       </AppBar>
     </div>
   );
-}
+};
+
+export default SearchAppBar;

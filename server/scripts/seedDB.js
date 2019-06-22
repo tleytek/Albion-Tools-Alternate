@@ -49,6 +49,14 @@ const CategorySeed = [
   {
     name: 'Ranged',
     children: ['Bow', 'Crossbow']
+  },
+  {
+    name: 'Tier',
+    children: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8']
+  },
+  {
+    name: 'Enchantment',
+    children: ['.0', '.1', '.2', '.3']
   }
 ];
 

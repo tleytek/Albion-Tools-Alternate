@@ -1,6 +1,10 @@
 import React from 'react';
-import { ThemeProvider } from '@material-ui/styles';
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
+const useStyles = makeStyles(theme => ({
+  root: {}
+}));
 
 const About = () => (
   <div className="about">
@@ -24,25 +28,6 @@ const About = () => (
       market listings, the Client watches that data coming in and sends it off to its server where
       you and other players can then use!
     </p>
-    <style jsx>{`
-      .about {
-        display: flex;
-        flex-direction: column;
-        padding: 2em;
-      }
-      h1 {
-        margin-top: 0px;
-      }
-      p {
-        line-height: 1.6em;
-        font-size: 1.2rem;
-      }
-      .phrase {
-        font-size: 2rem;
-        font-style: italic;
-        font-weight: bold;
-      }
-    `}</style>
   </div>
 );
 
@@ -53,24 +38,14 @@ const Dev = () => (
         <div className="header">Development Progress</div>
       </div>
     </div>
-    <style jsx>{`
-      .dev {
-        display: flex;
-        flex-direction: column;
-        padding: 2em;
-      }
-    `}</style>
   </div>
 );
 
 const Index = () => {
-  const theme = useTheme();
   return (
-    <div>
-      <div
-        className="ui placeholder segment"
-        style={{ alignSelf: 'stretch', margin: '-10px 10px' }}>
-        <div className="segment-style">
+    <div className="root">
+      <div>
+        <div>
           <h1>Albion Tools</h1>
           <p>A collection of tools for the MMO, Albion Online</p>
         </div>
