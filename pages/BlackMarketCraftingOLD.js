@@ -1,8 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
-import Head from 'next/head';
 import RadioButtonGroup from '../components/RadioButtonGroup';
-import data from '../db/albion';
+import data from '../static/BlkMrktCat.json';
 
 class BlackMarketCrafting extends React.Component {
   state = {
@@ -34,13 +33,6 @@ class BlackMarketCrafting extends React.Component {
 
     return (
       <div>
-        <Head>
-          <title>Albion Tools</title>
-          <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
-          />
-        </Head>
         {/* So my trade off for having only 1 helper method for radioButton changes is a 
         component with alot of props... */}
         <RadioButtonGroup

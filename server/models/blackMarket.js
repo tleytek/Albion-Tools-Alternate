@@ -8,6 +8,8 @@ const categorySchema = new Schema({
   children: [String]
 });
 
+//const Category = mongoose.model('Category', categorySchema, 'NAME_OF_COLLECTION');
+
 const Category = mongoose.model('Category', categorySchema);
 
 module.exports = Category;

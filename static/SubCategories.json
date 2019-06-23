@@ -1,0 +1,43 @@
+{
+  "Acessories": {
+    "name": "Acessories",
+    "children": ["Bag", "Cape"]
+  },
+  "Armor": {
+    "name": "Armor",
+    "children": [
+      "Cloth Armor",
+      "Cloth Helmet",
+      "Cloth Shoes",
+      "Leather Armor",
+      "Leather Helmet",
+      "Leather Shoes",
+      "Plate Armor",
+      "Plate Helmet",
+      "Plate Shoes"
+    ]
+  },
+  "Magic": {
+    "name": "Magic",
+    "children": [
+      "Arcane Staff",
+      "Cursed Staff",
+      "Fire Staff",
+      "Frost Staff",
+      "Holy Staff",
+      "Nature Staff"
+    ]
+  },
+  "Melee": {
+    "name": "Melee",
+    "children": ["Axe", "Dagger", "Hammer", "Mace", "Quarterstaff", "Spear", "Sword"]
+  },
+  "Off-Hand": {
+    "name": "Off-Hand",
+    "children": ["Book", "Horn", "Orb", "Shield", "Torch", "Totem"]
+  },
+  "Ranged": {
+    "name": "Ranged",
+    "children": ["Bow", "Crossbow"]
+  }
+}
