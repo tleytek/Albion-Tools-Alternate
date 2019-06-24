@@ -2,8 +2,10 @@ import Head from 'next/head';
 import App, { Container } from 'next/app';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
-import LinearIndeterminate from '../components/LinearIndeterminate';
 import { CssBaseline } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+import theme from '../utils/theme';
 
 class MyApp extends App {
   state = { loading: false };
@@ -30,10 +32,6 @@ class MyApp extends App {
   }
 
   render() {
-    // Router.onRouteChangeStart = () => this.setState({ loading: true });
-    // Router.onRouteChangeComplete = () => this.setState({ loading: false });
-    // Router.onRouteChangeError = () => this.setState({ loading: false });
-
     const { Component, pageProps } = this.props;
 
     return (
@@ -42,11 +40,12 @@ class MyApp extends App {
           <title>Albion Tools</title>
         </Head>
         <CssBaseline />
-        {/* {this.state.loading == true && <LinearIndeterminate />} */}
-        <Nav>
-          <Component {...pageProps} />
-          <Footer />
-        </Nav>
+        <ThemeProvider theme={theme}>
+          <Nav>
+            <Component {...pageProps} />
+            <Footer />
+          </Nav>
+        </ThemeProvider>
       </Container>
     );
   }

@@ -8,7 +8,8 @@ const itemSchema = new Schema({
   tier: { type: Number, required: true },
   enchantment: { type: Number, required: true },
   uniqueName: { type: String, required: true },
-  fameEarned: { type: Number }
+  fameEarned: { type: Number },
+  itemValue: { type: Number }
 });
 
 const Item = mongoose.model('Item', itemSchema);

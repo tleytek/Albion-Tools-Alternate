@@ -26,7 +26,7 @@ const RadioButtonGroup = props => {
 
   const handleChange = event => {
     setValue(event.target.value);
-    props.handleChange(event.target.value, event.target.name);
+    props.handleChange(event.target.name, event.target.value);
   };
 
   const renderList = () => {
