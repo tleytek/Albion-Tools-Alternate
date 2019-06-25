@@ -1,10 +1,4 @@
 import React from 'react';
-import { useTheme, makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-
-const useStyles = makeStyles(theme => ({
-  root: {}
-}));
 
 const About = () => (
   <div className="about">

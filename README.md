@@ -35,4 +35,4 @@ e.g. T5 plate Chest piece requires 16 T5 Metal bars, 1 metal bar gives 135 fame.
 
 ## Todo
 
-- Create a dropdown filter similar to a Country to State/Province, whereas the State/Province changes depending on the Country chosen.
+- Create a dropdown filter similar to a Country to State/Province, whereas the State/Province changes depending on the Country chosen.n

@@ -9,7 +9,8 @@ import FormLabel from '@material-ui/core/FormLabel';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    marginRight: theme.spacing(3)
   },
   FormControl: {
     margin: theme.spacing(3)
@@ -26,16 +27,22 @@ const RadioButtonGroup = props => {
 
   const handleChange = event => {
     setValue(event.target.value);
-    props.handleChange(event.target.name, event.target.value);
+    props.handleChange(event.target.name, _.replace(event.target.value, ' ', ''));
   };
 
-  const renderList = () => {
-    return props.data.map(category => {
-      return (
+  const renderList = () =>
+    props.data.map(category =>
+      props.name === 'ItemType' ? (
+        <FormControlLabel
+          key={category.partialUniqueName}
+          value={category.partialUniqueName}
+          control={<Radio />}
+          label={category.itemType}
+        />
+      ) : (
         <FormControlLabel key={category} value={category} control={<Radio />} label={category} />
-      );
-    });
-  };
+      )
+    );
 
   return (
     <div className={classes.root}>

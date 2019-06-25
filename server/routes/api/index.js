@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const itemCategories = require('./itemCategories');
+const itemData = require('./items');
 
-// router.use('/itemCategories', itemCategories);
+router.use('/item', itemData);
 
 module.exports = router;
