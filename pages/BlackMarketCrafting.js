@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import RadioButtonGroup from '../components/RadioButtonGroup';
 import { Categories, Tiers, Enchantments } from '../static/Categories';
 import { SubCategories } from '../static/SubCategories';
@@ -12,14 +11,36 @@ class BlackMarketCrafting extends React.Component {
     Category: '',
     SubCategory: '',
     ItemType: '',
-    Tier: '',
-    Enchantment: ''
+    Tier: 'T4',
+    Enchantment: '0',
+    UniqueName: ''
   };
 
+  /* Making sure ItemType state is assigned/updated within 
+  the component before firing our item API */
+  componentDidUpdate() {
+    //Destructure state for cleaner string template literal
+    const { ItemType, Enchantment, Tier } = this.state;
+
+    /*Until ItemType is selected, only then will changes
+      to Tier and Enchantment also fire the item search api, 
+      but until then they don't*/
+    if (ItemType !== '') {
+      console.log(`${Tier}${ItemType}${Enchantment}`);
+    }
+  }
+
   onCategoryChange = (name, value) => {
+    //Removing old state values when a user changes a parent category
     if (name == 'Category') this.setState({ ItemType: '', SubCategory: '' });
     if (name == 'SubCategory') this.setState({ ItemType: '' });
+
+    //ES6 key and value assigning for reusable 'on' function handler with setState
     this.setState({ [name]: value });
+
+    // if (name == 'ItemType' || name == 'Tier' || name == 'Enchantment') {
+    //   console.log(ItemType);
+    // }
   };
 
   render() {
@@ -49,9 +70,20 @@ class BlackMarketCrafting extends React.Component {
           )}
         </Grid>
         <Grid container direction="row">
-          <Select data={Tiers} onCategoryChange={this.onCategoryChange} name="Tier" />
-          <Select data={Enchantments} onCategoryChange={this.onCategoryChange} name="Enchantment" />
+          <Select
+            data={Tiers}
+            onCategoryChange={this.onCategoryChange}
+            name="Tier"
+            default={this.state.Tier}
+          />
+          <Select
+            data={Enchantments}
+            onCategoryChange={this.onCategoryChange}
+            name="Enchantment"
+            default={this.state.Enchantment}
+          />
         </Grid>
+        <Grid container direction="row" />
       </Grid>
     );
   }

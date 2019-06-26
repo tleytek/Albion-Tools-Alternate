@@ -25,13 +25,14 @@ const useStyles = makeStyles(theme => ({
 
 export default function NativeSelects(props) {
   const classes = useStyles();
-  const [state, setState] = React.useState({ [props.name]: '' });
+  const [state, setState] = React.useState({ [props.name]: props.default });
 
   const handleChange = name => event => {
     setState({
       ...state,
       [name]: event.target.value
     });
+    props.onCategoryChange(event.target.name, event.target.value);
   };
 
   const renderSelectList = () => {
@@ -52,10 +53,10 @@ export default function NativeSelects(props) {
           value={state[props.name]}
           onChange={handleChange(`${props.name}`)}
           input={<Input name={props.name} id={props.name} />}>
-          <option value="" />
+          {/* <option value="" /> */}
           {renderSelectList()}
         </NativeSelect>
-        <FormHelperText>Select your {props.name}</FormHelperText>
+        {/* <FormHelperText>Select your {props.name}</FormHelperText> */}
       </FormControl>
     </div>
   );
