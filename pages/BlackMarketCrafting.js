@@ -3,58 +3,54 @@ import _ from 'lodash';
 import RadioButtonGroup from '../components/RadioButtonGroup';
 import { Categories, Tiers, Enchantments } from '../static/Categories';
 import { SubCategories } from '../static/SubCategories';
-import { ItemTypes } from '../static/ItemTypes'
+import { ItemTypes } from '../static/ItemTypes';
 import Grid from '@material-ui/core/Grid';
 import Select from '../components/Select';
 
 class BlackMarketCrafting extends React.Component {
   state = {
-    Categories: [],
-    SubCategories: [],
-    ItemTypes: [],
-    Tiers: [],
-    Enchantments: [],
     Category: '',
     SubCategory: '',
     ItemType: '',
-    Tier: 'All',
+    Tier: '',
     Enchantment: ''
   };
 
-  componentDidMount() {
-    this.setState({ Categories, Tiers, Enchantments, SubCategories, ItemTypes });
-  }
-
-  handleChange = (name, value) => {
+  onCategoryChange = (name, value) => {
     if (name == 'Category') this.setState({ ItemType: '', SubCategory: '' });
     if (name == 'SubCategory') this.setState({ ItemType: '' });
     this.setState({ [name]: value });
   };
 
   render() {
-    const { Tiers, Enchantments, Categories, SubCategories, ItemTypes, Category, SubCategory } = this.state;
+    const { Category, SubCategory } = this.state;
 
     return (
       <Grid container direction="column">
         <Grid container direction="row">
-          <RadioButtonGroup data={Categories} handleChange={this.handleChange} name="Category" />
+          <RadioButtonGroup
+            data={Categories}
+            onCategoryChange={this.onCategoryChange}
+            name="Category"
+          />
           {Category && (
             <RadioButtonGroup
               data={SubCategories[Category]}
-              handleChange={this.handleChange}
+              onCategoryChange={this.onCategoryChange}
               name="SubCategory"
             />
           )}
           {SubCategory && (
             <RadioButtonGroup
               data={ItemTypes[SubCategory]}
-              handleChange={this.handleChange}
+              onCategoryChange={this.onCategoryChange}
               name="ItemType"
             />
           )}
         </Grid>
         <Grid container direction="row">
-          <Select data={Tiers} handleChange={this.handleChange} name="Tier" />
+          <Select data={Tiers} onCategoryChange={this.onCategoryChange} name="Tier" />
+          <Select data={Enchantments} onCategoryChange={this.onCategoryChange} name="Enchantment" />
         </Grid>
       </Grid>
     );

@@ -25,9 +25,9 @@ const RadioButtonGroup = props => {
   const theme = useTheme();
   const [value, setValue] = React.useState('');
 
-  const handleChange = event => {
+  const onChange = event => {
     setValue(event.target.value);
-    props.handleChange(event.target.name, _.replace(event.target.value, ' ', ''));
+    props.onCategoryChange(event.target.name, _.replace(event.target.value, ' ', ''));
   };
 
   const renderList = () =>
@@ -53,7 +53,7 @@ const RadioButtonGroup = props => {
           name={props.name}
           className={classes.group}
           value={value}
-          onChange={handleChange}>
+          onChange={onChange}>
           {renderList()}
         </RadioGroup>
       </FormControl>

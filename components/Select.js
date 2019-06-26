@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function NativeSelects(props) {
   const classes = useStyles();
-  const [state, setState] = React.useState({ age: '' });
+  const [state, setState] = React.useState({ [props.name]: '' });
 
   const handleChange = name => event => {
     setState({
@@ -35,23 +35,27 @@ export default function NativeSelects(props) {
   };
 
   const renderSelectList = () => {
-    return props.data.map(tier => <option value={tier}>{tier}</option>);
+    return props.data.map(el => (
+      <option key={el} value={el}>
+        {el}
+      </option>
+    ));
   };
 
   return (
     <div className={classes.root}>
       <FormControl className={classes.formControl}>
-        <InputLabel shrink htmlFor="age-native-label-placeholder">
+        <InputLabel shrink htmlFor={props.name}>
           {props.name}
         </InputLabel>
         <NativeSelect
-          value={state.age}
-          onChange={handleChange('age')}
-          input={<Input name="age" id="age-native-label-placeholder" />}>
+          value={state[props.name]}
+          onChange={handleChange(`${props.name}`)}
+          input={<Input name={props.name} id={props.name} />}>
           <option value="" />
           {renderSelectList()}
         </NativeSelect>
-        <FormHelperText>Select your Tier</FormHelperText>
+        <FormHelperText>Select your {props.name}</FormHelperText>
       </FormControl>
     </div>
   );
