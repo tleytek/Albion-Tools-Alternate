@@ -124,7 +124,7 @@ export const ItemTypes = {
       partialUniqueName: '_MAIN_MACE'
     }
   ],
-  QuarterStaff: [
+  Quarterstaff: [
     {
       itemType: 'Quarterstaff',
       partialUniqueName: '_2H_QUARTERSTAFF'

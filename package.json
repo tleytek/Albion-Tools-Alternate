@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "next",
-    "node-dev": "nodemon server/server.js",
+    "node-dev": "node server/server.js",
+    "nodemon-dev": "nodemon server/server.js",
     "seed": "node server/scripts/seedDBv2.js"
   },
   "repository": {

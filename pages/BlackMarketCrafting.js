@@ -1,6 +1,7 @@
 import React from 'react';
 import RadioButtonGroup from '../components/RadioButtonGroup';
 import ItemDisplay from '../components/ItemDisplay';
+import withLoadingIndicator from '../components/HocLoading';
 import { Categories, Tiers, Enchantments } from '../static/Categories';
 import { SubCategories } from '../static/SubCategories';
 import { ItemTypes } from '../static/ItemTypes';
@@ -13,47 +14,52 @@ class BlackMarketCrafting extends React.Component {
     SubCategory: '',
     ItemType: '',
     Tier: 'T4',
-    Enchantment: '',
-    ItemData: '',
-    Error: false
+    Enchantment: ''
   };
 
-  /* Making sure ItemType state is assigned/updated within 
-  the component before firing our item API */
-  componentDidUpdate(...[, prevState]) {
-    //Destructure state for cleaner code
-    const { ItemType, Enchantment, Tier } = this.state;
+  // /* Making sure ItemType state is assigned/updated within
+  // the component before firing our item API */
+  // async componentDidUpdate(...[, prevState]) {
+  //   //Destructure state for cleaner code
+  //   const { ItemType, Enchantment, Tier } = this.state;
 
-    //I really don't like this solution, future todo is making it cleaner
-    if (
-      ItemType !== prevState.ItemType ||
-      Enchantment !== prevState.Enchantment ||
-      Tier !== prevState.Tier
-    ) {
-      /*Until ItemType is changed, only then will changes
-      to Tier and Enchantment also fire the item search api, 
-      but until then they don't*/
-      if (ItemType !== '') {
-        getItemPrice(`${Tier}${ItemType}${Enchantment}`).then(res => {
-          this.setState({ ItemData: res[0] });
-          console.log(res);
-        });
-      }
-    }
-  }
+  //   //I really don't like this solution, future todo is making it cleaner
+  //   if (
+  //     ItemType !== prevState.ItemType ||
+  //     Enchantment !== prevState.Enchantment ||
+  //     Tier !== prevState.Tier
+  //   ) {
+  //     /*Until ItemType is changed, only then will changes
+  //     to Tier and Enchantment also fire the item search api,
+  //     but until then they don't*/
+  //     if (ItemType !== '') {
+  //       // this.setState({ isLoading: true });
+  //       //Get ItemData from DB then get the prices for everything
+  //       getItemPrice(`${Tier}${ItemType}${Enchantment}`).then(res => {
+  //         this.setState({ ItemPrices: res[0] });
+  //         // console.log(res);
+  //       });
+  //     }
+  //   }
+  // }
 
   onCategoryChange = (name, value) => {
     //Removing old state values when a user changes a parent category
-    if (name == 'Category') this.setState({ ItemType: '', SubCategory: '', ItemData: '' });
-    if (name == 'SubCategory') this.setState({ ItemType: '', ItemData: '' });
-
+    // if (name == 'Category') this.setState({ ItemType: '', SubCategory: '', ItemData: '' });
+    name == 'Category' && this.setState({ ItemType: '', SubCategory: '', ItemData: '' });
+    name == 'SubCategory' && this.setState({ ItemType: '', ItemData: '' });
     //ES6 key and value assigning for reusable 'on' function handler with setState
     this.setState({ [name]: value });
   };
 
   render() {
-    const { Category, SubCategory, ItemData } = this.state;
+    //Destructuring
+    const { Category, SubCategory, ItemType, Tier, Enchantment, ItemData, isLoading } = this.state;
 
+    // HOC loading
+    const ItemDisplayWithLoadingIndicator = withLoadingIndicator(ItemDisplay);
+
+    //All of our visual content
     return (
       <Grid container direction="column">
         <Grid container direction="row">
@@ -91,9 +97,12 @@ class BlackMarketCrafting extends React.Component {
             default={this.state.Enchantment}
           />
         </Grid>
-        <Grid container direction="row">
-          {ItemData && <ItemDisplay />}
-        </Grid>
+        {ItemType && (
+          <ItemDisplayWithLoadingIndicator
+            fullItemName={`${Tier}${ItemType}${Enchantment}`}
+            isLoading={isLoading}
+          />
+        )}
       </Grid>
     );
   }
