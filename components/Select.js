@@ -36,9 +36,9 @@ export default function NativeSelects(props) {
   };
 
   const renderSelectList = () => {
-    return props.data.map(el => (
+    return props.data.value.map((el, index) => (
       <option key={el} value={el}>
-        {el}
+        {props.data.name[index]}
       </option>
     ));
   };
@@ -53,10 +53,9 @@ export default function NativeSelects(props) {
           value={state[props.name]}
           onChange={handleChange(`${props.name}`)}
           input={<Input name={props.name} id={props.name} />}>
-          {/* <option value="" /> */}
+          {props.name == 'Enchantment' && <option value="">.0</option>}
           {renderSelectList()}
         </NativeSelect>
-        {/* <FormHelperText>Select your {props.name}</FormHelperText> */}
       </FormControl>
     </div>
   );
