@@ -45,7 +45,6 @@ class BlackMarketCrafting extends React.Component {
 
   onCategoryChange = (name, value) => {
     //Removing old state values when a user changes a parent category
-    // if (name == 'Category') this.setState({ ItemType: '', SubCategory: '', ItemData: '' });
     name == 'Category' && this.setState({ ItemType: '', SubCategory: '', ItemData: '' });
     name == 'SubCategory' && this.setState({ ItemType: '', ItemData: '' });
     //ES6 key and value assigning for reusable 'on' function handler with setState

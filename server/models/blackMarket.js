@@ -1,15 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const childrenSchema = new Schema({ type: String });
+const craftingRequirements = new Schema({
+  quantity: Number
+});
 
-const categorySchema = new Schema({
-  name: { type: String, required: true },
-  children: [String]
+const itemSchema = new Schema({
+  uniqueName: { type: String, required: true },
+
+  craftingRequirements: [craftingRequirements]
 });
 
 //const Category = mongoose.model('Category', categorySchema, 'NAME_OF_COLLECTION');
 
-const Category = mongoose.model('Category', categorySchema);
+const Item = mongoose.model('Item', categorySchema);
 
-module.exports = Category;
+module.exports = Item;
