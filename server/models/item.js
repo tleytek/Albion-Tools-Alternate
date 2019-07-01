@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const craftingRequirements = new Schema({
-  quantity: Number
+  quantity: { type: Number },
+  uniqueName: { type: String },
+  verboseName: { type: String }
 });
 
 const itemSchema = new Schema({
@@ -18,6 +20,6 @@ const itemSchema = new Schema({
   craftingRequirements: [craftingRequirements]
 });
 
-const Item = mongoose.model('Item', itemSchema);
+const Item = mongoose.model('blackMarketItem', itemSchema, 'blackMarketItems');
 
 module.exports = Item;

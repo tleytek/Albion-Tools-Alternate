@@ -1,13 +1,11 @@
 import React from 'react';
 import RadioButtonGroup from '../components/RadioButtonGroup';
 import ItemDisplay from '../components/ItemDisplay';
-import withLoadingIndicator from '../components/HocLoading';
 import { Categories, Tiers, Enchantments } from '../static/Categories';
 import { SubCategories } from '../static/SubCategories';
 import { ItemTypes } from '../static/ItemTypes';
 import Grid from '@material-ui/core/Grid';
 import Select from '../components/Select';
-import { getItemPrice } from '../lib/api';
 class BlackMarketCrafting extends React.Component {
   state = {
     Category: '',
@@ -55,9 +53,6 @@ class BlackMarketCrafting extends React.Component {
     //Destructuring
     const { Category, SubCategory, ItemType, Tier, Enchantment, ItemData, isLoading } = this.state;
 
-    // HOC loading
-    const ItemDisplayWithLoadingIndicator = withLoadingIndicator(ItemDisplay);
-
     //All of our visual content
     return (
       <Grid container direction="column">
@@ -97,10 +92,7 @@ class BlackMarketCrafting extends React.Component {
           />
         </Grid>
         {ItemType && (
-          <ItemDisplayWithLoadingIndicator
-            fullItemName={`${Tier}${ItemType}${Enchantment}`}
-            isLoading={isLoading}
-          />
+          <ItemDisplay fullItemName={`${Tier}${ItemType}${Enchantment}`} isLoading={isLoading} />
         )}
       </Grid>
     );

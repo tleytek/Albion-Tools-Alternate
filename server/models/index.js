@@ -1,3 +1,3 @@
 module.exports = {
-  BlackMarket: require('./blackMarket')
+  Item: require('./item')
 };

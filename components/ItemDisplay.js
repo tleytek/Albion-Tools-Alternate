@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { getItemData } from '../lib/api';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -9,8 +10,20 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ItemDisplay = props => {
+const ItemDisplay = ({ fullItemName, isLoading }) => {
   const classes = useStyles();
+
+  const [itemData, setItemData] = useState([]);
+  const [itemPrice, setItemPrice] = useState([]);
+
+  useEffect(() => {
+    (async fullItemName => {
+      const response = await getItemData(fullItemName);
+      setItemData(response.data);
+      // console.log(response);
+    })(fullItemName);
+  }, []);
+  // const [state, setState] = React.useState({});
 
   const itemDetail = <div>Item Detail</div>;
 
@@ -20,14 +33,11 @@ const ItemDisplay = props => {
     <Grid container spacing={3} className={classes.root}>
       <Grid container item md={12} lg={6}>
         <Grid item xs>
-          <Typography variant="p">{`${props.Tier}${props.Enchantment}`}</Typography>
-          <Typography variant="h3">{`${props} ${props.ItemType}`}</Typography>
+          <Typography>ItemDetail</Typography>
+          <Typography variant="h3">item</Typography>
         </Grid>
 
-        <img
-          src={`https://gameinfo.albiononline.com/api/gameinfo/items/${props.ItemData.item_id}`}
-        />
-        {/* {console.log(props.ItemType)} */}
+        <img src={`https://gameinfo.albiononline.com/api/gameinfo/items/${fullItemName}`} />
         {itemDetail}
       </Grid>
       <Grid container justify="center" item md={12} lg={6}>

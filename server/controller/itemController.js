@@ -1,5 +1,6 @@
 const axios = require('axios');
-
+const db = require('../models');
+const _ = require('lodash');
 module.exports = {
   itemPrice: async function(req, res) {
     const { data } = await axios.get(
@@ -10,6 +11,7 @@ module.exports = {
     res.json(data);
   },
   itemData: async function(req, res) {
-    console.log(req.params.id);
+    const test = await db.Item.find({ uniqueName: req.params.id });
+    res.json(test);
   }
 };
