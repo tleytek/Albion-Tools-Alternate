@@ -10,8 +10,12 @@ module.exports = {
     );
     res.json(data);
   },
-  itemData: async function(req, res) {
-    const test = await db.Item.find({ uniqueName: req.params.id });
-    res.json(test);
+  equipItemData: async function(req, res) {
+    const response = await db.EquipItem.find({ uniqueName: req.params.id });
+    res.json(response);
+  },
+  recipeItemData: async function(req, res) {
+    const response = await db.RecipeItem.find({ uniqueName: req.params.id });
+    res.json(response);
   }
 };
