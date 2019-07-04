@@ -53,7 +53,7 @@ export default function NativeSelects(props) {
           value={state[props.name]}
           onChange={handleChange(`${props.name}`)}
           input={<Input name={props.name} id={props.name} />}>
-          {props.name == 'Enchantment' && <option value="">.0</option>}
+          {/* {props.name == 'Enchantment' && <option value="">.0</option>} */}
           {renderSelectList()}
         </NativeSelect>
       </FormControl>

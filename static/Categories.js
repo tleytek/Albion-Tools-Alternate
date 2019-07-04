@@ -6,6 +6,6 @@ export const Tiers = {
 };
 
 export const Enchantments = {
-  name: ['.1', '.2', '.3'],
-  value: ['@1', '@2', '@3']
+  name: ['.0','.1', '.2', '.3'],
+  value: ['@0','@1', '@2', '@3']
 };
