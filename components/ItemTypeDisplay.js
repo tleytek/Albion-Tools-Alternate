@@ -16,13 +16,12 @@ const ItemDisplay = ({ fullItemName, isLoading }) => {
   const [itemData, setItemData] = useState([]);
   const [itemPrice, setItemPrice] = useState([]);
 
-  useEffect(() => {
-    (async fullItemName => {
-      const response = await getItemData(fullItemName);
-      setItemData(response.data);
-      // console.log(response);
-    })(fullItemName);
-  }, []);
+  // useEffect(() => {
+  //   (async fullItemName => {
+  //     const response = await getItemData(fullItemName);
+  //     setItemData(response.data);
+  //   })(fullItemName);
+  // }, []);
   // const [state, setState] = React.useState({});
 
   const itemDetail = <div>Item Detail</div>;

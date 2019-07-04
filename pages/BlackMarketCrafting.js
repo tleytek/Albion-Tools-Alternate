@@ -7,8 +7,8 @@ import { ItemTypes } from '../static/ItemTypes';
 import Grid from '@material-ui/core/Grid';
 import Select from '../components/Select';
 import EquipmentItems from '../static/items.json';
-import { ObjPrune } from '../lib/ObjPrune'
-import _ from 'lodash'
+import { ObjPrune } from '../lib/ObjPrune';
+import _ from 'lodash';
 
 class BlackMarketCrafting extends React.Component {
   state = {
@@ -18,11 +18,11 @@ class BlackMarketCrafting extends React.Component {
     Tier: 'T4',
     Enchantment: '@0',
     EquipmentItems: {},
-    EquipmentItem: {},
+    EquipmentItem: {}
   };
 
   componentDidMount() {
-    this.setState({EquipmentItems: EquipmentItems.items})
+    this.setState({ EquipmentItems: EquipmentItems.items });
   }
 
   /* Making sure ItemType state is assigned/updated within
@@ -33,17 +33,19 @@ class BlackMarketCrafting extends React.Component {
 
     //I really don't like this solution, future todo is making it cleaner
     if (
-      // (ItemType !== prevState.ItemType ||
-      // Enchantment !== prevState.Enchantment ||
-      // Tier !== prevState.Tier) && 
-      (ItemType !== prevState.ItemType && ItemType !== '')
+      (ItemType !== prevState.ItemType ||
+        Enchantment !== prevState.Enchantment ||
+        Tier !== prevState.Tier) &&
+      ItemType !== ''
     ) {
-        //Get ItemData from DB then get the prices for everything
-        const index = await _.findIndex(this.state.EquipmentItems, { 'uniquename': `${Tier}${ItemType}` })
-        const EquipmentItem = await ObjPrune(EquipmentItems[index], Enchantment)
-        this.setState({ EquipmentItem })
-      }
+      //Get ItemData from DB then get the prices for everything
+      const index = await _.findIndex(this.state.EquipmentItems, {
+        uniquename: `${Tier}${ItemType}`
+      });
+      const EquipmentItem = await ObjPrune(EquipmentItems[index], Enchantment);
+      this.setState({ EquipmentItem });
     }
+  }
 
   onCategoryChange = (name, value) => {
     //Removing old state values when a user changes a parent category
@@ -96,9 +98,7 @@ class BlackMarketCrafting extends React.Component {
             default={this.state.Enchantment}
           />
         </Grid>
-        {ItemType && (
-          <ItemTypeDisplay fullItemName={`${Tier}${ItemType}${Enchantment}`}/>
-        )}
+        {ItemType && <ItemTypeDisplay fullItemName={`${Tier}${ItemType}${Enchantment}`} />}
       </Grid>
     );
   }
