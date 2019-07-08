@@ -3,12 +3,14 @@ import RadioButtonGroup from '../components/RadioButtonGroup';
 import ItemTypeDisplay from '../components/ItemTypeDisplay';
 import { Categories, Tiers, Enchantments } from '../static/Categories';
 import { SubCategories } from '../static/SubCategories';
-import { ItemTypes } from '../static/ItemTypes';
+import ItemTypes from '../static/ItemTypes';
 import Grid from '@material-ui/core/Grid';
 import Select from '../components/Select';
-import EquipmentItems from '../static/items.json';
-import { ObjPrune } from '../lib/ObjPrune';
+import items from '../static/items.json';
+import ObjPrune from '../lib/ObjPrune';
 import _ from 'lodash';
+
+const { Items } = items;
 
 class BlackMarketCrafting extends React.Component {
   state = {
@@ -18,11 +20,11 @@ class BlackMarketCrafting extends React.Component {
     Tier: 'T4',
     Enchantment: '@0',
     EquipmentItems: {},
-    EquipmentItem: {}
+    EquipmentItem: {},
   };
 
   componentDidMount() {
-    this.setState({ EquipmentItems: EquipmentItems.items });
+    this.setState({ EquipmentItems: Items });
   }
 
   /* Making sure ItemType state is assigned/updated within
@@ -39,10 +41,10 @@ class BlackMarketCrafting extends React.Component {
       ItemType !== ''
     ) {
       //Get ItemData from DB then get the prices for everything
-      const index = await _.findIndex(this.state.EquipmentItems, {
-        uniquename: `${Tier}${ItemType}`
+      const index = await _.findIndex(EquipmentItems, {
+        uniquename: `${Tier}${ItemType}`,
       });
-      const EquipmentItem = await ObjPrune(EquipmentItems[index], Enchantment);
+      const EquipmentItem = await ObjPrune(Items[index], Enchantment);
       this.setState({ EquipmentItem });
     }
   }
