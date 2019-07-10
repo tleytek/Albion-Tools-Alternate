@@ -1,12 +1,16 @@
 import React from 'react';
 import RadioButtonGroup from '../components/RadioButtonGroup';
-import ItemDisplay from '../components/ItemTypeDisplay';
+import ItemTypeDisplay from '../components/ItemTypeDisplay';
 import { Categories, Tiers, Enchantments } from '../static/Categories';
 import { SubCategories } from '../static/SubCategories';
-import { ItemTypes } from '../static/ItemTypes';
+import ItemTypes from '../static/ItemTypes';
 import Grid from '@material-ui/core/Grid';
 import Select from '../components/Select';
-import { getItemData } from '../lib/api';
+import EquipmentItems from '../static/items.json';
+import ObjPrune from '../lib/ObjPrune';
+import _ from 'lodash';
+
+// const { Items } = items;
 
 class BlackMarketCrafting extends React.Component {
   state = {
@@ -15,44 +19,51 @@ class BlackMarketCrafting extends React.Component {
     ItemType: '',
     Tier: 'T4',
     Enchantment: '',
-    itemData: ''
+    EquipmentItems: {},
+    EquipmentItem: {}
   };
+
+  componentDidMount() {
+    this.setState({ EquipmentItems });
+  }
+
 
   /* Making sure ItemType state is assigned/updated within
   the component before firing our item API */
   async componentDidUpdate(...[, prevState]) {
     //Destructure state for cleaner code
-    const { ItemType, Enchantment, Tier } = this.state;
+    const { ItemType, Enchantment, Tier, EquipmentItems } = this.state;
 
-    //Not an ideal solution
+    //I really don't like this solution, future todo is making it cleaner
     if (
-      ItemType !== prevState.ItemType ||
-      Enchantment !== prevState.Enchantment ||
-      Tier !== prevState.Tier
+      (ItemType !== prevState.ItemType ||
+        Enchantment !== prevState.Enchantment ||
+        Tier !== prevState.Tier) &&
+      ItemType !== ''
     ) {
-      /*Until ItemType is changed, only then will changes
-      to Tier and Enchantment also fire the item search api,
-      but until then they don't*/
-      if (ItemType !== '') {
-        //Get ItemData from DB then get the prices for everything
-        getItemData(`${Tier}${ItemType}${Enchantment}`).then(res => {
-          this.setState({ ItemData: res.data[0] });
-        });
-      }
+      //Get ItemData from DB then get the prices for everything
+      const index = await _.findIndex(EquipmentItems, {
+        uniquename: `${Tier}${ItemType}`
+      });
+      const EquipmentItem = await ObjPrune(EquipmentItems[index], Enchantment);
+      this.setState({ EquipmentItem });
+
     }
   }
 
   onCategoryChange = (name, value) => {
     //Removing old state values when a user changes a parent category
-    name == 'Category' && this.setState({ ItemType: '', SubCategory: '', ItemData: '' });
-    name == 'SubCategory' && this.setState({ ItemType: '', ItemData: '' });
+    name == 'Category' && this.setState({ ItemType: '', SubCategory: '', EquipmentItem: '' });
+    name == 'SubCategory' && this.setState({ ItemType: '', EquipmentItem: '' });
+
     //ES6 key and value assigning for reusable 'on' function handler with setState
     this.setState({ [name]: value });
   };
 
   render() {
     //Destructuring
-    const { Category, SubCategory, ItemData } = this.state;
+    const { Category, SubCategory, ItemType, Tier, Enchantment, EquipmentItem } = this.state;
+
 
     //All of our visual content
     return (
@@ -92,7 +103,8 @@ class BlackMarketCrafting extends React.Component {
             default={this.state.Enchantment}
           />
         </Grid>
-        {ItemData && <ItemDisplay itemData={ItemData} />}
+        {EquipmentItem && <ItemTypeDisplay fullItemName={`${Tier}${ItemType}${Enchantment}`} />}
+
       </Grid>
     );
   }
