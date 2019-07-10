@@ -6,11 +6,11 @@ import { SubCategories } from '../static/SubCategories';
 import ItemTypes from '../static/ItemTypes';
 import Grid from '@material-ui/core/Grid';
 import Select from '../components/Select';
-import items from '../static/items.json';
+import EquipmentItems from '../static/items.json';
 import ObjPrune from '../lib/ObjPrune';
 import _ from 'lodash';
 
-const { Items } = items;
+// const { Items } = items;
 
 class BlackMarketCrafting extends React.Component {
   state = {
@@ -18,13 +18,13 @@ class BlackMarketCrafting extends React.Component {
     SubCategory: '',
     ItemType: '',
     Tier: 'T4',
-    Enchantment: '@0',
+    Enchantment: '',
     EquipmentItems: {},
-    EquipmentItem: {},
+    EquipmentItem: {}
   };
 
   componentDidMount() {
-    this.setState({ EquipmentItems: Items });
+    this.setState({ EquipmentItems });
   }
 
   /* Making sure ItemType state is assigned/updated within
@@ -42,17 +42,17 @@ class BlackMarketCrafting extends React.Component {
     ) {
       //Get ItemData from DB then get the prices for everything
       const index = await _.findIndex(EquipmentItems, {
-        uniquename: `${Tier}${ItemType}`,
+        uniquename: `${Tier}${ItemType}`
       });
-      const EquipmentItem = await ObjPrune(Items[index], Enchantment);
+      const EquipmentItem = await ObjPrune(EquipmentItems[index], Enchantment);
       this.setState({ EquipmentItem });
     }
   }
 
   onCategoryChange = (name, value) => {
     //Removing old state values when a user changes a parent category
-    name == 'Category' && this.setState({ ItemType: '', SubCategory: '' });
-    name == 'SubCategory' && this.setState({ ItemType: '' });
+    name == 'Category' && this.setState({ ItemType: '', SubCategory: '', EquipmentItem: '' });
+    name == 'SubCategory' && this.setState({ ItemType: '', EquipmentItem: '' });
 
     //ES6 key and value assigning for reusable 'on' function handler with setState
     this.setState({ [name]: value });
@@ -60,7 +60,7 @@ class BlackMarketCrafting extends React.Component {
 
   render() {
     //Destructuring
-    const { Category, SubCategory, ItemType, Tier, Enchantment, ItemData, isLoading } = this.state;
+    const { Category, SubCategory, ItemType, Tier, Enchantment, EquipmentItem } = this.state;
 
     //All of our visual content
     return (
@@ -100,7 +100,7 @@ class BlackMarketCrafting extends React.Component {
             default={this.state.Enchantment}
           />
         </Grid>
-        {ItemType && <ItemTypeDisplay fullItemName={`${Tier}${ItemType}${Enchantment}`} />}
+        {EquipmentItem && <ItemTypeDisplay fullItemName={`${Tier}${ItemType}${Enchantment}`} />}
       </Grid>
     );
   }

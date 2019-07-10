@@ -1,5 +1,4 @@
-﻿{
-      "Resources": [
+﻿[
         {
           "name": "WOOD",
           "ResourceTier": [
@@ -1351,4 +1350,3 @@
           ]
         }
       ]
-}
