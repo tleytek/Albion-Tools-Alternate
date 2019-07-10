@@ -27,6 +27,7 @@ class BlackMarketCrafting extends React.Component {
     this.setState({ EquipmentItems });
   }
 
+
   /* Making sure ItemType state is assigned/updated within
   the component before firing our item API */
   async componentDidUpdate(...[, prevState]) {
@@ -46,6 +47,7 @@ class BlackMarketCrafting extends React.Component {
       });
       const EquipmentItem = await ObjPrune(EquipmentItems[index], Enchantment);
       this.setState({ EquipmentItem });
+
     }
   }
 
@@ -61,6 +63,7 @@ class BlackMarketCrafting extends React.Component {
   render() {
     //Destructuring
     const { Category, SubCategory, ItemType, Tier, Enchantment, EquipmentItem } = this.state;
+
 
     //All of our visual content
     return (
@@ -101,6 +104,7 @@ class BlackMarketCrafting extends React.Component {
           />
         </Grid>
         {EquipmentItem && <ItemTypeDisplay fullItemName={`${Tier}${ItemType}${Enchantment}`} />}
+
       </Grid>
     );
   }

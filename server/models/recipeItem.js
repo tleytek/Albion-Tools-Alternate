@@ -1,13 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const craftingRequirements = new Schema({
-  quantity: { type: Number },
-  uniqueName: { type: String },
-  verboseName: { type: String }
-});
-
-const itemSchema = new Schema({
+const recipeItemSchema = new Schema({
   uniqueName: { type: String, required: true },
   verboseName: { type: String, required: true },
   category: { type: String, required: true },
@@ -16,10 +10,9 @@ const itemSchema = new Schema({
   tier: { type: Number, required: true },
   enchantment: { type: Number, required: true },
   fameEarned: { type: Number, required: true },
-  itemValue: { type: Number, required: true },
-  craftingRequirements: [craftingRequirements]
+  itemValue: { type: Number, required: true }
 });
 
-const Item = mongoose.model('blackMarketItem', itemSchema, 'blackMarketItems');
+const RecipeItem = mongoose.model('recipeItem', recipeItemSchema, 'recipeItems');
 
-module.exports = Item;
+module.exports = RecipeItem;

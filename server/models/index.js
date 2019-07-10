@@ -1,3 +1,4 @@
 module.exports = {
-  Item: require('./item')
+  RecipeItem: require('./recipeItem'),
+  EquipItem: require('./equipItem')
 };
