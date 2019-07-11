@@ -1,11 +1,13 @@
 # Albion Tools
-
+Albion Tools is a web app with a collection of tools to help you play more efficiently.
+You can check it out over here at LINK
 ## 1. Black Market Crafter
-
+This tool is used to skip buying items from the Auction House and instead crafting your own item. Generally this will cost you less silver than buying the item and has the added benefit of increasing your crafting level.
 ### Reminders/Helpful info
 
 #### Crafting Cost
-Crafting cost is 1/20th on the item value
+Crafting cost is 1/20 on the item value
+e.g. 
 
 #### Focus Reduction
 Focus is reduced by initial-focus-cost \* 0.5^(total-focus-proficiency/10000) **exponential decay formula**
@@ -32,7 +34,3 @@ Fame Earned for crafting an item is the total of the fame earned from crafting e
 
 #### Fame Earned Calculation
 e.g. T5 plate Chest piece requires 16 T5 Metal bars, 1 metal bar gives 135 fame. Therefore 1 T5 chest piece is 135 * 16 = 2160(1440 without premium bonus)
-
-## Todo
-
-- Create a dropdown filter similar to a Country to State/Province, whereas the State/Province changes depending on the Country chosen.n

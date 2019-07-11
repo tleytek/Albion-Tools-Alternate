@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -22,17 +23,18 @@ const useStyles = makeStyles(theme => ({
 
 const RadioButtonGroup = props => {
   const classes = useStyles();
-  const theme = useTheme();
+  const { name, data, onCategoryChange } = props;
   const [value, setValue] = React.useState('');
 
   const onChange = event => {
+    console.log(event.target.name);
     setValue(event.target.value);
-    props.onCategoryChange(event.target.name, _.replace(event.target.value, ' ', ''));
+    onCategoryChange(event.target.name, _.replace(event.target.value, ' ', ''));
   };
 
   const renderList = () =>
-    props.data.map(category =>
-      props.name === 'ItemType' ? (
+    data.map(category =>
+      name === 'ItemType' ? (
         <FormControlLabel
           key={category.partialUniqueName}
           value={category.partialUniqueName}
@@ -47,18 +49,25 @@ const RadioButtonGroup = props => {
   return (
     <div className={classes.root}>
       <FormControl component="fieldset" className={classes.formControl}>
-        <FormLabel component="legend">{props.name}</FormLabel>
+        <FormLabel component="legend">{name}</FormLabel>
         <RadioGroup
-          aria-label={props.name}
-          name={props.name}
+          aria-label={name}
+          name={name}
           className={classes.group}
           value={value}
-          onChange={onChange}>
+          onChange={onChange}
+        >
           {renderList()}
         </RadioGroup>
       </FormControl>
     </div>
   );
+};
+
+RadioButtonGroup.propTypes = {
+  name: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onCategoryChange: PropTypes.func.isRequired
 };
 
 export default RadioButtonGroup;

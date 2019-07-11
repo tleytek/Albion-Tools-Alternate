@@ -1,29 +1,45 @@
-export const SubCategories = {
-  Accessories: ['Bag', 'Cape'],
+const SubCategories = {
+  Accessories: [{ name: 'Bag', value: 'Bag' }, { name: 'Cape', value: 'Cape' }],
   Armor: [
-    'Cloth Armor',
-    'Cloth Helmet',
-    'Cloth Shoes',
-    'Leather Armor',
-    'Leather Helmet',
-    'Leather Shoes',
-    'Plate Armor',
-    'Plate Helmet',
-    'Plate Shoes'
+    { name: 'Cloth Armor', value: 'ClothArmor' },
+    { name: 'Cloth Helmet', value: 'ClothHelmet' },
+    { name: 'Cloth Shoes', value: 'ClothShoes' },
+    { name: 'Leather Armor', value: 'LeatherArmor' },
+    { name: 'Leather Helmet', value: 'LeatherHelmet' },
+    { name: 'Leather Shoes', value: 'LeatherShoes' },
+    { name: 'Plate Armor', value: 'PlateArmor' },
+    { name: 'Plate Helmet', value: 'PlateHelmet' },
+    { name: 'Plate Shoes', value: 'PlateShoes' }
   ],
 
   Magic: [
-    'Arcane Staff',
-    'Cursed Staff',
-    'Fire Staff',
-    'Frost Staff',
-    'Holy Staff',
-    'Nature Staff'
+    { name: 'Arcane Staff', value: 'ArcaneStaff' },
+    { name: 'Cursed Staff', value: 'CursedStaff' },
+    { name: 'Fire Staff', value: 'FireStaff' },
+    { name: 'Frost Staff', value: 'FrostStaff' },
+    { name: 'Holy Staff', value: 'HolyStaff' },
+    { name: 'Nature Staff', value: 'NatureStaff' }
   ],
 
-  Melee: ['Axe', 'Dagger', 'Hammer', 'Mace', 'Quarterstaff', 'Spear', 'Sword'],
+  Melee: [
+    { name: 'Axe', value: 'Axe' },
+    { name: 'Dagger', value: 'Dagger' },
+    { name: 'Hammer', value: 'Hammer' },
+    { name: 'Mace', value: 'Mace' },
+    { name: 'Quarterstaff', value: 'Quarterstaff' },
+    { name: 'Spear', value: 'Spear' },
+    { name: 'Sword', value: 'Sword' }
+  ],
 
-  OffHand: ['Book', 'Horn', 'Orb', 'Shield', 'Torch', 'Totem'],
+  OffHand: [
+    { name: 'Book', value: 'Book' },
+    { name: 'Horn', value: 'Horn' },
+    { name: 'Orb', value: 'Orb' },
+    { name: 'Shield', value: 'Shield' },
+    { name: 'Torch', value: 'Torch' },
+    { name: 'Totem', value: 'Totem' }
+  ],
 
-  Ranged: ['Bow', 'Crossbow']
+  Ranged: [{ name: 'Bow', value: 'Bow' }, { name: 'Crossbow', value: 'Crossbow' }]
 };
+export default SubCategories;

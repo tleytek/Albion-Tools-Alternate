@@ -1,207 +1,499 @@
 const ItemTypes = {
   Bag: [
     {
-      itemType: 'Bag',
-      partialUniqueName: '_BAG',
-    },
+      name: 'Bag',
+      value: '_BAG'
+    }
   ],
   Cape: [
     {
-      itemType: 'Cape',
-      partialUniqueName: '_CAPE',
-    },
+      name: 'Cape',
+      value: '_CAPE'
+    }
   ],
   ClothArmor: [
     {
-      itemType: 'Scholar Robe',
-      partialUniqueName: '_ARMOR_CLOTH_SET1',
+      name: 'Scholar Robe',
+      value: '_ARMOR_CLOTH_SET1'
     },
     {
-      itemType: 'Cleric Robe',
-      partialUniqueName: '_ARMOR_CLOTH_SET2',
+      name: 'Cleric Robe',
+      value: '_ARMOR_CLOTH_SET2'
     },
     {
-      itemType: 'Mage Robe',
-      partialUniqueName: '_ARMOR_CLOTH_SET3',
+      name: 'Mage Robe',
+      value: '_ARMOR_CLOTH_SET3'
+    },
+    {
+      name: 'Druid Robe',
+      value: '_ARMOR_CLOTH_KEEPER'
+    },
+    {
+      name: 'Fiend Robe',
+      value: '_ARMOR_CLOTH_HELL'
+    },
+    {
+      name: 'Cultist Robe',
+      value: '_ARMOR_CLOTH_MORGANA'
     }
   ],
   ClothHelmet: [
     {
-      itemType: 'Scholar Cowl',
-      partialUniqueName: '_HEAD_CLOTH_SET1',
+      name: 'Scholar Cowl',
+      value: '_HEAD_CLOTH_SET1'
     },
+    {
+      name: 'Cleric Cowl',
+      value: '_HEAD_CLOTH_SET2'
+    },
+    {
+      name: 'Mage Cowl',
+      value: '_HEAD_CLOTH_SET3'
+    },
+    {
+      name: 'Druid Cowl',
+      value: '_HEAD_CLOTH_KEEPER'
+    },
+    {
+      name: 'Fiend Cowl',
+      value: '_HEAD_CLOTH_HELL'
+    },
+    {
+      name: 'Cultist Cowl',
+      value: '_HEAD_CLOTH_MORGANA'
+    }
   ],
   ClothShoes: [
     {
-      itemType: 'Scholar Sandals',
-      partialUniqueName: '_SHOES_CLOTH_SET1',
+      name: 'Scholar Sandals',
+      value: '_SHOES_CLOTH_SET1'
     },
+    {
+      name: 'Cleric Sandals',
+      value: '_SHOES_CLOTH_SET2'
+    },
+    {
+      name: 'Mage Sandals',
+      value: '_SHOES_CLOTH_SET3'
+    },
+    {
+      name: 'Druid Sandals',
+      value: '_SHOES_CLOTH_KEEPER'
+    },
+    {
+      name: 'Fiend Sandals',
+      value: '_SHOES_CLOTH_HELL'
+    },
+    {
+      name: 'Cultist Sandals',
+      value: '_SHOES_CLOTH_MORGANA'
+    }
   ],
   LeatherArmor: [
     {
-      itemType: 'Mercenary Jacket',
-      partialUniqueName: '_ARMOR_LEATHER_SET1',
+      name: 'Mercenary Jacket',
+      value: '_ARMOR_LEATHER_SET1'
     },
+    {
+      name: 'Hunter Jacket',
+      value: '_ARMOR_LEATHER_SET2'
+    },
+    {
+      name: 'Assassin Jacket',
+      value: '_ARMOR_LEATHER_SET3'
+    },
+    {
+      name: 'Stalker Jacket',
+      value: '_ARMOR_LEATHER_MORGANA'
+    },
+    {
+      name: 'Hellion Jacket',
+      value: '_ARMOR_LEATHER_HELL'
+    },
+    {
+      name: 'Specter Jacket',
+      value: '_ARMOR_LEATHER_UNDEAD'
+    }
   ],
   LeatherHelmet: [
     {
-      itemType: 'Mercenary Hood',
-      partialUniqueName: '_HEAD_LEATHER_SET1',
+      name: 'Mercenary Hood',
+      value: '_HEAD_LEATHER_SET1'
     },
+    {
+      name: 'Hunter Hood',
+      value: '_HEAD_LEATHER_SET2'
+    },
+    {
+      name: 'Assassin Hood',
+      value: '_HEAD_LEATHER_SET3'
+    },
+    {
+      name: 'Stalker Hood',
+      value: '_HEAD_LEATHER_MORGANA'
+    },
+    {
+      name: 'Hellion Hood',
+      value: '_HEAD_LEATHER_HELL'
+    },
+    {
+      name: 'Specter Hood',
+      value: '_HEAD_LEATHER_UNDEAD'
+    }
   ],
   LeatherShoes: [
     {
-      itemType: 'Mercenary Shoes',
-      partialUniqueName: '_SHOES_LEATHER_SET1',
+      name: 'Mercenary Shoes',
+      value: '_SHOES_LEATHER_SET1'
     },
+    {
+      name: 'Hunter Shoes',
+      value: '_SHOES_LEATHER_SET2'
+    },
+    {
+      name: 'Assassin Shoes',
+      value: '_SHOES_LEATHER_SET3'
+    },
+    {
+      name: 'Stalker Shoes',
+      value: '_SHOES_LEATHER_MORGANA'
+    },
+    {
+      name: 'Hellion Shoes',
+      value: '_SHOES_LEATHER_HELL'
+    },
+    {
+      name: 'Specter Shoes',
+      value: '_SHOES_LEATHER_UNDEAD'
+    }
   ],
   PlateArmor: [
     {
-      itemType: 'Soldier Armor',
-      partialUniqueName: '_ARMOR_PLATE_SET1',
+      name: 'Soldier Armor',
+      value: '_ARMOR_PLATE_SET1'
     },
+    {
+      name: 'Knight Armor',
+      value: '_ARMOR_PLATE_SET2'
+    },
+    {
+      name: 'Guardian Armor',
+      value: '_ARMOR_PLATE_SET3'
+    },
+    {
+      name: 'Graveguard Armor',
+      value: '_ARMOR_PLATE_UNDEAD'
+    },
+    {
+      name: 'Demon Armor',
+      value: '_ARMOR_PLATE_HELL'
+    },
+    {
+      name: 'Judicator Armor',
+      value: '_ARMOR_PLATE_KEEPER'
+    }
   ],
   PlateHelmet: [
     {
-      itemType: 'Soldier Helmet',
-      partialUniqueName: '_HEAD_PLATE_SET1',
+      name: 'Soldier Helmet',
+      value: '_HEAD_PLATE_SET1'
     },
+    {
+      name: 'Knight Helmet',
+      value: '_HEAD_PLATE_SET2'
+    },
+    {
+      name: 'Guardian Helmet',
+      value: '_HEAD_PLATE_SET3'
+    },
+    {
+      name: 'Graveguard Helmet',
+      value: '_HEAD_PLATE_UNDEAD'
+    },
+    {
+      name: 'Demon Helmet',
+      value: '_HEAD_PLATE_HELL'
+    },
+    {
+      name: 'Judicator Helmet',
+      value: '_HEAD_PLATE_KEEPER'
+    }
   ],
   PlateShoes: [
     {
-      itemType: 'Soldier Boots',
-      partialUniqueName: '_SHOES_PLATE_SET1',
+      name: 'Soldier Boots',
+      value: '_SHOES_PLATE_SET1'
     },
+    {
+      name: 'Knight Boots',
+      value: '_SHOES_PLATE_SET2'
+    },
+    {
+      name: 'Guardian Boots',
+      value: '_SHOES_PLATE_SET3'
+    },
+    {
+      name: 'Graveguard Boots',
+      value: '_SHOES_PLATE_UNDEAD'
+    },
+    {
+      name: 'Demon Boots',
+      value: '_SHOES_PLATE_HELL'
+    },
+    {
+      name: 'Judicator Boots',
+      value: '_SHOES_PLATE_KEEPER'
+    }
   ],
   ArcaneStaff: [
     {
-      itemType: 'Arcane Staff',
-      partialUniqueName: '_MAIN_ARCANESTAFF',
+      name: 'Arcane Staff',
+      value: '_MAIN_ARCANESTAFF'
     },
+    {
+      name: 'Great Arcane Staff',
+      value: '_2H_ARCANESTAFF'
+    },
+    {
+      name: 'Enigmatic Staff',
+      value: '_2H_ENIGMATICSTAFF'
+    },
+    {
+      name: 'Witchwork Staff',
+      value: '_MAIN_ARCANESTAFF_UNDEAD'
+    },
+    {
+      name: 'Occult Staff',
+      value: '_2H_ARCANESTAFF_HELL'
+    },
+    {
+      name: 'Malevolent Locus',
+      value: '_2H_ENIGMATICORB_MORGANA'
+    }
   ],
   CursedStaff: [
     {
-      itemType: 'Cursed Staff',
-      partialUniqueName: '_MAIN_CURSEDSTAFF',
+      name: 'Cursed Staff',
+      value: '_MAIN_CURSEDSTAFF'
     },
+    {
+      name: 'Great Cursed Staff',
+      value: '_2H_CURSEDSTAFF'
+    },
+    {
+      name: 'Demonic Staff',
+      value: '_2H_DEMONICSTAFF'
+    },
+    {
+      name: 'Lifecurse Staff',
+      value: '_MAIN_CURSEDSTAFF_UNDEAD'
+    },
+    {
+      name: 'Cursed Skull',
+      value: '_2H_SKULLORB_HELL'
+    },
+    {
+      name: 'Damnation Staff',
+      value: '_2H_CURSEDSTAFF_MORGANA'
+    }
   ],
   FireStaff: [
     {
-      itemType: 'Fire Staff',
-      partialUniqueName: '_MAIN_FIRESTAFF',
+      name: 'Fire Staff',
+      value: '_MAIN_FIRESTAFF'
     },
+    {
+      name: 'Great Fire Staff',
+      value: '_2H_FIRESTAFF'
+    },
+    {
+      name: 'Infernal Staff',
+      value: '_2H_INFERNOSTAFF'
+    },
+    {
+      name: 'Wildfire Staff',
+      value: '_MAIN_FIRESTAFF_KEEPER'
+    },
+    {
+      name: 'Brimstone Staff',
+      value: '_2H_FIRESTAFF_HELL'
+    },
+    {
+      name: 'Blazing Staff',
+      value: '_2H_INFERNOSTAFF_MORGANA'
+    }
   ],
   FrostStaff: [
     {
-      itemType: 'Frost Staff',
-      partialUniqueName: '_MAIN_FROSTSTAFF',
+      name: 'Frost Staff',
+      value: '_MAIN_FROSTSTAFF'
     },
+    {
+      name: 'Great Frost Staff',
+      value: '_2H_FROSTSTAFF'
+    },
+    {
+      name: 'Glacial Staff',
+      value: '_2H_GLACIALSTAFF'
+    },
+    {
+      name: 'Hoarfrost Staff',
+      value: '_MAIN_FROSTSTAFF_KEEPER'
+    },
+    {
+      name: 'Icicle Staff',
+      value: '_2H_ICEGAUNTLETS_HELL'
+    },
+    {
+      name: 'Permafrost Staff',
+      value: '_2H_ICECRYSTAL_UNDEAD'
+    }
   ],
   HolyStaff: [
     {
-      itemType: 'Holy Staff',
-      partialUniqueName: '_MAIN_HOLYSTAFF',
+      name: 'Holy Staff',
+      value: '_MAIN_HOLYSTAFF'
     },
+    {
+      name: 'Great Holy Staff',
+      value: '_2H_HOLYSTAFF'
+    },
+    {
+      name: 'Divine Staff',
+      value: '_2H_DIVINESTAFF'
+    },
+    {
+      name: 'Lifetouch Staff',
+      value: '_MAIN_HOLYSTAFF_MORGANA'
+    },
+    {
+      name: 'Fallen Staff',
+      value: '_2H_HOLYSTAFF_HELL'
+    },
+    {
+      name: 'Redemption Staff',
+      value: '_2H_HOLYSTAFF_UNDEAD'
+    }
   ],
   NatureStaff: [
     {
-      itemType: 'Nature Staff',
-      partialUniqueName: '_MAIN_NATURESTAFF',
+      name: 'Nature Staff',
+      value: '_MAIN_NATURESTAFF'
     },
+    {
+      name: 'Great Nature Staff',
+      value: '_2H_NATURESTAFF'
+    },
+    {
+      name: 'Wild Staff',
+      value: '_2H_WILDSTAFF'
+    },
+    {
+      name: 'Druidic Staff',
+      value: '_MAIN_NATURESTAFF_KEEPER'
+    },
+    {
+      name: 'Blight Staff',
+      value: '_2H_NATURESTAFF_HELL'
+    },
+    {
+      name: 'Rampant Staff',
+      value: '_2H_NATURESTAFF_KEEPER'
+    }
   ],
   Axe: [
-    { itemType: 'Battleaxe', partialUniqueName: '_MAIN_AXE' },
-    { itemType: 'Bear Paws', partialUniqueName: '_2H_DUALAXE_KEEPER' },
-    { itemType: 'Infernal Scythe', partialUniqueName: '_2H_SCYTHE_HELL' },
+    { name: 'Battleaxe', value: '_MAIN_AXE' },
+    { name: 'Bear Paws', value: '_2H_DUALAXE_KEEPER' },
+    { name: 'Infernal Scythe', value: '_2H_SCYTHE_HELL' }
   ],
   Dagger: [
     {
-      itemType: 'Dagger',
-      partialUniqueName: '_MAIN_DAGGER',
-    },
+      name: 'Dagger',
+      value: '_MAIN_DAGGER'
+    }
   ],
   Hammer: [
     {
-      itemType: 'Hammer',
-      partialUniqueName: '_MAIN_HAMMER',
-    },
+      name: 'Hammer',
+      value: '_MAIN_HAMMER'
+    }
   ],
   Mace: [
     {
-      itemType: 'Mace',
-      partialUniqueName: '_MAIN_MACE',
-    },
+      name: 'Mace',
+      value: '_MAIN_MACE'
+    }
   ],
   Quarterstaff: [
     {
-      itemType: 'Quarterstaff',
-      partialUniqueName: '_2H_QUARTERSTAFF',
-    },
+      name: 'Quarterstaff',
+      value: '_2H_QUARTERSTAFF'
+    }
   ],
   Spear: [
     {
-      itemType: 'Spear',
-      partialUniqueName: '_MAIN_SPEAR',
-    },
+      name: 'Spear',
+      value: '_MAIN_SPEAR'
+    }
   ],
   Sword: [
     {
-      itemType: 'Broadsword',
-      partialUniqueName: '_MAIN_SWORD',
-    },
+      name: 'Broadsword',
+      value: '_MAIN_SWORD'
+    }
   ],
   Book: [
     {
-      itemType: 'Tome of Spells',
-      partialUniqueName: '_OFF_BOOK',
+      name: 'Tome of Spells',
+      value: '_OFF_BOOK'
     },
     {
-      itemType: 'Muisak',
-      partialUniqueName: '_OFF_DEMONSKULL_HELL',
-    },
+      name: 'Muisak',
+      value: '_OFF_DEMONSKULL_HELL'
+    }
   ],
   Horn: [
     {
-      itemType: 'Mistcaller',
-      partialUniqueName: '_OFF_HORN_KEEPER',
-    },
+      name: 'Mistcaller',
+      value: '_OFF_HORN_KEEPER'
+    }
   ],
   Orb: [
     {
-      itemType: 'Eye of Secrets',
-      partialUniqueName: '_OFF_ORB_MORGANA',
-    },
+      name: 'Eye of Secrets',
+      value: '_OFF_ORB_MORGANA'
+    }
   ],
   Shield: [
     {
-      itemType: 'Shield',
-      partialUniqueName: '_OFF_SHIELD',
-    },
+      name: 'Shield',
+      value: '_OFF_SHIELD'
+    }
   ],
   Torch: [
     {
-      itemType: 'Torch',
-      partialUniqueName: '_OFF_TORCH',
-    },
+      name: 'Torch',
+      value: '_OFF_TORCH'
+    }
   ],
   Totem: [
     {
-      itemType: 'Taproot',
-      partialUniqueName: '_OFF_TOTEM_KEEPER',
-    },
+      name: 'Taproot',
+      value: '_OFF_TOTEM_KEEPER'
+    }
   ],
   Bow: [
     {
-      itemType: 'Bow',
-      partialUniqueName: '_2H_BOW',
-    },
+      name: 'Bow',
+      value: '_2H_BOW'
+    }
   ],
   Crossbow: [
     {
-      itemType: 'Crossbow',
-      partialUniqueName: '_2H_CROSSBOW',
-    },
-  ],
+      name: 'Crossbow',
+      value: '_2H_CROSSBOW'
+    }
+  ]
 };
 
 export default ItemTypes;

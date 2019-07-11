@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ItemDisplay = ({ fullItemName, isLoading }) => {
+const ItemDisplay = ({ fullItemName }) => {
   const classes = useStyles();
 
   const itemDetail = <div>Item Detail</div>;

@@ -1,11 +1,11 @@
 import React from 'react';
-import RadioButtonGroup from '../components/RadioButtonGroup';
-import ItemTypeDisplay from '../components/ItemTypeDisplay';
+import RadioButtonGroup from '../components/RadioButtonGroup.jsx';
+import ItemTypeDisplay from '../components/ItemTypeDisplay.jsx';
 import { Categories, Tiers, Enchantments } from '../static/Categories';
-import { SubCategories } from '../static/SubCategories';
+import SubCategories from '../static/SubCategories';
 import ItemTypes from '../static/ItemTypes';
 import Grid from '@material-ui/core/Grid';
-import Select from '../components/Select';
+import Select from '../components/Select.jsx';
 import EquipmentItems from '../static/items.json';
 import ObjPrune from '../lib/ObjPrune';
 import _ from 'lodash';
@@ -20,13 +20,12 @@ class BlackMarketCrafting extends React.Component {
     Tier: 'T4',
     Enchantment: '',
     EquipmentItems: {},
-    EquipmentItem: {}
+    EquipmentItem: ''
   };
 
   componentDidMount() {
     this.setState({ EquipmentItems });
   }
-
 
   /* Making sure ItemType state is assigned/updated within
   the component before firing our item API */
@@ -45,9 +44,10 @@ class BlackMarketCrafting extends React.Component {
       const index = await _.findIndex(EquipmentItems, {
         uniquename: `${Tier}${ItemType}`
       });
-      const EquipmentItem = await ObjPrune(EquipmentItems[index], Enchantment);
-      this.setState({ EquipmentItem });
 
+      const EquipmentItem = await ObjPrune(EquipmentItems[index], Enchantment);
+
+      this.setState({ EquipmentItem });
     }
   }
 
@@ -64,28 +64,30 @@ class BlackMarketCrafting extends React.Component {
     //Destructuring
     const { Category, SubCategory, ItemType, Tier, Enchantment, EquipmentItem } = this.state;
 
-
     //All of our visual content
     return (
       <Grid container direction="column">
         <Grid container direction="row">
-          <RadioButtonGroup
+          <Select
             data={Categories}
             onCategoryChange={this.onCategoryChange}
-            name="Category"
+            type="Category"
+            currentValue={Category}
           />
           {Category && (
-            <RadioButtonGroup
+            <Select
               data={SubCategories[Category]}
               onCategoryChange={this.onCategoryChange}
-              name="SubCategory"
+              type="SubCategory"
+              currentValue={SubCategory}
             />
           )}
           {SubCategory && (
-            <RadioButtonGroup
+            <Select
               data={ItemTypes[SubCategory]}
               onCategoryChange={this.onCategoryChange}
-              name="ItemType"
+              type="ItemType"
+              currentValue={ItemType}
             />
           )}
         </Grid>
@@ -93,18 +95,17 @@ class BlackMarketCrafting extends React.Component {
           <Select
             data={Tiers}
             onCategoryChange={this.onCategoryChange}
-            name="Tier"
-            default={this.state.Tier}
+            type="Tier"
+            currentValue={Tier}
           />
           <Select
             data={Enchantments}
             onCategoryChange={this.onCategoryChange}
-            name="Enchantment"
-            default={this.state.Enchantment}
+            type="Enchantment"
+            currentValue={Enchantment}
           />
         </Grid>
         {EquipmentItem && <ItemTypeDisplay fullItemName={`${Tier}${ItemType}${Enchantment}`} />}
-
       </Grid>
     );
   }
