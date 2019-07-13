@@ -53,10 +53,10 @@ MyDocument.getInitialProps = async ctx => {
 
   // Render app and page and get the context of the page with collected side effects.
 
-  //Mateus' notes:
-  //From what I understand, we need to provide the pages with the required CSS, otherwise the
-  //page will render with just the HTML then wait for the css to be injected by the client, causing
-  //the page to flicker(FOUC). As for understanding this on a line by line basis, I am clueless.
+  // Mateus' notes:
+  // From what I understand, we need to provide the pages with the required CSS, otherwise the
+  // page will render with just the HTML then wait for the css to be injected by the client, causing
+  // the page to flicker(FOUC). As for understanding this on a line by line basis, I am clueless.
   const sheets = new ServerStyleSheets();
   const originalRenderPage = ctx.renderPage;
 

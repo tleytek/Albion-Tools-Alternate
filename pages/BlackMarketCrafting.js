@@ -1,17 +1,15 @@
 import React from 'react';
-import RadioButtonGroup from '../components/RadioButtonGroup.jsx';
-import ItemTypeDisplay from '../components/ItemTypeDisplay.jsx';
 import { Categories, Tiers, Enchantments } from '../static/Categories';
 import SubCategories from '../static/SubCategories';
 import ItemTypes from '../static/ItemTypes';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import Select from '../components/Select.jsx';
 import EquipmentItems from '../static/items.json';
 import ObjPrune from '../lib/ObjPrune';
 import _ from 'lodash';
-
-// const { Items } = items;
-
+import TextInput from '../components/TextField';
+import API from '../lib/API';
 class BlackMarketCrafting extends React.Component {
   state = {
     Category: '',
@@ -20,7 +18,7 @@ class BlackMarketCrafting extends React.Component {
     Tier: 'T4',
     Enchantment: '',
     EquipmentItems: {},
-    EquipmentItem: ''
+    EquipmentItem: 'e'
   };
 
   componentDidMount() {
@@ -38,16 +36,21 @@ class BlackMarketCrafting extends React.Component {
       (ItemType !== prevState.ItemType ||
         Enchantment !== prevState.Enchantment ||
         Tier !== prevState.Tier) &&
-      ItemType !== ''
+      ItemType
     ) {
-      //Get ItemData from DB then get the prices for everything
       const index = await _.findIndex(EquipmentItems, {
         uniquename: `${Tier}${ItemType}`
       });
-
       const EquipmentItem = await ObjPrune(EquipmentItems[index], Enchantment);
-
-      this.setState({ EquipmentItem });
+      const ItemPrice = await API.getPrice(EquipmentItem.uniquename, 'Black Market');
+      let ResourcePrice = [];
+      _.castArray(EquipmentItem.craftingrequirements.craftresource).forEach(el => {
+        API.getPrice(el.uniquename, 'Caerleon').then(res => {
+          ResourcePrice.push(res);
+          console.log(res);
+        });
+      });
+      this.setState({ EquipmentItem, ItemPrice, ResourcePrice });
     }
   }
 
@@ -60,14 +63,12 @@ class BlackMarketCrafting extends React.Component {
     this.setState({ [name]: value });
   };
 
-  render() {
+  itemSelection() {
     //Destructuring
-    const { Category, SubCategory, ItemType, Tier, Enchantment, EquipmentItem } = this.state;
-
-    //All of our visual content
+    const { Category, SubCategory, ItemType, Tier, Enchantment } = this.state;
     return (
-      <Grid container direction="column">
-        <Grid container direction="row">
+      <React.Fragment>
+        <Grid container item>
           <Select
             data={Categories}
             onCategoryChange={this.onCategoryChange}
@@ -91,7 +92,7 @@ class BlackMarketCrafting extends React.Component {
             />
           )}
         </Grid>
-        <Grid container direction="row">
+        <Grid container item>
           <Select
             data={Tiers}
             onCategoryChange={this.onCategoryChange}
@@ -105,7 +106,52 @@ class BlackMarketCrafting extends React.Component {
             currentValue={Enchantment}
           />
         </Grid>
-        {EquipmentItem && <ItemTypeDisplay fullItemName={`${Tier}${ItemType}${Enchantment}`} />}
+      </React.Fragment>
+    );
+  }
+
+  itemDisplay() {
+    const { Category, SubCategory, ItemType, Tier, Enchantment, EquipmentItem } = this.state;
+    return (
+      <Grid container direction="column" spacing={3}>
+        <Grid container item>
+          <Grid item xs>
+            <TextInput name={EquipmentItem.uniquename} price={this.state.ItemPrice} />
+          </Grid>
+          <Grid item xs>
+            <TextInput name={EquipmentItem.uniquename} price={this.state.ItemPrice} />
+          </Grid>
+          <Grid item xs>
+            <TextInput name={EquipmentItem.uniquename} price={this.state.ItemPrice} />
+          </Grid>
+          <Grid item xs>
+            <button>Hi</button>
+          </Grid>
+        </Grid>
+        <Grid container item>
+          <Grid item>
+            <Typography>ItemDetail</Typography>
+            <Typography variant="h3">item</Typography>
+          </Grid>
+          <img
+            src={`https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${Tier}${ItemType}${Enchantment}`}
+            alt="Item"
+          />
+          {`itemDetail`}
+        </Grid>
+        <Grid container justify="center" item md={12} lg={6}>
+          {`costDetail`}
+        </Grid>
+      </Grid>
+    );
+  }
+
+  render() {
+    //All of our visual content
+    return (
+      <Grid container direction="column">
+        {this.itemSelection()}
+        {this.state.EquipmentItem && this.itemDisplay()}
       </Grid>
     );
   }

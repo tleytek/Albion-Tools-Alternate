@@ -40,7 +40,6 @@ export default function SimpleSelect(props) {
   return (
     <form className={classes.root}>
       <FormControl className={classes.formControl}>
-        {console.log(type)}
         <InputLabel shrink htmlFor={type}>
           {type}
         </InputLabel>
