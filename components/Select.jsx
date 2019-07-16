@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap'
   },
   formControl: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(2),
     minWidth: 120
   },
   selectEmpty: {
@@ -25,8 +25,8 @@ export default function SimpleSelect(props) {
   const classes = useStyles();
 
   // eslint-disable-next-line no-shadow
-  const handleChange = event => {
-    onCategoryChange(event.target.name, event.target.value);
+  const handleChange = name => event => {
+    onCategoryChange(name, event.target.value);
   };
 
   const renderSelectList = () => {
@@ -45,9 +45,9 @@ export default function SimpleSelect(props) {
         </InputLabel>
         <Select
           value={currentValue}
-          onChange={handleChange}
+          onChange={handleChange(type)}
           displayEmpty={type === 'Enchantment'}
-          name={type}
+          // name={type}
           inputProps={{ name: type, id: type }}
         >
           {renderSelectList()}

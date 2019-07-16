@@ -74,7 +74,7 @@ export default function NavLayout(props) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <Link href="/">
+        <Link href="/[postId]" as="/">
           <ListItem button onClick={handleDrawerToggle}>
             <ListItemText primary="Home" />
           </ListItem>
@@ -104,7 +104,8 @@ export default function NavLayout(props) {
             }}
             ModalProps={{
               keepMounted: true // Better open performance on mobile.
-            }}>
+            }}
+          >
             {drawer}
           </Drawer>
         </Hidden>
@@ -114,7 +115,8 @@ export default function NavLayout(props) {
               paper: classes.drawerPaper
             }}
             variant="permanent"
-            open>
+            open
+          >
             {drawer}
           </Drawer>
         </Hidden>
@@ -127,7 +129,8 @@ export default function NavLayout(props) {
               aria-label="Open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              className={classes.menuButton}>
+              className={classes.menuButton}
+            >
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
