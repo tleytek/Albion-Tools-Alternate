@@ -5,8 +5,8 @@ import ItemInfo from '../components/ItemInfo';
 import ItemSelection from '../components/ItemSelection';
 import ProfitTable from '../components/ProfitTable';
 import CalculationOptions from '../components/CalculationOptions';
-import EquipmentItems from '../static/items.json';
-import ObjPrune from '../lib/ObjPrune';
+// import EquipmentItems from '../static/items.json';
+// import ObjPrune from '../lib/ObjPrune';
 import API from '../lib/API';
 
 class BlackMarketCrafting extends React.Component {
@@ -83,12 +83,13 @@ class BlackMarketCrafting extends React.Component {
 
   fetchEquipmentItem = async () => {
     const { ItemType, Enchantment, Tier } = this.state;
+    const EquipmentItem = await API.getItemData(`${Tier}${ItemType}${Enchantment}`);
 
-    const index = await _.findIndex(EquipmentItems, {
-      uniquename: `${Tier}${ItemType}`
-    });
+    // const index = await _.findIndex(EquipmentItems, {
+    //   uniquename: `${Tier}${ItemType}`
+    // });
 
-    const EquipmentItem = ObjPrune(EquipmentItems[index], Enchantment);
+    // const EquipmentItem = ObjPrune(EquipmentItems[index], Enchantment);
     await this.setState({
       EquipmentItem,
       ResourcePrices: ''

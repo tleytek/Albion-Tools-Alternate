@@ -1,4 +1,3 @@
 module.exports = {
-  RecipeItem: require('./recipeItem'),
-  EquipItem: require('./equipItem')
+  BlackMarketItem: require('./BlackMarketItem')
 };
