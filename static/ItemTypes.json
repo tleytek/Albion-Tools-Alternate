@@ -155,7 +155,7 @@
   ],
   "Quarterstaff": [
     { "name": "Quarterstaff", "value": "_2H_QUARTERSTAFF" },
-    { "name": "Iron-Clad Staff", "value": "T4_2H_IRONCLADEDSTAFF" },
+    { "name": "Iron-Clad Staff", "value": "_2H_IRONCLADEDSTAFF" },
     { "name": "Double Bladed Staff", "value": "_2H_DOUBLEBLADEDSTAFF" },
     { "name": "Black Monk Staff", "value": "_2H_COMBATSTAFF_MORGANA" },
     { "name": "Soulscythe", "value": "_2H_TWINSCYTHE_HELL" },

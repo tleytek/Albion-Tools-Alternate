@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
@@ -59,8 +60,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function NavLayout(props) {
+function NavLayout(props) {
   const { container, children } = props;
+  const router = useRouter();
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -69,17 +71,22 @@ export default function NavLayout(props) {
     setMobileOpen(!mobileOpen);
   }
 
+  const cleanUrl = url => {
+    const newUrl = url.replace('/', '').replace(/-/g, ' ');
+    return newUrl;
+  };
+
   const drawer = (
     <div>
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <Link href="/[postId]" as="/">
+        <Link href="/">
           <ListItem button onClick={handleDrawerToggle}>
             <ListItemText primary="Home" />
           </ListItem>
         </Link>
-        <Link href="/BlackMarketCrafting">
+        <Link href="/Black-Market-Crafting">
           <ListItem button onClick={handleDrawerToggle}>
             <ListItemText primary="Black Market Crafting" />
           </ListItem>
@@ -134,7 +141,7 @@ export default function NavLayout(props) {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Albion Tools
+              {router.pathname === '/' ? 'Albion Tools' : cleanUrl(router.pathname)}
             </Typography>
           </Toolbar>
         </AppBar>
@@ -146,8 +153,4 @@ export default function NavLayout(props) {
   );
 }
 
-NavLayout.propTypes = {
-  // Injected by the documentation to work in an iframe.
-  // You won't need it on your project.
-  container: PropTypes.object
-};
+export default NavLayout;

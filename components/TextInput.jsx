@@ -9,8 +9,9 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap'
   },
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
+    flexGrow: 1,
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   dense: {
     marginTop: theme.spacing(2)
@@ -22,16 +23,11 @@ const useStyles = makeStyles(theme => ({
 
 const TextInput = props => {
   const classes = useStyles();
-  const { name, onTextInputChange } = props;
-
-  const handleChange = name => event => {
-    onTextInputChange(name, event.target.value);
-  };
 
   return (
-    <form className={classes.container}>
-      <TextField {...props} className={classes.textField} onChange={handleChange(name)} />
-    </form>
+    <div className={classes.container} noValidate autoComplete="off">
+      <TextField {...props} className={classes.textField} />
+    </div>
   );
 };
 

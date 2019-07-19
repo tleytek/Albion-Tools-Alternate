@@ -10,6 +10,10 @@ import Layout from '../components/NavLayout';
 import theme from '../utils/theme';
 
 class MyApp extends App {
+  static getInitialProps({ query }) {
+    return { query };
+  }
+
   componentDidMount() {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');

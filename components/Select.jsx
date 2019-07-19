@@ -15,42 +15,47 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(2),
     minWidth: 120
   },
-  selectEmpty: {
-    paddingTop: theme.spacing(2)
+  option: {
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2)
   }
 }));
 
 export default function SimpleSelect(props) {
-  const { type, data, onCategoryChange, currentValue } = props;
+  const { type, data, onCategoryChange, currentValue, parentSelection } = props;
   const classes = useStyles();
 
   // eslint-disable-next-line no-shadow
   const handleChange = name => event => {
+    event.preventDefault();
     onCategoryChange(name, event.target.value);
   };
 
   const renderSelectList = () => {
     return data.map(({ name, value }) => (
-      <MenuItem key={value} value={value}>
+      <option className={classes.option} key={value} value={value}>
         {name}
-      </MenuItem>
+      </option>
     ));
   };
 
   return (
     <form className={classes.root}>
-      <FormControl className={classes.formControl}>
+      <FormControl className={classes.formControl} disabled={!data}>
         <InputLabel shrink htmlFor={type}>
           {type}
         </InputLabel>
         <Select
+          native
           value={currentValue}
           onChange={handleChange(type)}
           displayEmpty={type === 'Enchantment'}
-          // name={type}
           inputProps={{ name: type, id: type }}
         >
-          {renderSelectList()}
+          {type !== 'Enchantment' && (
+            <option value="" className={classes.option}>{`Select ${type}`}</option>
+          )}
+          {data && renderSelectList()}
         </Select>
       </FormControl>
     </form>
