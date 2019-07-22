@@ -16,7 +16,7 @@ const Snackbar = props => {
   const { enqueueSnackbar } = useSnackbar();
 
   const handleClick = () => {
-    enqueueSnackbar(`${props.verboseName} copied!`);
+    enqueueSnackbar(`${verboseName} copied!`);
   };
 
   return (

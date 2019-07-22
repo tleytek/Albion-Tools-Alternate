@@ -21,9 +21,7 @@ const mongooseOptions = {
   useFindAndModify: false
 };
 
-mongoose
-  .connect(process.env.MONGO_URI || 'mongodb://localhost/albion', mongooseOptions)
-  .then(() => console.log('DB connected'));
+mongoose.connect(process.env.MONGO_URI, mongooseOptions).then(() => console.log('DB connected'));
 
 mongoose.connection.on('error', err => {
   console.log(`DB connection error: ${err.message}`);
@@ -56,7 +54,7 @@ app.prepare().then(() => {
 
   const MongoStore = mongoSessionStore(session);
   const sessionConfig = {
-    name: 'next-connect.sid',
+    name: 'albion-tools.sid',
     // secret used for using signed cookies w/ the session
     secret: process.env.SESSION_SECRET,
     store: new MongoStore({

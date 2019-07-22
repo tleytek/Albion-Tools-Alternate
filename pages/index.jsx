@@ -1,6 +1,4 @@
 import React from 'react';
-import { withRouter } from 'next/router';
-import Layout from '../components/NavLayout';
 
 const About = () => (
   <div className="about">

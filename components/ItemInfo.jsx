@@ -85,24 +85,30 @@ const ItemInfo = props => {
                 key={uniquename}
                 className={classes.dense}
               >
-                <img
-                  src={`https://gameinfo.albiononline.com/api/gameinfo/items/${el.uniquename}`}
-                  alt="Item"
-                  style={{ width: '75px', height: '75px' }}
-                />
-                <Grid container item xs alignItems="stretch">
+                <Grid container item xs={2}>
+                  <img
+                    src={`https://gameinfo.albiononline.com/api/gameinfo/items/${el.uniquename}`}
+                    alt="Item"
+                    style={{ width: '75px', height: '75px' }}
+                  />
+                </Grid>
+                <Grid container item xs={5}>
                   <Snackbar count={count} verboseName={verboseName} />
                 </Grid>
-                <TextInput
-                  label="Market Price (ea)"
-                  value={ResourcePrices[index].sell_price_min}
-                  variant="outlined"
-                  margin="dense"
-                  onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
-                  id={index}
-                  helperText={moment.parseZone(ResourcePrices[index].sell_price_min_date).fromNow()}
-                  onKeyPress={onEnter}
-                />
+                <Grid container item xs={5}>
+                  <TextInput
+                    label="Market Price (ea)"
+                    value={ResourcePrices[index].sell_price_min}
+                    variant="outlined"
+                    margin="dense"
+                    onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
+                    id={index}
+                    helperText={moment
+                      .parseZone(ResourcePrices[index].sell_price_min_date)
+                      .fromNow()}
+                    onKeyPress={onEnter}
+                  />
+                </Grid>
               </Grid>
             );
           })}
