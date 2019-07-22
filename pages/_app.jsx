@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import JssProvider from 'react-jss/lib/JssProvider';
 
 import { CssBaseline } from '@material-ui/core';
-import { MuiThemeProvider } from '@material-ui/styles';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import MuiContainer from '@material-ui/core/Container';
 import withReduxStore from '../lib/with-redux-store';
 import Layout from '../components/NavLayout';
