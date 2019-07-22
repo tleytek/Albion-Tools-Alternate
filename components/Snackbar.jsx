@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Chip, Avatar } from '@material-ui/core';
-import { SnackbarProvider, useSnackbar } from 'notistack';
+import { useSnackbar } from 'notistack';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const useStyles = makeStyles(theme => ({
@@ -32,10 +32,4 @@ const Snackbar = props => {
   );
 };
 
-export default props => {
-  return (
-    <SnackbarProvider>
-      <Snackbar {...props} />
-    </SnackbarProvider>
-  );
-};
+export default Snackbar;

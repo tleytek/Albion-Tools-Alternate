@@ -85,10 +85,6 @@ class BlackMarketCrafting extends React.Component {
     const { ItemType, Enchantment, Tier } = this.state;
     const EquipmentItem = await API.getItemData(`${Tier}${ItemType}${Enchantment}`);
 
-    // const index = await _.findIndex(EquipmentItems, {
-    //   uniquename: `${Tier}${ItemType}`
-    // });
-
     // const EquipmentItem = ObjPrune(EquipmentItems[index], Enchantment);
     await this.setState({
       EquipmentItem,
@@ -206,6 +202,7 @@ class BlackMarketCrafting extends React.Component {
                 ItemPrice={ItemPrice}
                 ResourcePrices={ResourcePrices}
                 onResourcePriceChange={this.onResourcePriceChange}
+                calculateProfit={this.calculateProfit}
               />
             </Grid>
             <Grid item xs={6}>

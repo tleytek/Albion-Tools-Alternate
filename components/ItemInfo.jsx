@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, AppBar, Toolbar, Chip, Avatar } from '@material-ui/core';
 import moment from 'moment';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { SnackbarProvider } from 'notistack';
 import TextInput from './TextInput';
 import Snackbar from './Snackbar';
 
@@ -23,7 +24,20 @@ const useStyles = makeStyles(theme => ({
 const ItemInfo = props => {
   const classes = useStyles();
 
-  const { EquipmentItem, ItemPrice, ResourcePrices, onResourcePriceChange } = props;
+  const {
+    EquipmentItem,
+    ItemPrice,
+    ResourcePrices,
+    onResourcePriceChange,
+    calculateProfit
+  } = props;
+
+  const onEnter = event => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      calculateProfit();
+    }
+  };
 
   return (
     <div className={classes.container}>
@@ -46,6 +60,7 @@ const ItemInfo = props => {
           variant="outlined"
           onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
           helperText={moment.parseZone(ItemPrice.buy_price_min_date).fromNow()}
+          onKeyPress={onEnter}
         />
       </Grid>
 
@@ -57,38 +72,41 @@ const ItemInfo = props => {
         </AppBar>
       </Grid>
 
-      {ResourcePrices &&
-        EquipmentItem.craftingrequirements.craftresource.map((el, index) => {
-          const { verboseName, uniquename, count } = el;
-          return (
-            <Grid
-              container
-              item
-              justify="space-between"
-              alignItems="center"
-              key={uniquename}
-              className={classes.dense}
-            >
-              <img
-                src={`https://gameinfo.albiononline.com/api/gameinfo/items/${el.uniquename}`}
-                alt="Item"
-                style={{ width: '75px', height: '75px' }}
-              />
-              <Grid container item xs alignItems="stretch">
-                <Snackbar count={count} verboseName={verboseName} />
+      <SnackbarProvider maxSnack="1" transitionDuration={500} autoHideDuration="2000">
+        {ResourcePrices &&
+          EquipmentItem.craftingrequirements.craftresource.map((el, index) => {
+            const { verboseName, uniquename, count } = el;
+            return (
+              <Grid
+                container
+                item
+                justify="space-between"
+                alignItems="center"
+                key={uniquename}
+                className={classes.dense}
+              >
+                <img
+                  src={`https://gameinfo.albiononline.com/api/gameinfo/items/${el.uniquename}`}
+                  alt="Item"
+                  style={{ width: '75px', height: '75px' }}
+                />
+                <Grid container item xs alignItems="stretch">
+                  <Snackbar count={count} verboseName={verboseName} />
+                </Grid>
+                <TextInput
+                  label="Market Price (ea)"
+                  value={ResourcePrices[index].sell_price_min}
+                  variant="outlined"
+                  margin="dense"
+                  onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
+                  id={index}
+                  helperText={moment.parseZone(ResourcePrices[index].sell_price_min_date).fromNow()}
+                  onKeyPress={onEnter}
+                />
               </Grid>
-              <TextInput
-                label="Market Price (ea)"
-                value={ResourcePrices[index].sell_price_min}
-                variant="outlined"
-                margin="dense"
-                onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
-                id={index}
-                helperText={moment.parseZone(ResourcePrices[index].sell_price_min_date).fromNow()}
-              />
-            </Grid>
-          );
-        })}
+            );
+          })}
+      </SnackbarProvider>
     </div>
   );
 };
