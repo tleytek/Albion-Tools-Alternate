@@ -22,7 +22,7 @@ const Snackbar = props => {
   return (
     <CopyToClipboard text={verboseName}>
       <Chip
-        avatar={<Avatar>{count}</Avatar>}
+        avatar={<Avatar color="secondary">{count}</Avatar>}
         label={verboseName}
         onClick={handleClick}
         className={classes.chip}

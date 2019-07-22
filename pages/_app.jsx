@@ -14,13 +14,13 @@ class MyApp extends App {
     return { query };
   }
 
-  componentDidMount() {
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles) {
-      jssStyles.parentNode.removeChild(jssStyles);
-    }
-  }
+  // componentDidMount() {
+  //   // Remove the server-side injected CSS.
+  //   const jssStyles = document.querySelector('#jss-server-side');
+  //   if (jssStyles) {
+  //     jssStyles.parentNode.removeChild(jssStyles);
+  //   }
+  // }
 
   render() {
     const { Component, pageProps, reduxStore } = this.props;
