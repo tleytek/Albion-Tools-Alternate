@@ -5,7 +5,7 @@ import ItemInfo from '../components/ItemInfo';
 import ItemSelection from '../components/ItemSelection';
 import ProfitTable from '../components/ProfitTable';
 import CalculationOptions from '../components/CalculationOptions';
-import { getPrice, getItemData } from '../lib/API';
+import { getPrice, getItemData } from '../lib/api';
 
 class BlackMarketCrafting extends React.Component {
   state = {
