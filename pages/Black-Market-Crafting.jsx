@@ -5,9 +5,7 @@ import ItemInfo from '../components/ItemInfo';
 import ItemSelection from '../components/ItemSelection';
 import ProfitTable from '../components/ProfitTable';
 import CalculationOptions from '../components/CalculationOptions';
-// import EquipmentItems from '../static/items.json';
-// import ObjPrune from '../lib/ObjPrune';
-import API from '../lib/API';
+import { getPrice, getItemData } from '../lib/API';
 
 class BlackMarketCrafting extends React.Component {
   state = {
@@ -59,11 +57,11 @@ class BlackMarketCrafting extends React.Component {
     const { craftingrequirements } = EquipmentItem;
     const { craftresource } = craftingrequirements;
 
-    const ItemPrice = await API.getPrice(EquipmentItem.uniquename, 'BlackMarket');
+    const ItemPrice = await getPrice(EquipmentItem.uniquename, 'BlackMarket');
     // Promise.all is necessary to resolve all promises from each map return
     const ResourcePrices = await Promise.all(
       craftresource.map(el => {
-        return API.getPrice(el.uniquename, 'Caerleon');
+        return getPrice(el.uniquename, 'Caerleon');
       })
     );
     this.setState({ ResourcePrices, ItemPrice }, this.calculateProfit);
@@ -83,7 +81,7 @@ class BlackMarketCrafting extends React.Component {
 
   fetchEquipmentItem = async () => {
     const { ItemType, Enchantment, Tier } = this.state;
-    const EquipmentItem = await API.getItemData(`${Tier}${ItemType}${Enchantment}`);
+    const EquipmentItem = await getItemData(`${Tier}${ItemType}${Enchantment}`);
 
     // const EquipmentItem = ObjPrune(EquipmentItems[index], Enchantment);
     await this.setState({
