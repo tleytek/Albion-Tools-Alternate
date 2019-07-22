@@ -18,7 +18,7 @@ const mongooseOptions = {
 };
 
 mongoose
-  .connect('mongodb://localhost/albion', mongooseOptions)
+  .connect(process.env.MONGO_URI || 'mongodb://localhost/albion', mongooseOptions)
   .then(() => console.log('DB connected'));
 
 mongoose.connection.on('error', err => {

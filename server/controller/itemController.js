@@ -12,12 +12,8 @@ module.exports = {
     res.json(data[0]);
   },
   async itemData(req, res) {
-    // console.log(req.params.id);
     db.BlackMarketItem.find({ uniquename: req.params.id }).then(itemData => {
-      // console.log(itemData);
       res.json(itemData[0]);
     });
-    // res.json(data)
-    // console.log(response);
   }
 };

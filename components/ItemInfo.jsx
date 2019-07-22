@@ -1,13 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import { Grid, Typography, AppBar, Toolbar, Chip, Avatar } from '@material-ui/core';
 import moment from 'moment';
-import clsx from 'clsx';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import TextInput from './TextInput';
+import Snackbar from './Snackbar';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -25,7 +22,9 @@ const useStyles = makeStyles(theme => ({
 
 const ItemInfo = props => {
   const classes = useStyles();
+
   const { EquipmentItem, ItemPrice, ResourcePrices, onResourcePriceChange } = props;
+
   return (
     <div className={classes.container}>
       <CopyToClipboard text={EquipmentItem.verboseName}>
@@ -60,7 +59,7 @@ const ItemInfo = props => {
 
       {ResourcePrices &&
         EquipmentItem.craftingrequirements.craftresource.map((el, index) => {
-          const { verboseName, uniquename } = el;
+          const { verboseName, uniquename, count } = el;
           return (
             <Grid
               container
@@ -75,23 +74,18 @@ const ItemInfo = props => {
                 alt="Item"
                 style={{ width: '75px', height: '75px' }}
               />
-              <Grid container item xs direction="column">
-                {/* <Chip /> */}
-                <CopyToClipboard text={verboseName}>
-                  <Typography variant="p">{verboseName}</Typography>
-                </CopyToClipboard>
+              <Grid container item xs alignItems="stretch">
+                <Snackbar count={count} verboseName={verboseName} />
               </Grid>
-              <Grid container item xs direction="column">
-                <TextInput
-                  label="Market Price (ea)"
-                  value={ResourcePrices[index].sell_price_min}
-                  variant="outlined"
-                  margin="dense"
-                  onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
-                  id={index}
-                  helperText={moment.parseZone(ResourcePrices[index].sell_price_min_date).fromNow()}
-                />
-              </Grid>
+              <TextInput
+                label="Market Price (ea)"
+                value={ResourcePrices[index].sell_price_min}
+                variant="outlined"
+                margin="dense"
+                onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
+                id={index}
+                helperText={moment.parseZone(ResourcePrices[index].sell_price_min_date).fromNow()}
+              />
             </Grid>
           );
         })}
