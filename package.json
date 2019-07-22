@@ -4,10 +4,10 @@
   "description": "A collection of tools for the MMO, Albion Online",
   "main": "server.js",
   "scripts": {
-    "dev": "next",
-    "node-dev": "node server/server.js",
-    "nodemon-dev": "nodemon server/server.js",
-    "seed": "node server/scripts/seedDBv2.js"
+    "dev": "nodemon server/server.js --watch server",
+    "start": "node server/server.js",
+    "build": "next build",
+    "heroku-postbuild": "next build"
   },
   "repository": {
     "type": "git",
@@ -27,8 +27,10 @@
     "clipboard-copy": "^3.0.0",
     "clsx": "^1.0.4",
     "compression": "^1.7.4",
+    "connect-mongo": "^3.0.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "express-session": "^1.16.2",
     "express-validator": "^6.0.1",
     "helmet": "^3.18.0",
     "htmlparser2": "^3.10.1",
