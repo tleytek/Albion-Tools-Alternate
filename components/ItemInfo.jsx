@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography, AppBar, Toolbar, Chip, Avatar } from '@material-ui/core';
+import { Grid, Typography, AppBar, Toolbar } from '@material-ui/core';
 import moment from 'moment';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { SnackbarProvider } from 'notistack';
@@ -85,17 +85,15 @@ const ItemInfo = props => {
                 key={uniquename}
                 className={classes.dense}
               >
-                <Grid container item xs={2}>
+                <Grid container item xs justify="flex-start" alignItems="center">
                   <img
                     src={`https://gameinfo.albiononline.com/api/gameinfo/items/${el.uniquename}`}
                     alt="Item"
                     style={{ width: '75px', height: '75px' }}
                   />
-                </Grid>
-                <Grid container item xs={5}>
                   <Snackbar count={count} verboseName={verboseName} />
                 </Grid>
-                <Grid container item xs={5}>
+                <Grid container item xs={4}>
                   <TextInput
                     label="Market Price (ea)"
                     value={ResourcePrices[index].sell_price_min}
