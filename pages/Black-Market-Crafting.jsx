@@ -208,6 +208,8 @@ class BlackMarketCrafting extends React.Component {
                 ReturnDiscountMin={ReturnDiscountMin}
                 TotalCost={TotalCost}
                 Profit={Profit}
+                fetchPrices={this.fetchPrices}
+                calculateProfit={this.calculateProfit}
               />
             </Grid>
           </React.Fragment>
