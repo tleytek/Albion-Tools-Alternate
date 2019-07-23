@@ -24,8 +24,7 @@ class BlackMarketCrafting extends React.Component {
     UsageFee: '',
     SubTotal: '',
     ReturnDiscountMin: '',
-    ReturnDiscountMax: '',
-    LaborDiscount: false,
+    // LaborDiscount: false,
     TotalCost: ''
   };
 
@@ -65,7 +64,6 @@ class BlackMarketCrafting extends React.Component {
       })
     );
     this.setState({ ResourcePrices, ItemPrice }, this.calculateProfit);
-    // this.calculateProfit();
   };
 
   onResourcePriceChange = (name, value) => {

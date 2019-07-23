@@ -2,7 +2,9 @@ import React from 'react';
 import Select from './Select';
 import ItemTypes from '../static/ItemTypes';
 import SubCategories from '../static/SubCategories';
-import { Categories, Tiers, Enchantments } from '../static/Categories';
+import Categories from '../static/Categories';
+import Tiers from '../static/Tiers';
+import Enchantments from '../static/Enchantments';
 
 const ItemSelection = props => {
   const { currentValue, onCategoryChange } = props;
@@ -38,4 +40,5 @@ const ItemSelection = props => {
     </React.Fragment>
   );
 };
+
 export default ItemSelection;

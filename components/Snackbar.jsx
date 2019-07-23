@@ -25,7 +25,7 @@ const Snackbar = props => {
         avatar={<Avatar color="secondary">{count}</Avatar>}
         label={verboseName}
         onClick={handleClick}
-        className={classes.chip}
+        // className={classes.chip}
         color="secondary"
       />
     </CopyToClipboard>

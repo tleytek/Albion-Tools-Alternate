@@ -1,9 +1,10 @@
 import React from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import moment from 'moment';
+import { SnackbarProvider } from 'notistack';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, AppBar, Toolbar } from '@material-ui/core';
-import moment from 'moment';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { SnackbarProvider } from 'notistack';
 import TextInput from './TextInput';
 import Snackbar from './Snackbar';
 
@@ -32,6 +33,7 @@ const ItemInfo = props => {
     calculateProfit
   } = props;
 
+  const { verboseName, uniquename, craftingrequirements } = EquipmentItem;
   const onEnter = event => {
     if (event.key === 'Enter') {
       event.preventDefault();
@@ -41,14 +43,12 @@ const ItemInfo = props => {
 
   return (
     <div className={classes.container}>
-      <CopyToClipboard text={EquipmentItem.verboseName}>
-        <Typography variant="h4">{EquipmentItem.verboseName}</Typography>
+      <CopyToClipboard text={verboseName}>
+        <Typography variant="h4">{verboseName}</Typography>
       </CopyToClipboard>
       <Grid container item alignItems="center">
         <img
-          src={`https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${
-            EquipmentItem.uniquename
-          }`}
+          src={`https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${uniquename}`}
           alt="Item"
           style={{ width: '150px', height: '150px' }}
         />
@@ -59,7 +59,7 @@ const ItemInfo = props => {
           value={ItemPrice.buy_price_max}
           variant="outlined"
           onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
-          helperText={moment.parseZone(ItemPrice.buy_price_min_date).fromNow()}
+          helperText={moment.parseZone(ItemPrice.buy_price_max_date).fromNow()}
           onKeyPress={onEnter}
         />
       </Grid>
@@ -74,18 +74,20 @@ const ItemInfo = props => {
 
       <SnackbarProvider maxSnack="1" transitionDuration={500} autoHideDuration="2000">
         {ResourcePrices &&
-          EquipmentItem.craftingrequirements.craftresource.map((el, index) => {
+          craftingrequirements.craftresource.map((el, index) => {
+            // eslint-disable-next-line no-shadow
             const { verboseName, uniquename, count } = el;
             return (
               <Grid
                 container
                 item
-                justify="space-between"
-                alignItems="center"
+                xs={12}
+                // justify="space-between"
+                // alignItems="center"
                 key={uniquename}
                 className={classes.dense}
               >
-                <Grid container item xs justify="flex-start" alignItems="center">
+                <Grid container item xs justify="flex-start">
                   <img
                     src={`https://gameinfo.albiononline.com/api/gameinfo/items/${el.uniquename}`}
                     alt="Item"
@@ -93,7 +95,7 @@ const ItemInfo = props => {
                   />
                   <Snackbar count={count} verboseName={verboseName} />
                 </Grid>
-                <Grid container item xs={4}>
+                <Grid container item xs>
                   <TextInput
                     label="Market Price (ea)"
                     value={ResourcePrices[index].sell_price_min}
@@ -114,4 +116,56 @@ const ItemInfo = props => {
     </div>
   );
 };
+
+ItemInfo.propTypes = {
+  EquipmentItem: PropTypes.exact({
+    _id: PropTypes.string.isRequired,
+    craftingrequirements: PropTypes.exact({
+      craftingfocus: PropTypes.string.isRequired,
+      craftresources: PropTypes.arrayOf(
+        PropTypes.exact({
+          count: PropTypes.string.isRequired,
+          uniquename: PropTypes.string.isRequired,
+          verboseName: PropTypes.string.isRequired
+        }).isRequired
+      ).isRequired,
+      silver: PropTypes.string.isRequired,
+      time: PropTypes.string.isRequired
+    }).isRequired,
+    fameEarned: PropTypes.number.isRequired,
+    itemValue: PropTypes.number.isRequired,
+    tier: PropTypes.string.isRequired,
+    uniquename: PropTypes.string.isRequired,
+    verboseName: PropTypes.string.isRequired
+  }).isRequired,
+  ItemPrice: PropTypes.exact({
+    buy_price_max: PropTypes.number.isRequired,
+    buy_price_max_date: PropTypes.string.isRequired,
+    buy_price_min: PropTypes.number.isRequired,
+    buy_price_min_date: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    item_id: PropTypes.string.isRequired,
+    quality: PropTypes.number.isRequired,
+    sell_price_max: PropTypes.number.isRequired,
+    sell_price_max_date: PropTypes.string.isRequired,
+    sell_price_min: PropTypes.number.isRequired,
+    sell_price_min_date: PropTypes.string.isRequired
+  }).isRequired,
+  ResourcePrices: PropTypes.arrayOf(
+    PropTypes.exact({
+      buy_price_max: PropTypes.number.isRequired,
+      buy_price_max_date: PropTypes.string.isRequired,
+      buy_price_min: PropTypes.number.isRequired,
+      buy_price_min_date: PropTypes.string.isRequired,
+      city: PropTypes.string.isRequired,
+      item_id: PropTypes.string.isRequired,
+      quality: PropTypes.number.isRequired,
+      sell_price_max: PropTypes.number.isRequired,
+      sell_price_max_date: PropTypes.string.isRequired,
+      sell_price_min: PropTypes.number.isRequired,
+      sell_price_min_date: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired
+};
+
 export default ItemInfo;

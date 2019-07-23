@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import JssProvider from 'react-jss/lib/JssProvider';
 
 import { CssBaseline } from '@material-ui/core';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { ThemeProvider } from '@material-ui/styles';
 import MuiContainer from '@material-ui/core/Container';
 import withReduxStore from '../lib/with-redux-store';
 import Layout from '../components/NavLayout';
@@ -42,7 +42,7 @@ class MyApp extends App {
           >
             {/* MuiThemeProvider makes the theme available down the React
               tree thanks to React context. */}
-            <MuiThemeProvider
+            <ThemeProvider
               theme={this.pageContext.theme}
               sheetsManager={this.pageContext.sheetsManager}
             >
@@ -53,7 +53,7 @@ class MyApp extends App {
                   <Component pageContext={this.pageContext} {...pageProps} />
                 </MuiContainer>
               </Layout>
-            </MuiThemeProvider>
+            </ThemeProvider>
           </JssProvider>
         </Provider>
       </Container>

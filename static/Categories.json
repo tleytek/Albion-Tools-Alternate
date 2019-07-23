@@ -1,0 +1,8 @@
+[
+  { "name": "Accessories", "value": "Accessories" },
+  { "name": "Armor", "value": "Armor" },
+  { "name": "Magic", "value": "Magic" },
+  { "name": "Melee", "value": "Melee" },
+  { "name": "OffHand", "value": "OffHand" },
+  { "name": "Ranged", "value": "Ranged" }
+]
