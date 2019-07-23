@@ -5,7 +5,7 @@ import { SnackbarProvider } from 'notistack';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, AppBar, Toolbar } from '@material-ui/core';
-import TextInput from './TextInput';
+import TextField from '@material-ui/core/TextField';
 import Snackbar from './Snackbar';
 
 const useStyles = makeStyles(theme => ({
@@ -14,8 +14,10 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap'
   },
   textField: {
+    flexShrink: '1',
     marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
+    width: 'auto'
   },
   dense: {
     marginTop: theme.spacing(1)
@@ -52,7 +54,7 @@ const ItemInfo = props => {
           alt="Item"
           style={{ width: '150px', height: '150px' }}
         />
-        <TextInput
+        <TextField
           className={classes.textField}
           label="Black Market Price (ea)"
           id="ItemPrice"
@@ -78,25 +80,21 @@ const ItemInfo = props => {
             // eslint-disable-next-line no-shadow
             const { verboseName, uniquename, count } = el;
             return (
-              <Grid
-                container
-                item
-                xs={12}
-                // justify="space-between"
-                // alignItems="center"
-                key={uniquename}
-                className={classes.dense}
-              >
-                <Grid container item xs justify="flex-start">
+              <Grid container item xs={12} key={uniquename} className={classes.dense}>
+                <Grid container item xs>
                   <img
                     src={`https://gameinfo.albiononline.com/api/gameinfo/items/${el.uniquename}`}
                     alt="Item"
                     style={{ width: '75px', height: '75px' }}
                   />
+                </Grid>
+                <Grid container item xs={6} alignItems="center">
                   <Snackbar count={count} verboseName={verboseName} />
                 </Grid>
-                <Grid container item xs>
-                  <TextInput
+
+                <Grid container item xs={4}>
+                  <TextField
+                    className={classes.textField}
                     label="Market Price (ea)"
                     value={ResourcePrices[index].sell_price_min}
                     variant="outlined"
