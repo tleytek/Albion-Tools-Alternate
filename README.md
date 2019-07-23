@@ -1,6 +1,6 @@
 # Albion Tools
 Albion Tools is a web app with a collection of tools to help you play more efficiently.
-You can check it out over here at LINK
+You can check it out over here at https://albion-tools.herokuapp.com
 ## 1. Black Market Crafter
 This tool is used to skip buying items from the Auction House and instead crafting your own item. Generally this will cost you less silver than buying the item and has the added benefit of increasing your crafting level.
 ### Reminders/Helpful info
