@@ -1,5 +1,4 @@
 const axios = require('axios');
-const mongoose = require('mongoose');
 const db = require('../models');
 
 module.exports = {

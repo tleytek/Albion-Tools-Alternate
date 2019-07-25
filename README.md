@@ -3,6 +3,7 @@ Albion Tools is a web app with a collection of tools to help you play more effic
 You can check it out over here at https://albion-tools.herokuapp.com
 ## 1. Black Market Crafter
 This tool is used to skip buying items from the Auction House and instead crafting your own item. Generally this will cost you less silver than buying the item and has the added benefit of increasing your crafting level.
+NOTE: It is best to make sure your profit calculation is taking labourer returns into account when trying to level up a craft, this way you can have more options of items to craft that will cause you to break even.
 ### Reminders/Helpful info
 
 #### Crafting Cost
@@ -32,5 +33,3 @@ total reward amount = Base amount reward * average of all 4 refined materials AH
 
 Fame Earned for crafting an item is the total of the fame earned from crafting each refined material
 
-#### Fame Earned Calculation
-e.g. T5 plate Chest piece requires 16 T5 Metal bars, 1 metal bar gives 135 fame. Therefore 1 T5 chest piece is 135 * 16 = 2160(1440 without premium bonus)
