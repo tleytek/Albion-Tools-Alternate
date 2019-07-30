@@ -106,7 +106,7 @@ const Dev = () => {
               target="_blank"
               rel="noreferrer noopener"
             >
-              <IconButton className="fa fa-github" style={{ fontSize: '32px' }} />
+              <IconButton className="fa fa-github" style={{ fontSize: '40px' }} />
             </Link>
 )}
         />
@@ -129,7 +129,7 @@ const Dev = () => {
 
         <Collapse in={expanded.blackMarket} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography>BlackMarket</Typography>
+            <Typography>Home</Typography>
           </CardContent>
         </Collapse>
       </Card>

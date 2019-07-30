@@ -13,8 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
   textField: {
     flexGrow: 1,
-    marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(2)
+    margin: theme.spacing(2)
   },
   dense: {
     marginTop: theme.spacing(2)

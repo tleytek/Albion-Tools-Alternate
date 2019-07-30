@@ -208,7 +208,7 @@ class BlackMarketCrafting extends React.Component {
 
         {EquipmentItem && (
           <React.Fragment>
-            <Grid container item xs={12} justify="space-evenly">
+            <Grid container item justify="space-evenly">
               <CalculationOptions
                 Tax={Tax}
                 ReturnRate={ReturnRate}
@@ -218,7 +218,7 @@ class BlackMarketCrafting extends React.Component {
                 calculateProfit={this.calculateProfit}
               />
             </Grid>
-            <Grid container item xs={6} direction="column">
+            <Grid container item xs={12} md={6} direction="column">
               <ItemInfo
                 EquipmentItem={EquipmentItem}
                 ItemPrice={ItemPrice}
@@ -227,7 +227,7 @@ class BlackMarketCrafting extends React.Component {
                 calculateProfit={this.calculateProfit}
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
               <ProfitTable
                 UsageFee={UsageFee}
                 SubTotal={SubTotal}
