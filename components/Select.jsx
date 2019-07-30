@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
+import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -12,30 +13,26 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap'
   },
   formControl: {
-    margin: theme.spacing(2),
+    margin: theme.spacing(1),
     minWidth: 120
-  },
-  option: {
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2)
   }
 }));
 
 export default function SimpleSelect(props) {
-  const { type, data, onCategoryChange, currentValue, parentSelection } = props;
+  const { type, data, onCategoryChange, currentValue } = props;
   const classes = useStyles();
 
   // eslint-disable-next-line no-shadow
   const handleChange = name => event => {
     event.preventDefault();
-    onCategoryChange(name, event.target.value);
+    onCategoryChange(name, event.target.value, event.currentTarget.dataset.journal);
   };
 
   const renderSelectList = () => {
-    return data.map(({ name, value }) => (
-      <option className={classes.option} key={value} value={value}>
+    return data.map(({ name, value, journal }) => (
+      <MenuItem key={value} value={value} data-journal={journal}>
         {name}
-      </option>
+      </MenuItem>
     ));
   };
 
@@ -46,15 +43,14 @@ export default function SimpleSelect(props) {
           {type}
         </InputLabel>
         <Select
-          native
           value={currentValue}
           onChange={handleChange(type)}
           displayEmpty={type === 'Enchantment'}
-          inputProps={{ name: type, id: type }}
+          input={<Input name={type} id={type} />}
         >
-          {type !== 'Enchantment' && (
-            <option value="" className={classes.option}>{`Select ${type}`}</option>
-          )}
+          {/* {type !== 'Enchantment' && (
+            <MenuItem value="" className={classes.option}>{`Select ${type}`}</MenuItem>
+          )} */}
           {data && renderSelectList()}
         </Select>
       </FormControl>

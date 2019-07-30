@@ -120,7 +120,7 @@ ItemInfo.propTypes = {
     _id: PropTypes.string.isRequired,
     craftingrequirements: PropTypes.exact({
       craftingfocus: PropTypes.string.isRequired,
-      craftresources: PropTypes.arrayOf(
+      craftresource: PropTypes.arrayOf(
         PropTypes.exact({
           count: PropTypes.string.isRequired,
           uniquename: PropTypes.string.isRequired,

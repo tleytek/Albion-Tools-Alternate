@@ -6,6 +6,7 @@ import ItemSelection from '../components/ItemSelection';
 import ProfitTable from '../components/ProfitTable';
 import CalculationOptions from '../components/CalculationOptions';
 import { getPrice, getItemData } from '../lib/api';
+import getJournalPrice from '../lib/journalPrices';
 
 class BlackMarketCrafting extends React.Component {
   state = {
@@ -18,23 +19,36 @@ class BlackMarketCrafting extends React.Component {
     EquipmentItem: '',
     ItemPrice: '',
     ResourcePrices: '',
-    Tax: 59,
-    ReturnRate: 15,
-    FocusReturnRate: 44,
+    Tax: '59',
+    ReturnRate: '15',
+    FocusReturnRate: '44',
     UsageFee: '',
     SubTotal: '',
     ReturnDiscountMin: '',
-    // LaborDiscount: false,
+    LaborDiscount: '',
+    journalType: '',
+    journalFame: '1200',
     TotalCost: ''
   };
 
-  calculateProfit = () => {
+  calculateProfit = async () => {
     let ReturnDiscountMin = 0;
     let ReturnDiscountMax = 0;
     let SubTotal = 0;
-    const { Tax, EquipmentItem, ReturnRate, ResourcePrices, ItemPrice } = this.state;
-    const { craftingrequirements } = EquipmentItem;
+    const {
+      Tax,
+      EquipmentItem,
+      ReturnRate,
+      ResourcePrices,
+      ItemPrice,
+      journalType,
+      journalFame,
+      Tier
+    } = this.state;
+    const { craftingrequirements, fameEarned } = EquipmentItem;
     const { craftresource } = craftingrequirements;
+    const journalPrice = await getJournalPrice(journalType, Tier);
+    const LaborDiscount = _.ceil((fameEarned / journalFame) * journalPrice);
     const UsageFee = _.ceil(Tax * (EquipmentItem.itemValue * 0.05));
     craftresource.forEach((el, index) => {
       if (!el.maxreturnamount) {
@@ -46,9 +60,18 @@ class BlackMarketCrafting extends React.Component {
       SubTotal += el.count * ResourcePrices[index].sell_price_min;
     });
     const TotalCost = UsageFee + SubTotal - ReturnDiscountMax;
+    const SellTax = _.ceil(ItemPrice.buy_price_max * 0.02);
 
-    const Profit = ItemPrice.buy_price_max - TotalCost;
-    this.setState({ UsageFee, SubTotal, ReturnDiscountMin, TotalCost, Profit });
+    const Profit = ItemPrice.buy_price_max - TotalCost - SellTax;
+    this.setState({
+      UsageFee,
+      SubTotal,
+      ReturnDiscountMin,
+      TotalCost,
+      SellTax,
+      Profit,
+      LaborDiscount
+    });
   };
 
   fetchPrices = async () => {
@@ -89,7 +112,7 @@ class BlackMarketCrafting extends React.Component {
     this.fetchPrices();
   };
 
-  onInputChange = (name, value) => {
+  onInputChange = (name, value, journalData) => {
     const { ItemType, Tier, Enchantment, UniqueName } = this.state;
 
     // Removing old state values when a user changes a parent category
@@ -103,7 +126,7 @@ class BlackMarketCrafting extends React.Component {
         });
         break;
       case 'SubCategory':
-        this.setState({ ItemType: '', EquipmentItem: '', [name]: value });
+        this.setState({ ItemType: '', EquipmentItem: '', [name]: value, journalType: journalData });
         break;
       case 'ItemType':
         if (value) {
@@ -125,12 +148,13 @@ class BlackMarketCrafting extends React.Component {
           this.setState(
             {
               UniqueName: `${value}${ItemType}${Enchantment}`,
-              [name]: value
+              [name]: value,
+              journalFame: journalData
             },
             this.fetchEquipmentItem
           );
         } else {
-          this.setState({ [name]: value });
+          this.setState({ [name]: value, journalFame: journalData });
         }
         break;
       case 'Enchantment':
@@ -167,7 +191,9 @@ class BlackMarketCrafting extends React.Component {
       UsageFee,
       SubTotal,
       ReturnDiscountMin,
+      LaborDiscount,
       TotalCost,
+      SellTax,
       Profit
     } = this.state;
     // All of our visual content
@@ -207,6 +233,8 @@ class BlackMarketCrafting extends React.Component {
                 SubTotal={SubTotal}
                 ReturnDiscountMin={ReturnDiscountMin}
                 TotalCost={TotalCost}
+                LaborDiscount={LaborDiscount}
+                SellTax={SellTax}
                 Profit={Profit}
                 fetchPrices={this.fetchPrices}
                 calculateProfit={this.calculateProfit}

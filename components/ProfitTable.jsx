@@ -30,22 +30,28 @@ const createData = (name, value) => {
 
 const ProfitTable = props => {
   const classes = useStyles();
+  // Object Destructuring
   const {
     UsageFee,
     SubTotal,
     ReturnDiscountMin,
     TotalCost,
+    SellTax,
     Profit,
+    LaborDiscount,
     fetchPrices,
     calculateProfit
   } = props;
 
+  // Creates an array of objects
   const rows = [
     createData('Usage Fee', UsageFee),
     createData('SubTotal', SubTotal),
     createData('Return Discount', `-${ReturnDiscountMin}`),
     createData('Total', TotalCost),
-    createData('Profit', Profit)
+    createData('Sell Tax', SellTax),
+    createData('Profit', Profit),
+    createData('Labor Discount', LaborDiscount)
   ];
 
   return (

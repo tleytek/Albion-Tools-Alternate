@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { makeStyles } from '@material-ui/core/styles';
@@ -36,7 +37,6 @@ const CalculationOptions = props => {
 
   return (
     <Grid container item alignItems="center" className={classes.container}>
-      {/* <Grid item xs> */}
       <TextField
         className={classes.textField}
         id="Tax"
@@ -49,8 +49,6 @@ const CalculationOptions = props => {
         onChange={({ target }) => onInputChange(target.id, target.value)}
         onKeyPress={onEnter}
       />
-      {/* </Grid>
-      <Grid item xs> */}
       <TextField
         className={classes.textField}
         id="ReturnRate"
@@ -63,8 +61,6 @@ const CalculationOptions = props => {
         onChange={({ target }) => onInputChange(target.id, target.value)}
         onKeyPress={onEnter}
       />
-      {/* </Grid>
-      <Grid item xs> */}
       <TextField
         className={classes.textField}
         id="FocusReturnRate"
@@ -78,8 +74,14 @@ const CalculationOptions = props => {
         onChange={({ target }) => onInputChange(target.id, target.value)}
         onKeyPress={onEnter}
       />
-      {/* </Grid> */}
     </Grid>
   );
 };
+
+CalculationOptions.propTypes = {
+  Tax: PropTypes.string.isRequired,
+  ReturnRate: PropTypes.string.isRequired,
+  FocusReturnRate: PropTypes.string.isRequired
+};
+
 export default CalculationOptions;

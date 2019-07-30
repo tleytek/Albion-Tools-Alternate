@@ -1,22 +1,27 @@
 [
   {
     "name": "Tier 4",
-    "value": "T4"
+    "value": "T4",
+    "journal": 1200
   },
   {
     "name": "Tier 5",
-    "value": "T5"
+    "value": "T5",
+    "journal": 2400
   },
   {
     "name": "Tier 6",
-    "value": "T6"
+    "value": "T6",
+    "journal": 4800
   },
   {
     "name": "Tier 7",
-    "value": "T7"
+    "value": "T7",
+    "journal": 9600
   },
   {
     "name": "Tier 8",
-    "value": "T8"
+    "value": "T8",
+    "journal": 19200
   }
 ]
