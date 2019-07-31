@@ -10,7 +10,6 @@ import MuiContainer from '@material-ui/core/Container';
 import withReduxStore from '../lib/with-redux-store';
 import Layout from '../components/NavLayout';
 import getPageContext from '../lib/getPageContext';
-// import theme from '../utils/theme';
 
 class MyApp extends App {
   constructor(props) {

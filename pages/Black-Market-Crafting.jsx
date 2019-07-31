@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import ItemInfo from '../components/ItemInfo';
 import ItemSelection from '../components/ItemSelection';
@@ -196,9 +197,11 @@ class BlackMarketCrafting extends React.Component {
       SellTax,
       Profit
     } = this.state;
+
     // All of our visual content
     return (
       <Grid container>
+        {console.log(this.props.categories)}
         <Grid container item xs={12} justify="space-evenly">
           <ItemSelection
             onCategoryChange={this.onInputChange}
@@ -247,4 +250,8 @@ class BlackMarketCrafting extends React.Component {
   }
 }
 
-export default BlackMarketCrafting;
+const mapState = state => {
+  return { categories: state.categories };
+};
+
+export default connect(mapState)(BlackMarketCrafting);
