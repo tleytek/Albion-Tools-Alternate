@@ -8,9 +8,8 @@ const mongoSessionStore = require('connect-mongo');
 const helmet = require('helmet');
 const compression = require('compression');
 
-// const NATS = require('nats');
-// const { MongoClient } = require('mongodb');
-// const assert = require('assert');
+const NATS = require('nats');
+const db = require('./models');
 const routes = require('./routes');
 
 const dev = process.env.NODE_ENV !== 'production';
@@ -24,30 +23,31 @@ const mongooseOptions = {
   useFindAndModify: false
 };
 
-// const nats = NATS.connect('nats://public:thenewalbiondata@www.albion-online-data.com:4222');
-
-// MongoClient.connect('mongodb://localhost/albion', (err, client) => {
-//   assert.equal(null, err);
-//   const db = client.db('albion').collection('test');
-//   nats.subscribe('marketorders.deduped', msg => {
-//     const jsonMsg = JSON.parse(msg);
-//     jsonMsg.dateAdded = Date();
-//     if (
-//       jsonMsg.ItemGroupTypeId === 'T6_ARMOR_CLOTH_SET3' &&
-//       jsonMsg.LocationId === 3003
-//       // jsonMsg.AuctionType === 'request'
-//     ) {
-//       db.insertOne(jsonMsg);
-//       console.log(msg);
-//     }
-//     // console.log(msg);
-//   });
-// });
-
-mongoose.connect(process.env.MONGO_URI, mongooseOptions).then(() => console.log('DB connected'));
+mongoose
+  .connect('mongodb://localhost/albion', mongooseOptions)
+  .then(() => console.log('DB connected'));
 
 mongoose.connection.on('error', err => {
   console.log(`DB connection error: ${err.message}`);
+});
+
+const nc = NATS.connect('nats://public:thenewalbiondata@www.albion-online-data.com:4222', {
+  json: true
+});
+
+nc.on('connect', c => {
+  // Do something with the connection
+  nc.subscribe('marketorders.deduped', msg => {
+    if (msg.LocationId === 3003) {
+      db.NatsItem.create(msg)
+        .then(dbModel => console.log(dbModel))
+        .catch(err => console.log(err));
+      return console.log(msg);
+    }
+  });
+});
+nc.on('error', err => {
+  console.log(err);
 });
 
 app.prepare().then(() => {

@@ -1,3 +1,4 @@
 module.exports = {
-  BlackMarketItem: require('./BlackMarketItem')
+  BlackMarketItem: require('./BlackMarketItem'),
+  NatsItem: require('./NatsItem')
 };
