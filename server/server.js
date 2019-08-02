@@ -7,9 +7,9 @@ const logger = require('morgan');
 const mongoSessionStore = require('connect-mongo');
 const helmet = require('helmet');
 const compression = require('compression');
-
 const NATS = require('nats');
-const db = require('./models');
+
+const natsSubscribe = require('./nats');
 const routes = require('./routes');
 
 const dev = process.env.NODE_ENV !== 'production';
@@ -23,9 +23,7 @@ const mongooseOptions = {
   useFindAndModify: false
 };
 
-mongoose
-  .connect('mongodb://localhost/albion', mongooseOptions)
-  .then(() => console.log('DB connected'));
+mongoose.connect(process.env.MONGO_URI, mongooseOptions).then(() => console.log('DB connected'));
 
 mongoose.connection.on('error', err => {
   console.log(`DB connection error: ${err.message}`);
@@ -35,19 +33,8 @@ const nc = NATS.connect('nats://public:thenewalbiondata@www.albion-online-data.c
   json: true
 });
 
-nc.on('connect', c => {
-  // Do something with the connection
-  nc.subscribe('marketorders.deduped', msg => {
-    if (msg.LocationId === 3003) {
-      db.NatsItem.create(msg)
-        .then(dbModel => console.log(dbModel))
-        .catch(err => console.log(err));
-      return console.log(msg);
-    }
-  });
-});
-nc.on('error', err => {
-  console.log(err);
+nc.subscribe('marketorders.deduped', msg => {
+  natsSubscribe(msg);
 });
 
 app.prepare().then(() => {

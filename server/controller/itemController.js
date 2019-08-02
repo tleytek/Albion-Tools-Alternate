@@ -8,7 +8,7 @@ module.exports = {
         req.params.id
       }?locations=${encodeURIComponent(req.params.city)}&qualities=1`
     );
-    res.json(data[0]);
+    res.json(data);
   },
   async itemData(req, res) {
     db.BlackMarketItem.find({ uniquename: req.params.id }).then(itemData => {

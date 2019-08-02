@@ -79,15 +79,19 @@ class BlackMarketCrafting extends React.Component {
     const { EquipmentItem } = this.state;
     const { craftingrequirements } = EquipmentItem;
     const { craftresource } = craftingrequirements;
+    const ResourceNamesTest = craftresource
+      .map(el => {
+        return el.uniquename;
+      })
+      .join();
 
     const ItemPrice = await getPrice(EquipmentItem.uniquename, 'BlackMarket');
-    // Promise.all is necessary to resolve all promises from each map return
-    const ResourcePrices = await Promise.all(
-      craftresource.map(el => {
-        return getPrice(el.uniquename, 'Caerleon');
-      })
+    const ResourcePrices = await getPrice(ResourceNamesTest, 'Caerleon');
+
+    this.setState(
+      { ResourcePrices: ResourcePrices.reverse(), ItemPrice: ItemPrice[0] },
+      this.calculateProfit
     );
-    this.setState({ ResourcePrices, ItemPrice }, this.calculateProfit);
   };
 
   onResourcePriceChange = (name, value) => {
