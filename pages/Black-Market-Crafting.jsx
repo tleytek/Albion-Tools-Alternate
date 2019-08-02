@@ -60,8 +60,8 @@ class BlackMarketCrafting extends React.Component {
       }
       SubTotal += el.count * ResourcePrices[index].sell_price_min;
     });
-    const TotalCost = UsageFee + SubTotal - ReturnDiscountMax;
-    const SellTax = _.ceil(ItemPrice.buy_price_max * 0.02);
+    const SellTax = _.ceil(ItemPrice.buy_price_max * 0.03);
+    const TotalCost = UsageFee + SubTotal + SellTax - ReturnDiscountMax;
 
     const Profit = ItemPrice.buy_price_max - TotalCost - SellTax;
     this.setState({
