@@ -4,7 +4,7 @@ import moment from 'moment';
 import { SnackbarProvider } from 'notistack';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography, AppBar, Toolbar } from '@material-ui/core';
+import { Grid, Typography, AppBar, Toolbar, FormControl } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Snackbar from './Snackbar';
 
@@ -14,10 +14,8 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap'
   },
   textField: {
-    flexShrink: '1',
     marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 'auto'
+    marginRight: theme.spacing(1)
   },
   dense: {
     marginTop: theme.spacing(1)
@@ -44,35 +42,38 @@ const ItemInfo = props => {
   };
 
   return (
-    <div className={classes.container}>
+    <React.Fragment className={classes.container}>
       <CopyToClipboard text={verboseName}>
         <Typography variant="h4">{verboseName}</Typography>
       </CopyToClipboard>
-      <Grid container item alignItems="center">
-        <img
-          src={`https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${uniquename}`}
-          alt="Item"
-          style={{ width: '150px', height: '150px' }}
-        />
-        <TextField
-          className={classes.textField}
-          label="Black Market Price (ea)"
-          id="ItemPrice"
-          value={ItemPrice.buy_price_max}
-          variant="outlined"
-          onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
-          helperText={moment.parseZone(ItemPrice.buy_price_max_date).fromNow()}
-          onKeyPress={onEnter}
-        />
+      <Grid container item xs={12} justify="flex-start" alignItems="center">
+        <Grid item xs={4}>
+          <img
+            src={`https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${uniquename}`}
+            alt="Item"
+            style={{ maxWidth: '100%', maxHeight: '100%' }}
+          />
+        </Grid>
+        <Grid item xs md={4}>
+          <TextField
+            // fullWidth
+            className={classes.textField}
+            label="Black Market Price (ea)"
+            id="ItemPrice"
+            value={ItemPrice.buy_price_max}
+            variant="outlined"
+            onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
+            helperText={moment.parseZone(ItemPrice.buy_price_max_date).fromNow()}
+            onKeyPress={onEnter}
+          />
+        </Grid>
       </Grid>
 
-      <Grid container item>
-        <AppBar position="relative" square={false}>
-          <Toolbar color="primary" variant="dense">
-            Crafting Materials
-          </Toolbar>
-        </AppBar>
-      </Grid>
+      <AppBar position="relative" square={false}>
+        <Toolbar color="primary" variant="dense">
+          Crafting Materials
+        </Toolbar>
+      </AppBar>
 
       <SnackbarProvider maxSnack="1" transitionDuration={500} autoHideDuration="2000">
         {ResourcePrices &&
@@ -80,25 +81,33 @@ const ItemInfo = props => {
             // eslint-disable-next-line no-shadow
             const { verboseName, uniquename, count } = el;
             return (
-              <Grid container item xs={12} key={uniquename} className={classes.dense}>
-                <Grid container item xs>
+              <Grid
+                container
+                item
+                xs={12}
+                key={uniquename}
+                className={classes.dense}
+                alignItems="center"
+              >
+                <Grid container item xs={3}>
                   <img
                     src={`https://gameinfo.albiononline.com/api/gameinfo/items/${el.uniquename}`}
                     alt="Item"
                     style={{ width: '75px', height: '75px' }}
                   />
                 </Grid>
-                <Grid container item xs={6} alignItems="center">
+                <Grid container item xs={4}>
                   <Snackbar count={count} verboseName={verboseName} />
                 </Grid>
 
-                <Grid container item xs={4}>
+                <Grid container item xs>
                   <TextField
+                    fullWidth
                     className={classes.textField}
                     label="Market Price (ea)"
                     value={ResourcePrices[index].sell_price_min}
                     variant="outlined"
-                    margin="dense"
+                    // margin="dense"
                     onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
                     id={index}
                     helperText={moment
@@ -111,7 +120,7 @@ const ItemInfo = props => {
             );
           })}
       </SnackbarProvider>
-    </div>
+    </React.Fragment>
   );
 };
 

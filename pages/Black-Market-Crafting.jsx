@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
+import Loading from '../components/Loading';
 import ItemInfo from '../components/ItemInfo';
 import ItemSelection from '../components/ItemSelection';
 import ProfitTable from '../components/ProfitTable';
@@ -11,6 +12,7 @@ import getJournalPrice from '../lib/journalPrices';
 
 class BlackMarketCrafting extends React.Component {
   state = {
+    isLoading: false,
     Category: '',
     SubCategory: '',
     ItemType: '',
@@ -61,9 +63,9 @@ class BlackMarketCrafting extends React.Component {
       SubTotal += el.count * ResourcePrices[index].sell_price_min;
     });
     const SellTax = _.ceil(ItemPrice.buy_price_max * 0.03);
-    const TotalCost = UsageFee + SubTotal + SellTax - ReturnDiscountMax;
+    const TotalCost = UsageFee + SubTotal + SellTax - ReturnDiscountMin;
 
-    const Profit = ItemPrice.buy_price_max - TotalCost - SellTax;
+    const Profit = ItemPrice.buy_price_max - TotalCost;
     this.setState({
       UsageFee,
       SubTotal,
@@ -71,11 +73,13 @@ class BlackMarketCrafting extends React.Component {
       TotalCost,
       SellTax,
       Profit,
-      LaborDiscount
+      LaborDiscount,
+      isLoading: false
     });
   };
 
   fetchPrices = async () => {
+    this.setState({ isLoading: true });
     const { EquipmentItem } = this.state;
     const { craftingrequirements } = EquipmentItem;
     const { craftresource } = craftingrequirements;
@@ -182,6 +186,7 @@ class BlackMarketCrafting extends React.Component {
 
   render() {
     const {
+      isLoading,
       Category,
       SubCategory,
       ItemType,
@@ -205,7 +210,6 @@ class BlackMarketCrafting extends React.Component {
     // All of our visual content
     return (
       <Grid container>
-        {console.log(this.props.categories)}
         <Grid container item xs={12} justify="space-evenly">
           <ItemSelection
             onCategoryChange={this.onInputChange}
@@ -225,28 +229,36 @@ class BlackMarketCrafting extends React.Component {
                 calculateProfit={this.calculateProfit}
               />
             </Grid>
-            <Grid container item xs={12} md={6} direction="column">
-              <ItemInfo
-                EquipmentItem={EquipmentItem}
-                ItemPrice={ItemPrice}
-                ResourcePrices={ResourcePrices}
-                onResourcePriceChange={this.onResourcePriceChange}
-                calculateProfit={this.calculateProfit}
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <ProfitTable
-                UsageFee={UsageFee}
-                SubTotal={SubTotal}
-                ReturnDiscountMin={ReturnDiscountMin}
-                TotalCost={TotalCost}
-                LaborDiscount={LaborDiscount}
-                SellTax={SellTax}
-                Profit={Profit}
-                fetchPrices={this.fetchPrices}
-                calculateProfit={this.calculateProfit}
-              />
-            </Grid>
+            {isLoading ? (
+              <Grid container item justify="center" alignContent="center">
+                <Loading />
+              </Grid>
+            ) : (
+              <React.Fragment>
+                <Grid container item xs={12} md={6}>
+                  <ItemInfo
+                    EquipmentItem={EquipmentItem}
+                    ItemPrice={ItemPrice}
+                    ResourcePrices={ResourcePrices}
+                    onResourcePriceChange={this.onResourcePriceChange}
+                    calculateProfit={this.calculateProfit}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <ProfitTable
+                    UsageFee={UsageFee}
+                    SubTotal={SubTotal}
+                    ReturnDiscountMin={ReturnDiscountMin}
+                    TotalCost={TotalCost}
+                    LaborDiscount={LaborDiscount}
+                    SellTax={SellTax}
+                    Profit={Profit}
+                    fetchPrices={this.fetchPrices}
+                    calculateProfit={this.calculateProfit}
+                  />
+                </Grid>
+              </React.Fragment>
+            )}
           </React.Fragment>
         )}
       </Grid>

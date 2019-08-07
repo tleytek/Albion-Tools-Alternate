@@ -46,10 +46,10 @@ const ProfitTable = props => {
   // Creates an array of objects
   const rows = [
     createData('Usage Fee', UsageFee),
-    createData('SubTotal', SubTotal),
-    createData('Return Discount', `-${ReturnDiscountMin}`),
+    createData('Material Cost', SubTotal),
+    createData('Material Return Discount', `-${ReturnDiscountMin}`),
+    createData('Total Crafting Cost', TotalCost),
     createData('Sell Tax', SellTax),
-    createData('Total Cost', TotalCost),
     createData('Profit', Profit),
     createData('Labor Discount', LaborDiscount)
   ];
