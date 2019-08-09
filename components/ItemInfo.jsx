@@ -46,7 +46,7 @@ const ItemInfo = props => {
       <CopyToClipboard text={verboseName}>
         <Typography variant="h4">{verboseName}</Typography>
       </CopyToClipboard>
-      <Grid container item xs={12} justify="flex-start" alignItems="center">
+      <Grid container item justify="flex-start" alignItems="center">
         <Grid item xs={4}>
           <img
             src={`https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${uniquename}`}
@@ -54,26 +54,27 @@ const ItemInfo = props => {
             style={{ maxWidth: '100%', maxHeight: '100%' }}
           />
         </Grid>
-        <Grid item xs md={4}>
+        <Grid item xs>
           <TextField
             // fullWidth
             className={classes.textField}
             label="Black Market Price (ea)"
             id="ItemPrice"
-            value={ItemPrice.buy_price_max}
+            value={ItemPrice.UnitPriceSilver}
             variant="outlined"
             onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
-            helperText={moment.parseZone(ItemPrice.buy_price_max_date).fromNow()}
+            helperText={moment.parseZone(ItemPrice.updatedAt).fromNow()}
             onKeyPress={onEnter}
           />
         </Grid>
       </Grid>
-
-      <AppBar position="relative" square={false}>
-        <Toolbar color="primary" variant="dense">
-          Crafting Materials
-        </Toolbar>
-      </AppBar>
+      <Grid item xs>
+        <AppBar position="relative" square={false}>
+          <Toolbar color="primary" variant="dense">
+            Crafting Materials
+          </Toolbar>
+        </AppBar>
+      </Grid>
 
       <SnackbarProvider maxSnack="1" transitionDuration={500} autoHideDuration="2000">
         {ResourcePrices &&

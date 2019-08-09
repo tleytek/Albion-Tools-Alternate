@@ -7,7 +7,7 @@ import ItemInfo from '../components/ItemInfo';
 import ItemSelection from '../components/ItemSelection';
 import ProfitTable from '../components/ProfitTable';
 import CalculationOptions from '../components/CalculationOptions';
-import { getPrice, getItemData } from '../lib/api';
+import { getPrice, getItemData, getDbPrice } from '../lib/api';
 import getJournalPrice from '../lib/journalPrices';
 
 class BlackMarketCrafting extends React.Component {
@@ -36,7 +36,6 @@ class BlackMarketCrafting extends React.Component {
 
   calculateProfit = async () => {
     let ReturnDiscountMin = 0;
-    let ReturnDiscountMax = 0;
     let SubTotal = 0;
     const {
       Tax,
@@ -57,8 +56,8 @@ class BlackMarketCrafting extends React.Component {
       if (!el.maxreturnamount) {
         ReturnDiscountMin +=
           _.floor((ReturnRate / 100) * _.toNumber(el.count)) * ResourcePrices[index].sell_price_min;
-        ReturnDiscountMax +=
-          _.ceil((ReturnRate / 100) * _.toNumber(el.count)) * ResourcePrices[index].sell_price_min;
+        // ReturnDiscountMax +=
+        //   _.ceil((ReturnRate / 100) * _.toNumber(el.count)) * ResourcePrices[index].sell_price_min;
       }
       SubTotal += el.count * ResourcePrices[index].sell_price_min;
     });
@@ -83,25 +82,21 @@ class BlackMarketCrafting extends React.Component {
     const { EquipmentItem } = this.state;
     const { craftingrequirements } = EquipmentItem;
     const { craftresource } = craftingrequirements;
-    const ResourceNamesTest = craftresource
-      .map(el => {
-        return el.uniquename;
-      })
-      .join();
+    const resourceArray = craftresource.map(el => {
+      return el.uniquename;
+    });
 
-    const ItemPrice = await getPrice(EquipmentItem.uniquename, 'BlackMarket');
-    const ResourcePrices = await getPrice(ResourceNamesTest, 'Caerleon');
+    const ItemPrice = (await getPrice(EquipmentItem.uniquename, 3003, 'request'))[0];
+    const ResourcePrices = await getPrice(resourceArray, 3005, 'offer');
+    console.log(ResourcePrices);
 
-    this.setState(
-      { ResourcePrices: ResourcePrices.reverse(), ItemPrice: ItemPrice[0] },
-      this.calculateProfit
-    );
+    this.setState({ ResourcePrices, ItemPrice }, this.calculateProfit);
   };
 
   onResourcePriceChange = (name, value) => {
     const { ResourcePrices, ItemPrice } = this.state;
     if (name === 'ItemPrice') {
-      ItemPrice.buy_price_max = value;
+      ItemPrice.UnitPriceSilver = value;
       this.setState({ ItemPrice });
     } else {
       ResourcePrices[name].sell_price_min = value;
@@ -111,14 +106,8 @@ class BlackMarketCrafting extends React.Component {
 
   fetchEquipmentItem = async () => {
     const { ItemType, Enchantment, Tier } = this.state;
-    const EquipmentItem = await getItemData(`${Tier}${ItemType}${Enchantment}`);
-
-    // const EquipmentItem = ObjPrune(EquipmentItems[index], Enchantment);
-    await this.setState({
-      EquipmentItem,
-      ResourcePrices: ''
-    });
-    this.fetchPrices();
+    const EquipmentItem = (await getItemData(`${Tier}${ItemType}${Enchantment}`))[0];
+    await this.setState({ EquipmentItem, ResourcePrices: '' }, this.fetchPrices);
   };
 
   onInputChange = (name, value, journalData) => {

@@ -1,0 +1,1352 @@
+﻿[
+        {
+          "name": "WOOD",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "1",
+              "famevalue": "1.5"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "1",
+              "famevalue": "3"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "2",
+              "famevalue": "7.5"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "2.67",
+              "famevalue": "22.5"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "4",
+              "famevalue": "45"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "6.4",
+              "famevalue": "75"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "12.8",
+              "famevalue": "150"
+            }
+          ]
+        },
+        {
+          "name": "WOOD_LEVEL1",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "1",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "2",
+              "famevalue": "3"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "2",
+              "famevalue": "6"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "6",
+              "famevalue": "15"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "5.33",
+              "famevalue": "45"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "8",
+              "famevalue": "90"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "12.8",
+              "famevalue": "150"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "25.6",
+              "famevalue": "300"
+            }
+          ]
+        },
+        {
+          "name": "WOOD_LEVEL2",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "2",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "4",
+              "famevalue": "4.5"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "4",
+              "famevalue": "9"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "12",
+              "famevalue": "22.5"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "10.67",
+              "famevalue": "67.5"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "16",
+              "famevalue": "135"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "25.6",
+              "famevalue": "225"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "51.2",
+              "famevalue": "450"
+            }
+          ]
+        },
+        {
+          "name": "WOOD_LEVEL3",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "4",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "8",
+              "famevalue": "6"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "8",
+              "famevalue": "12"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "24",
+              "famevalue": "30"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "21.33",
+              "famevalue": "90"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "32",
+              "famevalue": "180"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "51.2",
+              "famevalue": "300"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "102.4",
+              "famevalue": "600"
+            }
+          ]
+        },
+        {
+          "name": "ROCK",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "1",
+              "famevalue": "1.5"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "1",
+              "famevalue": "3"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "2",
+              "famevalue": "7.5"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "2.67",
+              "famevalue": "22.5"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "4",
+              "famevalue": "45"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "6.4",
+              "famevalue": "75"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "12.8",
+              "famevalue": "150"
+            }
+          ]
+        },
+        {
+          "name": "ORE",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "1",
+              "famevalue": "1.5"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "1",
+              "famevalue": "3"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "2",
+              "famevalue": "7.5"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "2.67",
+              "famevalue": "22.5"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "4",
+              "famevalue": "45"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "6.4",
+              "famevalue": "75"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "12.8",
+              "famevalue": "150"
+            }
+          ]
+        },
+        {
+          "name": "ORE_LEVEL1",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "1",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "2",
+              "famevalue": "3"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "2",
+              "famevalue": "6"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "6",
+              "famevalue": "15"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "5.33",
+              "famevalue": "45"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "8",
+              "famevalue": "90"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "12.8",
+              "famevalue": "150"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "25.6",
+              "famevalue": "300"
+            }
+          ]
+        },
+        {
+          "name": "ORE_LEVEL2",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "2",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "4",
+              "famevalue": "4.5"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "4",
+              "famevalue": "9"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "12",
+              "famevalue": "22.5"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "10.67",
+              "famevalue": "67.5"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "16",
+              "famevalue": "135"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "25.6",
+              "famevalue": "225"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "51.2",
+              "famevalue": "450"
+            }
+          ]
+        },
+        {
+          "name": "ORE_LEVEL3",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "4",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "8",
+              "famevalue": "6"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "8",
+              "famevalue": "12"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "24",
+              "famevalue": "30"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "21.33",
+              "famevalue": "90"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "32",
+              "famevalue": "180"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "51.2",
+              "famevalue": "300"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "102.4",
+              "famevalue": "600"
+            }
+          ]
+        },
+        {
+          "name": "FIBER",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "1",
+              "famevalue": "1.5"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "1",
+              "famevalue": "3"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "2",
+              "famevalue": "7.5"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "2.67",
+              "famevalue": "22.5"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "4",
+              "famevalue": "45"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "6.4",
+              "famevalue": "75"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "12.8",
+              "famevalue": "150"
+            }
+          ]
+        },
+        {
+          "name": "FIBER_LEVEL1",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "1",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "2",
+              "famevalue": "3"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "2",
+              "famevalue": "6"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "6",
+              "famevalue": "15"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "5.33",
+              "famevalue": "45"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "8",
+              "famevalue": "90"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "12.8",
+              "famevalue": "150"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "25.6",
+              "famevalue": "300"
+            }
+          ]
+        },
+        {
+          "name": "FIBER_LEVEL2",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "2",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "4",
+              "famevalue": "4.5"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "4",
+              "famevalue": "9"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "12",
+              "famevalue": "22.5"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "10.67",
+              "famevalue": "67.5"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "16",
+              "famevalue": "135"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "25.6",
+              "famevalue": "225"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "51.2",
+              "famevalue": "450"
+            }
+          ]
+        },
+        {
+          "name": "FIBER_LEVEL3",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "4",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "8",
+              "famevalue": "6"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "8",
+              "famevalue": "12"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "24",
+              "famevalue": "30"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "21.33",
+              "famevalue": "90"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "32",
+              "famevalue": "180"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "51.2",
+              "famevalue": "300"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "102.4",
+              "famevalue": "600"
+            }
+          ]
+        },
+        {
+          "name": "HIDE",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "1",
+              "famevalue": "1.5"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "1",
+              "famevalue": "3"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "2",
+              "famevalue": "7.5"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "2.67",
+              "famevalue": "22.5"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "4",
+              "famevalue": "45"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "6.4",
+              "famevalue": "75"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "12.8",
+              "famevalue": "150"
+            }
+          ]
+        },
+        {
+          "name": "HIDE_LEVEL1",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "1",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "2",
+              "famevalue": "3"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "2",
+              "famevalue": "6"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "6",
+              "famevalue": "15"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "5.33",
+              "famevalue": "45"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "8",
+              "famevalue": "90"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "12.8",
+              "famevalue": "150"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "25.6",
+              "famevalue": "300"
+            }
+          ]
+        },
+        {
+          "name": "HIDE_LEVEL2",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "2",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "4",
+              "famevalue": "4.5"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "4",
+              "famevalue": "9"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "12",
+              "famevalue": "22.5"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "10.67",
+              "famevalue": "67.5"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "16",
+              "famevalue": "135"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "25.6",
+              "famevalue": "225"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "51.2",
+              "famevalue": "450"
+            }
+          ]
+        },
+        {
+          "name": "HIDE_LEVEL3",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "4",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "8",
+              "famevalue": "6"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "8",
+              "famevalue": "12"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "24",
+              "famevalue": "30"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "21.33",
+              "famevalue": "90"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "32",
+              "famevalue": "180"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "51.2",
+              "famevalue": "300"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "102.4",
+              "famevalue": "600"
+            }
+          ]
+        },
+        {
+          "name": "PRODUCTS",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            }
+          ]
+        },
+        {
+          "name": "CROP",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            }
+          ]
+        },
+        {
+          "name": "HERB",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            }
+          ]
+        },
+        {
+          "name": "MEAT",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "20",
+              "famevalue": "20"
+            }
+          ]
+        },
+        {
+          "name": "FISH",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            }
+          ]
+        },
+        {
+          "name": "OTHER",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "0",
+              "famevalue": "0"
+            }
+          ]
+        },
+        {
+          "name": "TOKEN",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "32",
+              "famevalue": "10"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "32",
+              "famevalue": "10"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "32",
+              "famevalue": "10"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "32",
+              "famevalue": "10"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "32",
+              "famevalue": "10"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "32",
+              "famevalue": "10"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "32",
+              "famevalue": "10"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "32",
+              "famevalue": "10"
+            }
+          ]
+        },
+        {
+          "name": "ARENA_TOKEN",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "3",
+              "famevalue": "1"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "3",
+              "famevalue": "1"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "3",
+              "famevalue": "1"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "3",
+              "famevalue": "1"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "3",
+              "famevalue": "1"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "3",
+              "famevalue": "1"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "3",
+              "famevalue": "1"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "3",
+              "famevalue": "1"
+            }
+          ]
+        },
+        {
+          "name": "FRAGMENTS",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            }
+          ]
+        },
+        {
+          "name": "ESSENCE",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "0",
+              "famevalue": "10"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "0",
+              "famevalue": "10"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "0",
+              "famevalue": "10"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "0",
+              "famevalue": "10"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "0",
+              "famevalue": "10"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "0",
+              "famevalue": "10"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "0",
+              "famevalue": "10"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "0",
+              "famevalue": "10"
+            }
+          ]
+        },
+        {
+          "name": "RUNE",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            }
+          ]
+        },
+        {
+          "name": "SOUL",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            }
+          ]
+        },
+        {
+          "name": "RELIC",
+          "ResourceTier": [
+            {
+              "value": "1",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "2",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "3",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "4",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "5",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "6",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "7",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            },
+            {
+              "value": "8",
+              "resourcevalue": "10",
+              "famevalue": "10"
+            }
+          ]
+        }
+      ]

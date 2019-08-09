@@ -1,0 +1,214 @@
+{
+  "Bag": [{ "name": "Bag", "value": "_BAG" }],
+  "Cape": [{ "name": "Cape", "value": "_CAPE" }],
+  "ClothArmor": [
+    { "name": "Scholar Robe", "value": "_ARMOR_CLOTH_SET1" },
+    { "name": "Cleric Robe", "value": "_ARMOR_CLOTH_SET2" },
+    { "name": "Mage Robe", "value": "_ARMOR_CLOTH_SET3" },
+    { "name": "Druid Robe", "value": "_ARMOR_CLOTH_KEEPER" },
+    { "name": "Fiend Robe", "value": "_ARMOR_CLOTH_HELL" },
+    { "name": "Cultist Robe", "value": "_ARMOR_CLOTH_MORGANA" }
+  ],
+  "ClothHelmet": [
+    { "name": "Scholar Cowl", "value": "_HEAD_CLOTH_SET1" },
+    { "name": "Cleric Cowl", "value": "_HEAD_CLOTH_SET2" },
+    { "name": "Mage Cowl", "value": "_HEAD_CLOTH_SET3" },
+    { "name": "Druid Cowl", "value": "_HEAD_CLOTH_KEEPER" },
+    { "name": "Fiend Cowl", "value": "_HEAD_CLOTH_HELL" },
+    { "name": "Cultist Cowl", "value": "_HEAD_CLOTH_MORGANA" }
+  ],
+  "ClothShoes": [
+    { "name": "Scholar Sandals", "value": "_SHOES_CLOTH_SET1" },
+    { "name": "Cleric Sandals", "value": "_SHOES_CLOTH_SET2" },
+    { "name": "Mage Sandals", "value": "_SHOES_CLOTH_SET3" },
+    { "name": "Druid Sandals", "value": "_SHOES_CLOTH_KEEPER" },
+    { "name": "Fiend Sandals", "value": "_SHOES_CLOTH_HELL" },
+    { "name": "Cultist Sandals", "value": "_SHOES_CLOTH_MORGANA" }
+  ],
+  "LeatherArmor": [
+    { "name": "Mercenary Jacket", "value": "_ARMOR_LEATHER_SET1" },
+    { "name": "Hunter Jacket", "value": "_ARMOR_LEATHER_SET2" },
+    { "name": "Assassin Jacket", "value": "_ARMOR_LEATHER_SET3" },
+    { "name": "Stalker Jacket", "value": "_ARMOR_LEATHER_MORGANA" },
+    { "name": "Hellion Jacket", "value": "_ARMOR_LEATHER_HELL" },
+    { "name": "Specter Jacket", "value": "_ARMOR_LEATHER_UNDEAD" }
+  ],
+  "LeatherHelmet": [
+    { "name": "Mercenary Hood", "value": "_HEAD_LEATHER_SET1" },
+    { "name": "Hunter Hood", "value": "_HEAD_LEATHER_SET2" },
+    { "name": "Assassin Hood", "value": "_HEAD_LEATHER_SET3" },
+    { "name": "Stalker Hood", "value": "_HEAD_LEATHER_MORGANA" },
+    { "name": "Hellion Hood", "value": "_HEAD_LEATHER_HELL" },
+    { "name": "Specter Hood", "value": "_HEAD_LEATHER_UNDEAD" }
+  ],
+  "LeatherShoes": [
+    { "name": "Mercenary Shoes", "value": "_SHOES_LEATHER_SET1" },
+    { "name": "Hunter Shoes", "value": "_SHOES_LEATHER_SET2" },
+    { "name": "Assassin Shoes", "value": "_SHOES_LEATHER_SET3" },
+    { "name": "Stalker Shoes", "value": "_SHOES_LEATHER_MORGANA" },
+    { "name": "Hellion Shoes", "value": "_SHOES_LEATHER_HELL" },
+    { "name": "Specter Shoes", "value": "_SHOES_LEATHER_UNDEAD" }
+  ],
+  "PlateArmor": [
+    { "name": "Soldier Armor", "value": "_ARMOR_PLATE_SET1" },
+    { "name": "Knight Armor", "value": "_ARMOR_PLATE_SET2" },
+    { "name": "Guardian Armor", "value": "_ARMOR_PLATE_SET3" },
+    { "name": "Graveguard Armor", "value": "_ARMOR_PLATE_UNDEAD" },
+    { "name": "Demon Armor", "value": "_ARMOR_PLATE_HELL" },
+    { "name": "Judicator Armor", "value": "_ARMOR_PLATE_KEEPER" }
+  ],
+  "PlateHelmet": [
+    { "name": "Soldier Helmet", "value": "_HEAD_PLATE_SET1" },
+    { "name": "Knight Helmet", "value": "_HEAD_PLATE_SET2" },
+    { "name": "Guardian Helmet", "value": "_HEAD_PLATE_SET3" },
+    { "name": "Graveguard Helmet", "value": "_HEAD_PLATE_UNDEAD" },
+    { "name": "Demon Helmet", "value": "_HEAD_PLATE_HELL" },
+    { "name": "Judicator Helmet", "value": "_HEAD_PLATE_KEEPER" }
+  ],
+  "PlateShoes": [
+    { "name": "Soldier Boots", "value": "_SHOES_PLATE_SET1" },
+    { "name": "Knight Boots", "value": "_SHOES_PLATE_SET2" },
+    { "name": "Guardian Boots", "value": "_SHOES_PLATE_SET3" },
+    { "name": "Graveguard Boots", "value": "_SHOES_PLATE_UNDEAD" },
+    { "name": "Demon Boots", "value": "_SHOES_PLATE_HELL" },
+    { "name": "Judicator Boots", "value": "_SHOES_PLATE_KEEPER" }
+  ],
+  "ArcaneStaff": [
+    { "name": "Arcane Staff", "value": "_MAIN_ARCANESTAFF" },
+    { "name": "Great Arcane Staff", "value": "_2H_ARCANESTAFF" },
+    { "name": "Enigmatic Staff", "value": "_2H_ENIGMATICSTAFF" },
+    { "name": "Witchwork Staff", "value": "_MAIN_ARCANESTAFF_UNDEAD" },
+    { "name": "Occult Staff", "value": "_2H_ARCANESTAFF_HELL" },
+    { "name": "Malevolent Locus", "value": "_2H_ENIGMATICORB_MORGANA" }
+  ],
+  "CursedStaff": [
+    { "name": "Cursed Staff", "value": "_MAIN_CURSEDSTAFF" },
+    { "name": "Great Cursed Staff", "value": "_2H_CURSEDSTAFF" },
+    { "name": "Demonic Staff", "value": "_2H_DEMONICSTAFF" },
+    { "name": "Lifecurse Staff", "value": "_MAIN_CURSEDSTAFF_UNDEAD" },
+    { "name": "Cursed Skull", "value": "_2H_SKULLORB_HELL" },
+    { "name": "Damnation Staff", "value": "_2H_CURSEDSTAFF_MORGANA" }
+  ],
+  "FireStaff": [
+    { "name": "Fire Staff", "value": "_MAIN_FIRESTAFF" },
+    { "name": "Great Fire Staff", "value": "_2H_FIRESTAFF" },
+    { "name": "Infernal Staff", "value": "_2H_INFERNOSTAFF" },
+    { "name": "Wildfire Staff", "value": "_MAIN_FIRESTAFF_KEEPER" },
+    { "name": "Brimstone Staff", "value": "_2H_FIRESTAFF_HELL" },
+    { "name": "Blazing Staff", "value": "_2H_INFERNOSTAFF_MORGANA" }
+  ],
+  "FrostStaff": [
+    { "name": "Frost Staff", "value": "_MAIN_FROSTSTAFF" },
+    { "name": "Great Frost Staff", "value": "_2H_FROSTSTAFF" },
+    { "name": "Glacial Staff", "value": "_2H_GLACIALSTAFF" },
+    { "name": "Hoarfrost Staff", "value": "_MAIN_FROSTSTAFF_KEEPER" },
+    { "name": "Icicle Staff", "value": "_2H_ICEGAUNTLETS_HELL" },
+    { "name": "Permafrost Staff", "value": "_2H_ICECRYSTAL_UNDEAD" }
+  ],
+  "HolyStaff": [
+    { "name": "Holy Staff", "value": "_MAIN_HOLYSTAFF" },
+    { "name": "Great Holy Staff", "value": "_2H_HOLYSTAFF" },
+    { "name": "Divine Staff", "value": "_2H_DIVINESTAFF" },
+    { "name": "Lifetouch Staff", "value": "_MAIN_HOLYSTAFF_MORGANA" },
+    { "name": "Fallen Staff", "value": "_2H_HOLYSTAFF_HELL" },
+    { "name": "Redemption Staff", "value": "_2H_HOLYSTAFF_UNDEAD" }
+  ],
+  "NatureStaff": [
+    { "name": "Nature Staff", "value": "_MAIN_NATURESTAFF" },
+    { "name": "Great Nature Staff", "value": "_2H_NATURESTAFF" },
+    { "name": "Wild Staff", "value": "_2H_WILDSTAFF" },
+    { "name": "Druidic Staff", "value": "_MAIN_NATURESTAFF_KEEPER" },
+    { "name": "Blight Staff", "value": "_2H_NATURESTAFF_HELL" },
+    { "name": "Rampant Staff", "value": "_2H_NATURESTAFF_KEEPER" }
+  ],
+  "Axe": [
+    { "name": "Battleaxe", "value": "_MAIN_AXE" },
+    { "name": "Greataxe ", "value": "_2H_AXE" },
+    { "name": "Halberd", "value": "_2H_HALBERD" },
+    { "name": "Carrioncaller", "value": "_2H_HALBERD_MORGANA" },
+    { "name": "Infernal Scythe", "value": "_2H_SCYTHE_HELL" },
+    { "name": "Bear Paws", "value": "_2H_DUALAXE_KEEPER" }
+  ],
+  "Dagger": [
+    { "name": "Dagger", "value": "_MAIN_DAGGER" },
+    { "name": "Dagger Pair", "value": "_2H_DAGGERPAIR" },
+    { "name": "Claws", "value": "_2H_CLAWPAIR" },
+    { "name": "Bloodletter", "value": "_MAIN_RAPIER_MORGANA" },
+    { "name": "Black Hands", "value": "_2H_IRONGAUNTLETS_HELL" },
+    { "name": "Deathgivers", "value": "_2H_DUALSICKLE_UNDEAD" }
+  ],
+  "Hammer": [
+    { "name": "Hammer", "value": "_MAIN_HAMMER" },
+    { "name": "Great Hammer", "value": "_2H_HAMMER" },
+    { "name": "Polehammer", "value": "_2H_POLEHAMMER" },
+    { "name": "Tombhammer", "value": "_2H_HAMMER_UNDEAD" },
+    { "name": "Forge Hammers", "value": "_2H_DUALHAMMER_HELL" },
+    { "name": "Grovekeeper", "value": "_2H_RAM_KEEPER" }
+  ],
+  "Mace": [
+    { "name": "Mace", "value": "_MAIN_MACE" },
+    { "name": "Heavy Mace", "value": "_2H_MACE" },
+    { "name": "Morning Star", "value": "_2H_FLAIL" },
+    { "name": "Bedrock Mace", "value": "_MAIN_ROCKMACE_KEEPER" },
+    { "name": "Incubus Mace", "value": "_MAIN_MACE_HELL" },
+    { "name": "Camlann Mace", "value": "_2H_MACE_MORGANA" }
+  ],
+  "Quarterstaff": [
+    { "name": "Quarterstaff", "value": "_2H_QUARTERSTAFF" },
+    { "name": "Iron-Clad Staff", "value": "_2H_IRONCLADEDSTAFF" },
+    { "name": "Double Bladed Staff", "value": "_2H_DOUBLEBLADEDSTAFF" },
+    { "name": "Black Monk Staff", "value": "_2H_COMBATSTAFF_MORGANA" },
+    { "name": "Soulscythe", "value": "_2H_TWINSCYTHE_HELL" },
+    { "name": "Staff of Balance", "value": "_2H_ROCKSTAFF_KEEPER" }
+  ],
+  "Spear": [
+    { "name": "Spear", "value": "_MAIN_SPEAR" },
+    { "name": "Glaive", "value": "_2H_GLAIVE" },
+    { "name": "Pike", "value": "_2H_SPEAR" },
+    { "name": "Heron Spear", "value": "_MAIN_SPEAR_KEEPER" },
+    { "name": "Spirithunter", "value": "_2H_HARPOON_HELL" },
+    { "name": "Trinity Spear", "value": "_2H_TRIDENT_UNDEAD" }
+  ],
+  "Sword": [
+    { "name": "Broadsword", "value": "_MAIN_SWORD" },
+    { "name": "Dual Swords", "value": "_2H_DUALSWORD" },
+    { "name": "Claymore", "value": "_2H_CLAYMORE" },
+    { "name": "Clarent Blade", "value": "_MAIN_SCIMITAR_MORGANA" },
+    { "name": "Carving Sword", "value": "_2H_CLEAVER_HELL" },
+    { "name": "Galatine Pair", "value": "_2H_DUALSCIMITAR_UNDEAD" }
+  ],
+  "Book": [
+    { "name": "Tome of Spells", "value": "_OFF_BOOK" },
+    { "name": "Muisak", "value": "_OFF_DEMONSKULL_HELL" }
+  ],
+  "Horn": [{ "name": "Mistcaller", "value": "_OFF_HORN_KEEPER" }],
+  "Orb": [{ "name": "Eye of Secrets", "value": "_OFF_ORB_MORGANA" }],
+  "Shield": [
+    { "name": "Shield", "value": "_OFF_SHIELD" },
+    { "name": "Sarcophagus", "value": "_OFF_TOWERSHIELD_UNDEAD" },
+    { "name": "Caitiff Shield", "value": "_OFF_SHIELD_HELL" },
+    { "name": "Facebreaker", "value": "_OFF_SPIKEDSHIELD_MORGANA" }
+  ],
+  "Torch": [
+    { "name": "Torch", "value": "_OFF_TORCH" },
+    { "name": "Leering Cane", "value": "_OFF_JESTERCANE_HELL" },
+    { "name": "Cryptcandle", "value": "_OFF_LAMP_UNDEAD" }
+  ],
+  "Totem": [{ "name": "Taproot", "value": "_OFF_TOTEM_KEEPER" }],
+  "Bow": [
+    { "name": "Bow", "value": "_2H_BOW" },
+    { "name": "Longbow", "value": "_2H_LONGBOW" },
+    { "name": "Warbow", "value": "_2H_WARBOW" },
+    { "name": "Whispering Bow", "value": "_2H_LONGBOW_UNDEAD" },
+    { "name": "Wailing Bow", "value": "_2H_BOW_HELL" },
+    { "name": "Bow of Badon", "value": "_2H_BOW_KEEPER" }
+  ],
+  "Crossbow": [
+    { "name": "Crossbow", "value": "_2H_CROSSBOW" },
+    { "name": "Heavy Crossbow", "value": "_2H_CROSSBOWLARGE" },
+    { "name": "Light Crossbow", "value": "_MAIN_1HCROSSBOW" },
+    { "name": "Weeping Repeater", "value": "_2H_REPEATINGCROSSBOW_UNDEAD" },
+    { "name": "Boltcasters", "value": "_2H_DUALCROSSBOW_HELL" },
+    { "name": "Siegebow", "value": "_2H_CROSSBOWLARGE_MORGANA" }
+  ]
+}

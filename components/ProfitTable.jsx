@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   table: {
     width: '100%',
-    overflowX: 'auto',
+    // overflowX: 'auto',
     marginTop: theme.spacing(2)
   },
   button: {
