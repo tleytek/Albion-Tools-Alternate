@@ -60,10 +60,11 @@ const ItemInfo = props => {
             className={classes.textField}
             label="Black Market Price (ea)"
             id="ItemPrice"
-            value={ItemPrice.UnitPriceSilver}
+            // The order of the ItemPrice Object is critical
+            value={Object.values(ItemPrice)[0]}
             variant="outlined"
             onChange={({ target }) => onResourcePriceChange(target.id, target.value)}
-            helperText={moment.parseZone(ItemPrice.updatedAt).fromNow()}
+            helperText={`${Object.keys(ItemPrice)[0]} ${moment.parseZone(Object.values(ItemPrice)[1]).fromNow()}`}
             onKeyPress={onEnter}
           />
         </Grid>

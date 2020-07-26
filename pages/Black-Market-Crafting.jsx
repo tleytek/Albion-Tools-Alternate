@@ -1,4 +1,7 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable camelcase */
 import React from 'react';
+import axios from 'axios'
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
@@ -7,7 +10,7 @@ import ItemInfo from '../components/ItemInfo';
 import ItemSelection from '../components/ItemSelection';
 import ProfitTable from '../components/ProfitTable';
 import CalculationOptions from '../components/CalculationOptions';
-import { getPrice, getItemData, getDbPrice } from '../lib/api';
+import { getItemData } from '../lib/api';
 import getJournalPrice from '../lib/journalPrices';
 
 class BlackMarketCrafting extends React.Component {
@@ -47,11 +50,13 @@ class BlackMarketCrafting extends React.Component {
       journalFame,
       Tier
     } = this.state;
+
     const { craftingrequirements, fameEarned } = EquipmentItem;
     const { craftresource } = craftingrequirements;
     const journalPrice = await getJournalPrice(journalType, Tier);
     const LaborDiscount = _.ceil((fameEarned / journalFame) * journalPrice);
     const UsageFee = _.ceil(Tax * (EquipmentItem.itemValue * 0.05));
+
     craftresource.forEach((el, index) => {
       if (!el.maxreturnamount) {
         ReturnDiscountMin +=
@@ -61,10 +66,11 @@ class BlackMarketCrafting extends React.Component {
       }
       SubTotal += el.count * ResourcePrices[index].sell_price_min;
     });
-    const SellTax = _.ceil(ItemPrice.buy_price_max * 0.03);
+
+    const SellTax = _.ceil(Object.values(ItemPrice)[0] * 0.075);
     const TotalCost = UsageFee + SubTotal + SellTax - ReturnDiscountMin;
 
-    const Profit = ItemPrice.buy_price_max - TotalCost;
+    const Profit = Object.values(ItemPrice)[0] + journalPrice - TotalCost ;
     this.setState({
       UsageFee,
       SubTotal,
@@ -79,18 +85,47 @@ class BlackMarketCrafting extends React.Component {
 
   fetchPrices = async () => {
     this.setState({ isLoading: true });
+
     const { EquipmentItem } = this.state;
-    const { craftingrequirements } = EquipmentItem;
-    const { craftresource } = craftingrequirements;
-    const resourceArray = craftresource.map(el => {
-      return el.uniquename;
-    });
+    
+    const resourceArray = EquipmentItem.craftingrequirements.craftresource.map(el => el.uniquename);
 
-    const ItemPrice = (await getPrice(EquipmentItem.uniquename, 3003, 'request'))[0];
-    const ResourcePrices = await getPrice(resourceArray, 3005, 'offer');
-    console.log(ResourcePrices);
+    const itemsArray = [EquipmentItem.uniquename, ...resourceArray].join(',')  
 
-    this.setState({ ResourcePrices, ItemPrice }, this.calculateProfit);
+    const {data: pricesArray} = await axios.get(`https://www.albion-online-data.com/api/v2/stats/Prices/${itemsArray}?locations=Caerleon,BlackMarket&qualities=1`)
+
+    // Return back the pricing data choose 'buy_price_max' if  we want to snipew some sales before the buy order price reaches the lowest sell order price)
+    // or choose sell_price_min if we want to just put it up for sale on the black market and let the buy order reach our price and make the sale with less effort
+    // Since I always did buy_price_max and the market is f'ed, ill start with sell_price_min for now
+    const itemPrice = pricesArray.find(({item_id, city}) => item_id === EquipmentItem.uniquename && city === 'Black Market')
+
+    const itemPriceReduced = {
+        buy_price_max: itemPrice.buy_price_max,
+        sell_price_min: itemPrice.sell_price_min,
+      }
+
+    const maxItemPriceKey = _.maxBy(Object.keys(itemPriceReduced), keys => itemPriceReduced[keys])
+
+    const maxItemPriceReduced = {
+      [`${maxItemPriceKey}`]: itemPrice[`${maxItemPriceKey}`] ,
+      [`${maxItemPriceKey}_date`]: itemPrice[`${maxItemPriceKey}_date`] 
+    }
+
+    const ResourcePrices = pricesArray.filter(({item_id, city}) => item_id !== EquipmentItem.uniquename && city === 'Caerleon').reverse()
+    
+    // Black market buy order  price
+    // const [ ItemPrice ] = await getPrice(EquipmentItem.uniquename, 3003, 'request');
+
+    // Caerleon resource prices
+    // const ResourcePrices = await getPrice(resourceArray, 3005, 'offer');
+
+    this.setState(
+      { 
+        ResourcePrices, 
+        ItemPrice: maxItemPriceReduced
+      }, 
+      this.calculateProfit
+    );
   };
 
   onResourcePriceChange = (name, value) => {
@@ -106,8 +141,14 @@ class BlackMarketCrafting extends React.Component {
 
   fetchEquipmentItem = async () => {
     const { ItemType, Enchantment, Tier } = this.state;
-    const EquipmentItem = (await getItemData(`${Tier}${ItemType}${Enchantment}`))[0];
-    await this.setState({ EquipmentItem, ResourcePrices: '' }, this.fetchPrices);
+    const [ EquipmentItem ] = await getItemData(`${Tier}${ItemType}${Enchantment}`);
+    this.setState(
+      { 
+        EquipmentItem, 
+        ResourcePrices: '' 
+      },
+      this.fetchPrices
+    );
   };
 
   onInputChange = (name, value, journalData) => {

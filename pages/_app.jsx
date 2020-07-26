@@ -43,7 +43,6 @@ class MyApp extends App {
               tree thanks to React context. */}
             <ThemeProvider
               theme={this.pageContext.theme}
-              // sheetsManager={this.pageContext.sheetsManager}
             >
               {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
               <CssBaseline />

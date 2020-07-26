@@ -29,13 +29,18 @@ mongoose.connection.on('error', err => {
   console.log(`DB connection error: ${err.message}`);
 });
 
-const nc = NATS.connect('nats://public:thenewalbiondata@www.albion-online-data.com:4222', {
-  json: true
-});
+// const nc = NATS.connect('nats://public:thenewalbiondata@www.albion-online-data.com:4222', {
+//   json: true
+// });
 
-nc.subscribe('marketorders.deduped', msg => {
-  natsSubscribe(msg);
-});
+// nc.subscribe('marketorders.deduped', msg => {
+//   if (msg.LocationId == 3005) {
+//     console.log(msg)
+//   }
+//   // console.log(msg)
+
+//   natsSubscribe(msg);
+// });
 
 app.prepare().then(() => {
   const server = express();
