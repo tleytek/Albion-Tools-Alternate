@@ -50,7 +50,7 @@ const ProfitTable = props => {
     createData('Material Return Discount', `-${ReturnDiscountMin}`),
     createData('Sell Tax', SellTax),
     createData('Total Crafting Cost', TotalCost),
-    createData('Labor Discount', LaborDiscount),
+    createData('Laborer Return Discount', `-${LaborDiscount}`),
     createData('Profit', Profit)
   ];
 

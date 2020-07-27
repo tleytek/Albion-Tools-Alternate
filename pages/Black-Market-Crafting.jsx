@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 /* eslint-disable no-param-reassign */
 /* eslint-disable camelcase */
 import React from 'react';
@@ -51,9 +52,9 @@ class BlackMarketCrafting extends React.Component {
       Tier
     } = this.state;
 
-    const { craftingrequirements, fameEarned } = EquipmentItem;
-    const { craftresource } = craftingrequirements;
+    const { craftingrequirements: { craftresource }, fameEarned } = EquipmentItem;
     const journalPrice = await getJournalPrice(journalType, Tier);
+    console.log(journalPrice)
     const LaborDiscount = _.ceil((fameEarned / journalFame) * journalPrice);
     const UsageFee = _.ceil(Tax * (EquipmentItem.itemValue * 0.05));
 
@@ -61,16 +62,19 @@ class BlackMarketCrafting extends React.Component {
       if (!el.maxreturnamount) {
         ReturnDiscountMin +=
           _.floor((ReturnRate / 100) * _.toNumber(el.count)) * ResourcePrices[index].sell_price_min;
-        // ReturnDiscountMax +=
-        //   _.ceil((ReturnRate / 100) * _.toNumber(el.count)) * ResourcePrices[index].sell_price_min;
       }
       SubTotal += el.count * ResourcePrices[index].sell_price_min;
     });
 
     const SellTax = _.ceil(Object.values(ItemPrice)[0] * 0.075);
+
     const TotalCost = UsageFee + SubTotal + SellTax - ReturnDiscountMin;
 
-    const Profit = Object.values(ItemPrice)[0] + journalPrice - TotalCost ;
+    const Profit = parseInt(Object.values(ItemPrice)[0]) + LaborDiscount - TotalCost;
+    console.log(Object.values(ItemPrice)[0])
+    console.log(LaborDiscount)
+    console.log(TotalCost)
+
     this.setState({
       UsageFee,
       SubTotal,
@@ -130,8 +134,12 @@ class BlackMarketCrafting extends React.Component {
 
   onResourcePriceChange = (name, value) => {
     const { ResourcePrices, ItemPrice } = this.state;
+    console.log(name)
     if (name === 'ItemPrice') {
-      ItemPrice.UnitPriceSilver = value;
+      ItemPrice[Object.keys(ItemPrice)[0]] = value;
+      
+      console.log(value)
+      console.log(ItemPrice[Object.keys(ItemPrice)[0]])
       this.setState({ ItemPrice });
     } else {
       ResourcePrices[name].sell_price_min = value;

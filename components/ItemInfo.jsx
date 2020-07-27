@@ -93,7 +93,7 @@ const ItemInfo = props => {
               >
                 <Grid container item xs={3}>
                   <img
-                    src={`https://gameinfo.albiononline.com/api/gameinfo/items/${el.uniquename}`}
+                    src={`https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/${el.uniquename.replace(/@[0-9]/gi, '')}`}
                     alt="Item"
                     style={{ width: '75px', height: '75px' }}
                   />
